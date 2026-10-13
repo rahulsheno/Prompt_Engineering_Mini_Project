@@ -1,0 +1,5 @@
+corpus,priority,chunker,embedder,mode,dim,quant,f_ctx,recall,precision,lat_p50_ms,index_mb
+tech_docs,accuracy,structure_300,e5-small,hybrid,384,-,0.808,0.913,0.778,26.7,0.52
+tech_docs,speed,structure_300,e5-small,hybrid,384,-,0.808,0.913,0.778,26.7,0.52
+tech_docs,low_cost,fixed_256_o0,e5-small,hybrid,384,-,0.804,0.886,0.792,73.8,0.43
+tech_docs,balanced,structure_300,e5-small,hybrid,384,-,0.808,0.913,0.778,26.7,0.52

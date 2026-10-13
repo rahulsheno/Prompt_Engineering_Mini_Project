@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+*.log
+
+# Cache / large generated artifacts (regenerable, ~29MB)
+cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.ipynb_checkpoints/
+
+# Outputs: keep small CSVs + figures, ignore anything huge if regenerated
+# (uncomment to exclude large PNGs)
+# outputs/*.png
