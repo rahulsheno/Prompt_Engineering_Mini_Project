@@ -6,6 +6,17 @@ The evaluation follows the measures in **ITU-T F.748.52 (03/2025)**, *Requiremen
 
 ---
 
+## Team
+
+| Name | SRN |
+|---|---|
+| Vinayak Kalal | PES2UG25AM809 |
+| Samvit Nandakishore | PES2UG24AM144 |
+| Sabbir Mondal | PES2UG24AM141 |
+| Rahul Shenoy | PES2UG24AM129 |
+
+---
+
 ## Contents
 
 | Path | What it is |
@@ -19,7 +30,7 @@ The evaluation follows the measures in **ITU-T F.748.52 (03/2025)**, *Requiremen
 | `eval/<corpus>_gold.csv` | Gold questions and the evidence spans that answer them |
 | `outputs/results.csv` | One row per run, written by the notebook and read by the app |
 | `outputs/f748_*.csv` | F.748.52 tables written by the notebook: retrieval quality, answer quality, alignment, performance, and human vs LLM |
-
+| `.gitignore` | Files and folders Git should not track |
 
 ---
 
@@ -164,6 +175,39 @@ Supported providers: Gemini, OpenRouter, OpenAI, Groq, SiliconFlow, Together AI,
 
 ---
 
-## Reference
+## References
 
-ITU-T Recommendation F.748.52 (03/2025). Requirements and evaluation methods for retrieval augmented generation of large scale pre-trained models. https://handle.itu.int/11.1002/1000/16242
+1. P. Lewis et al., "Retrieval-augmented generation for knowledge-intensive NLP tasks," in Proc. NeurIPS, 2020.
+2. V. Karpukhin et al., "Dense passage retrieval for open-domain question answering," in Proc. EMNLP, 2020.
+3. Y. Gao et al., "Retrieval-augmented generation for large language models: A survey," arXiv:2312.10997, 2023.
+4. S. Barnett et al., "Seven failure points when engineering a retrieval augmented generation system," in Proc. IEEE/ACM CAIN, 2024, arXiv:2401.05856.
+5. N. F. Liu et al., "Lost in the middle: How language models use long contexts," Trans. Assoc. Comput. Linguist., vol. 12, 2024.
+6. F. Cuconasu et al., "The power of noise: Redefining retrieval for RAG systems," in Proc. ACM SIGIR, 2024.
+7. R. Qu, R. Tu, and F. Bao, "Is semantic chunking worth the computational cost?" in Findings of NAACL, 2025, arXiv:2410.13070.
+8. T. Chen et al., "Dense X retrieval: What retrieval granularity should we use?" in Proc. EMNLP, 2024, arXiv:2312.06648.
+9. A. J. Yepes et al., "Financial report chunking for effective retrieval augmented generation," arXiv:2402.05131, 2024.
+10. P. Finardi et al., "The chronicles of RAG: The retriever, the chunk and the generator," arXiv:2401.07883, 2024.
+11. M. Gunther et al., "Late chunking: Contextual chunk embeddings using long-context embedding models," arXiv:2409.04701, 2024.
+12. Anthropic, "Introducing Contextual Retrieval," Anthropic blog, Sep. 2024.
+13. N. Reimers and I. Gurevych, "Sentence-BERT: Sentence embeddings using Siamese BERT-networks," in Proc. EMNLP-IJCNLP, 2019.
+14. L. Wang et al., "Text embeddings by weakly-supervised contrastive pretraining," arXiv:2212.03533, 2022.
+15. S. Xiao et al., "C-Pack: Packed resources for general Chinese embeddings," in Proc. ACM SIGIR, 2024, arXiv:2309.07597.
+16. Z. Li et al., "Towards general text embeddings with multi-stage contrastive learning," arXiv:2308.03281, 2023.
+17. Z. Nussbaum et al., "Nomic Embed: Training a reproducible long context text embedder," arXiv:2402.01613, 2024.
+18. N. Muennighoff et al., "MTEB: Massive text embedding benchmark," in Proc. EACL, 2023.
+19. N. Thakur et al., "BEIR: A heterogeneous benchmark for zero-shot evaluation of information retrieval models," in Proc. NeurIPS Datasets and Benchmarks, 2021.
+20. A. Kusupati et al., "Matryoshka representation learning," in Proc. NeurIPS, 2022.
+21. A. Shakir, T. Aarsen, and S. Lee, "Binary and scalar embedding quantization for significantly faster and cheaper retrieval," Hugging Face blog, Mar. 2024.
+22. S. Robertson and H. Zaragoza, "The probabilistic relevance framework: BM25 and beyond," Found. Trends Inf. Retr., vol. 3, no. 4, 2009.
+23. G. V. Cormack, C. L. A. Clarke, and S. Buettcher, "Reciprocal rank fusion outperforms Condorcet and individual rank learning methods," in Proc. ACM SIGIR, 2009.
+24. R. Nogueira and K. Cho, "Passage re-ranking with BERT," arXiv:1901.04085, 2019.
+25. X. Wang et al., "Searching for best practices in retrieval-augmented generation," in Proc. EMNLP, 2024.
+26. J. Johnson, M. Douze, and H. Jegou, "Billion-scale similarity search with GPUs," IEEE Trans. Big Data, vol. 7, no. 3, 2021.
+27. S. Es et al., "RAGAs: Automated evaluation of retrieval augmented generation," in Proc. EACL (Demos), 2024.
+28. L. Zheng et al., "Judging LLM-as-a-judge with MT-Bench and Chatbot Arena," in Proc. NeurIPS Datasets and Benchmarks, 2023.
+29. ITU-T Recommendation F.748.52 (03/2025). Requirements and evaluation methods for retrieval augmented generation of large scale pre-trained models. https://handle.itu.int/11.1002/1000/16242
+30. Python Software Foundation, "The Python Standard Library," Python 3 documentation, docs.python.org/3/library/, accessed 2026.
+
+---
+
+
