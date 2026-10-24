@@ -19,7 +19,7 @@ The evaluation follows the measures in **ITU-T F.748.52 (03/2025)**, *Requiremen
 | `eval/<corpus>_gold.csv` | Gold questions and the evidence spans that answer them |
 | `outputs/results.csv` | One row per run, written by the notebook and read by the app |
 | `outputs/f748_*.csv` | F.748.52 tables written by the notebook: retrieval quality, answer quality, alignment, performance, and human vs LLM |
-| `.gitignore` | Files and folders Git should not track |
+
 
 ---
 
