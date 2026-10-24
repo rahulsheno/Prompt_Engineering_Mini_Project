@@ -1,0 +1,1241 @@
+groundedness,correctness,abstained,answer_relevance,faithfulness_level,truthfulness_level,answer,context,qid,qtype,question,reference,exact,key,mode,provider,llm_model
+1.0,1.0,0.0,5.0,5.0,5.0,"Okay, let's see. The user is asking about the number of people who had type 1 diabetes in 2017 and where the majority of them live.
+
+Looking at the context under Type 1 diabetes, there's a point that says ""In 2017 there were 9 million people with type 1 diabetes; the majority of them live in high-income countries."" So I need to check if that's the exact number and the location.
+
+Wait, the question is asking how many people had type 1 diabetes in 2017, and where the majority live. The context states 9 million in 2017, and the majority live in high-income countries. So the answer should be 9 million, and the majority are in high-income countries.
+
+I should make sure to extract that information from the given context. Let me check the section for Type 1 diabetes. The first part says ""In 2017 there were 9 million people with type 1 diabetes; the majority of them live in high-income countries."" So the number is 9 million, and the majority live in high-income countries.
+</think>
+
+The number of people who had type 1 diabetes in 2017 was 9 million, and the majority of them live in high-income countries.","[1] losing weight unintentionally
+
+Over time, diabetes can damage blood vessels in the heart, eyes, kidneys and nerves.
+
+People with diabetes have a higher risk of health problems including heart attack, stroke and kidney failure.
+
+Diabetes can cause permanent vision loss by damaging blood vessels in the eyes.
+
+Many people with diabetes develop problems with their feet from nerve damage and poor blood flow. This can cause foot ulcers and may lead to amputation.
+
+## Type 1 diabetes
+
+Type 1 diabetes (previously known as insulin-dependent, juvenile or childhood-onset) is characterized by deficient insulin production and requires daily administration of insulin. In 2017 there were 9 million people with type 1 diabetes; the majority of them live in high-income countries.Â Neither its cause nor the means to prevent it are known.
+
+## Type 2 diabetes
+
+Type 2 diabetes affects how your body uses sugar (glucose) for energy. It stops the body from using insulin properly, which can lead to high levels of blood sugar if not treated.
+
+Over time, type 2 diabetes can cause serious damage to the body, especially nerves and blood vessels.
+
+Type 2 diabetes is often preventable. Factors that contribute to developing type 2 diabetes include being overweight, not getting enough exercise, and genetics.
+
+Early diagnosis is important to prevent the worst effects of type 2 diabetes. The best way to detect diabetes early is to get regular check-ups and blood tests with a healthcare provider.
+
+Symptoms of type 2 diabetes can be mild. They may take several years to be noticed. Â Symptoms may be similar to those of type 1 diabetes but are often less marked. As a result, the disease may be diagnosed several years after onset, after complications have already arisen.
+
+More than 95% of people with diabetes have type 2 diabetes. Type 2 diabetes
+
+[2] # Diabetes
+
+## Key facts
+
+The number of people living with diabetes rose from 200 million in 1990 to 830 million in 2022. Prevalence has been rising more rapidly in low- and middle-income countries than in high-income countries.
+
+More than half of people living with diabetes did not take medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation.
+
+In 2021, diabetes and kidney disease due to diabetes caused over 2 million deaths. In addition, around 11% of cardiovascular deaths were caused by high blood glucose.
+
+A healthy diet, regular physical activity, maintaining a normal body weight and avoiding tobacco use are ways to prevent or delay the onset of type 2 diabetes.
+
+Diabetes can be treated and its consequences avoided or delayed with diet, physical activity, medication and regular screening and treatment for complications.
+
+## Overview
+
+In 2022 , 14% of adults aged 18 years and older were living with diabetes, an increase from 7% in 1990. More than half (59%) of adults aged 30 years and over living with diabetes were not taking medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+In 2021, diabetes was the direct cause of 1.6 million deaths and 47% of all deaths due to diabetes occurred before the age of 70 years. Another 530 000 kidney disease deaths were caused by diabetes, and high blood glucose causes around 11% of cardiovascular deaths (1) .
+
+Since 2000, mortality rates from diabetes have been increasing. By contrast, the probability of dying from any one of the four main noncommunicable diseases (cardiovascular diseases, cancer, chronic respiratory diseases or diabetes) between the ages of 30 and 70 decreased by 20% globally
+
+[3] Early diagnosis can be accomplished through relatively inexpensive testing of blood glucose. People with type 1 diabetes need insulin injections for survival.
+
+One of the most important ways to treat diabetes is to keep a healthy lifestyle.
+
+Some people with type 2 diabetes will need to take medicines to help manage their blood sugar levels. These can include insulin injections or other medicines. Some examples include:
+
+[4] 1. Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2021. Results. Institute for Health Metrics and Evaluation. 2024 ( https://vizhub.healthdata.org/gbd-results/ ).
+
+Related
+
+Health topic: Diabetes
+
+Global Diabetes Compact
+
+Questions and answers: Diabetes
+
+Questions and answers: WHO's response
+
+Reducing the burden of noncommunicable diseases through strengthening prevention and control of diabetes (WHA 74.4)
+
+News
+
+Fact sheets
+
+[5] was formerly called non-insulin dependent, or adult onset. Until recently, this type of diabetes was seen only in adults but it is now also occurring increasingly frequently in children.
+
+## Gestational diabetes
+
+Gestational diabetes is hyperglycaemia with blood glucose values above normal but below those diagnostic of diabetes. Gestational diabetes occurs during pregnancy.
+
+Women with gestational diabetes are at an increased risk of complications during pregnancy and at delivery. These women and possibly their children are also at increased risk of type 2 diabetes in the future.
+
+Gestational diabetes is diagnosed through prenatal screening, rather than through reported symptoms.
+
+## Impaired glucose tolerance and impaired fasting glycaemia
+
+Impaired glucose tolerance (IGT) and impaired fasting glycaemia (IFG) are intermediate conditions in the transition between normality and diabetes. People with IGT or IFG are at high risk of progressing to type 2 diabetes, although this is not inevitable.
+
+## Prevention
+
+Lifestyle changes are the best way to prevent or delay the onset of type 2 diabetes.
+
+To help prevent type 2 diabetes and its complications, people should:
+
+reach and keep a health body weight
+
+stay physically active with at least 150 minutes of moderate exercise each week
+
+eat a healthy diet and avoid sugar and saturated fat
+
+not smoke tobacco.
+
+## Diagnosis and treatment",health-028,multi,"How many people had type 1 diabetes in 2017, and where do the majority of them live?","In 2017 there were 9 million people with type 1 diabetes, and the majority of them live in high-income countries.",0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+,,,,,,"Got it, let's look at the context for the part about the voluntary alliance. The question is asking for the name of the voluntary alliance that contributes to WHO's work to prevent and control chronic respiratory diseases, and it shares its name with an organization that helps aerosol inhalers deliver medicine more easily. 
+
+Looking at the context, under the WHO response or the GARD part, the Global Alliance against Chronic Respiratory Diseases (GARD) is mentioned as contributing to WHO's work. Also, the GARD is a voluntary alliance, and the one that helps with aerosol inhalers is probably GARD itself, but wait, the question is about the voluntary alliance that shares its name with an organization that helps aerosol inhalers. Wait, the context says ""Global Alliance against Chronic Respiratory Diseases (GARD) contributes to WHO's work..."" and then maybe the other part is about the spacer device, but the question is about the voluntary alliance. So the name is GARD.
+</think>
+
+To determine the name of the voluntary alliance contributing to WHO's work to prevent and control chronic respiratory diseases that shares its name with an organization aiding aerosol inhaler use, we examine the context. The ""Global Alliance against Chronic Respiratory Diseases (GARD)"" is noted as contributing to WHO's efforts, and its name is linked to an organization that helps with aerosol inhaler delivery. Thus, the name of the voluntary alliance is \boxed{Global Alliance against Chronic Respiratory Diseases (GARD)}.","[1] ## Self-care
+
+People with asthma and their families need education to understand more about their asthma. This includes their treatment options, triggers to avoid, and how to manage their symptoms at home.
+
+It is important for people with asthma to know how to increase their treatment when their symptoms are worsening to avoid a serious attack. Healthcare providers may give an asthma action plan to help people with asthma to take greater control of their treatment.
+
+## WHO response
+
+Asthma is included in the WHO Global Action Plan for the Prevention and Control of NCDs and the United Nations 2030 Agenda for Sustainable Development.
+
+WHO is taking action to extend diagnosis of and treatment for asthma in a number of ways.
+
+The WHO Package of Essential Noncommunicable Disease Interventions (PEN) was developed to help improve NCD management in primary health care in low-resource settings. PEN includes protocols for the assessment, diagnosis and management of chronic respiratory diseases (asthma and chronic obstructive pulmonary disease), and modules on healthy lifestyle counselling, including tobacco cessation and self-care.
+
+WHO is currently developing new guidelines for the diagnosis and management of asthma in primary care.
+
+Reducing tobacco smoke exposure is important for both primary prevention of asthma and disease management. The Framework Convention on Tobacco Control is enabling progress in this area as are WHO initiatives such as MPOWER and mTobacco Cessation.
+
+Air pollution is an important risk factor for asthma, causing new cases and making existing disease worse. WHO has developed training for health care workers on air pollution which highlights this link and offers practical advice to reduce and mitigate exposure.
+
+The Global Alliance against Chronic Respiratory Diseases (GARD) contributes to WHOâ€™s work to prevent and control chronic respiratory diseases. GARD is a voluntary alliance of national and international organizations and agencies from
+
+[2] Using an inhaler can be difficult, especially for children and during emergency situations. Using a spacer device makes it easier to use an aerosol inhaler. This helps the medicine to reach the lungs more easily. A spacer is a plastic container with a mouthpiece or mask at one end and a hole for the inhaler in the other. A homemade spacer, made from a 500ml plastic bottle, can be as effective as commercially manufactured spacers.
+
+Access to inhalers is a problem in many countries. In 2023, potentially lifesaving bronchodilators were available in public primary health care facilities in less than two thirds of low- and low-middle income countries, and steroid inhalers available in less than half.
+
+It is also important to raise community awareness to reduce the myths and stigma associated with asthma in some settings.
+
+[3] MPOWER
+
+Be Healthy, Be Mobile: A handbook on how to implement mTobaccoCessation
+
+Global Alliance against Chronic Respiratory Diseases (GARD)
+
+WHO's work on chronic respiratory diseases
+
+Chronic respiratory diseases programme
+
+Science in 5: Asthma and you
+
+News
+
+Fact sheets
+
+Feature stories
+
+[4] Asthma cannot be cured but there are several treatments available. The most common treatment is to use an inhaler, which delivers medication directly to the lungs.
+
+Inhalers can help control the disease and enable people with asthma to enjoy a normal, active life.
+
+There are three main types of inhaler:
+
+bronchodilators (such as salbutamol), that open the air passages and relieve symptoms;
+
+steroids (such as beclometasone) that reduce inflammation in the air passages, which improves asthma symptoms and reduces the risk of severe asthma attacks and death; and
+
+combination inhalers which contain both a bronchodilator and steroid.
+
+People with asthma may need to use their inhaler every day. Their treatment will depend on the frequency of symptoms and the types of inhalers available.
+
+[5] # Asthma
+
+Asthma is a major noncommunicable disease (NCD), affecting both children and adults, and is the most common chronic disease among children.
+
+Inflammation and narrowing of the small airways in the lungs cause asthma symptoms, which can be any combination of cough, wheeze, shortness of breath and chest tightness.
+
+Asthma affected an estimated 363Â million people in 2023 (1) and caused 442Â 000 deaths.
+
+Inhaled medication can control asthma symptoms and allow people with asthma to lead a normal, active life.
+
+Avoiding asthma triggers can also help to reduce asthma symptoms.
+
+Most asthma-related deaths occur in low- and lower-middle-income countries, where under-diagnosis and under-treatment is a challenge.
+
+WHO is committed to improving the diagnosis, treatment and monitoring of asthma to reduce the global burden of NCDs and make progress towards universal health coverage.
+
+## Overview",health-033,multi,What is the name of the voluntary alliance contributing to WHO's work to prevent and control chronic respiratory diseases that shares its name with an organization that helps aerosol inhalers deliver medicine more easily?,GARD,0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+1.0,1.0,0.0,5.0,5.0,5.0,"Okay, let's see. The user is asking two things: first, what proportion of all people with diabetes have type 2 diabetes, and second, what percentage of those living with the overall condition did not take medication for it in 2022.
+
+Looking at the context, under Type 2 diabetes, it's mentioned that ""More than 95% of people with diabetes have type 2 diabetes."" Wait, but the question is about the proportion of all people with diabetes that have type 2. However, the key part is the second part: the percentage of those living with the overall condition (diabetes) that did not take medication for it in 2022.
+
+Looking at the key facts for diabetes, under the diabetes section, it says: ""More than half (59%) of adults aged 30 years and over living with diabetes were not taking medication for their diabetes in 2022."" But wait, the question is about the proportion of all people with diabetes that did not take medication. However, the user is asking for the proportion of all people with diabetes that have type 2, and then the percentage of those living with the overall condition who didn't take medication.
+
+Wait, the first part: what proportion of all people with diabetes have type 2 diabetes? From the Type 2 diabetes section, it's stated that ""More than 95% of people with diabetes have type 2 diabetes."" So the proportion is more than 95%, which we can say approximately 95% or over 95%.
+
+Then, the second part: what percentage of those living with the overall condition did not take medication for it in 2022? The key facts say: ""More than half (59%) of adults aged 30 years and over living with diabetes were not taking medication for their diabetes in 2022."" But the question is about the proportion of all people with diabetes (the overall condition) who did not take medication. However, the context might not directly give the overall proportion, but maybe we can infer from the diabetes prevalence.
+
+Wait, the overview says in 2022, 14% of adults aged 18+ were living with diabetes. But the key facts for diabetes mention that more than half of people living with diabetes did not take medication. However, the question is asking for the proportion of all people with diabetes (the entire population of diabetes) that did not take medication. But the key facts state that more than half of people living with diabetes were not taking medication, so the percentage is more than 50%. But the user is asking for the proportion of all people with diabetes (the overall condition) that did not take medication. However, the key facts might not specify the overall proportion, but perhaps we can use the overview.
+
+Wait, the overview says in 2022, 14% of adults aged 18+ were living with diabetes. But the key facts for diabetes mention that more than half of people living with diabetes were not taking medication. So if the overall proportion of people living with diabetes is, say, 14% (from overview), then the proportion not taking medication would be more than half, which is 59%? But the question is asking for the proportion of all people with diabetes (the entire population of diabetes) that did not take medication. However, the key facts state that more than half of people living with diabetes were not taking medication, so the percentage is more than 50%. But the user is asking for the proportion of all people with diabetes (the overall condition) that did not take medication. So if the overall proportion of people with diabetes is, for example, 14% (from overview), then 59% of those would not be taking medication, but the question is about the proportion of all people with diabetes (the entire population) that did not take medication. However, the key facts might not give the overall proportion, but the key facts for diabetes include the prevalence and the non-medication part.
+
+Wait, looking back at the key facts for diabetes: ""More than half (59%) of adults aged 30 years and over living with diabetes were not taking medication for their diabetes in 2022."" But the question is about the proportion of all people with diabetes (the overall condition) that did not take medication. However, the overall condition is diabetes, which is a condition affecting a large number of people. But the key facts might not specify the overall proportion, but perhaps we can assume that the overall proportion is the sum of all people with diabetes. However, the overview says in 2022, 14% of adults aged 18+ were living with diabetes. But the key facts for diabetes also mention that more than half of people living with diabetes were not taking medication. So if the overall proportion of people living with diabetes is, say, 14% (from overview), then the proportion not taking medication would be more than half, which is 59%, but that's for the adults aged 30 and over. However, the question is about all people with diabetes, which might include different age groups.
+
+But the user is asking: what proportion of all people with diabetes have type 2 diabetes, and what percentage of those living with the overall condition did not take medication for it in 2022?
+
+From the Type 2 diabetes section, it's stated that ""More than 95% of people with diabetes have type 2 diabetes."" So the proportion is more than 95%. Then, for the second part, the percentage of those living with the overall condition (diabetes) that did not take medication for it in 2022 is more than half, which is 59% (since more than half are not taking medication).
+
+Wait, but the key facts say: ""More than half (59%) of adults aged 30 years and over living with diabetes were not taking medication for their diabetes in 2022."" But the question is about the overall condition, which is all people with diabetes, not just those aged 30+. However, the overview says 14% of adults aged 18+ were living with diabetes. But the key facts might be focusing on the adult population, specifically aged 30+.
+
+Assuming that the overall condition (diabetes) affects a similar proportion, but the key facts state that more than half of people living with diabetes (among adults aged 30+) were not taking medication, so the percentage is 59%. Therefore, the answer is that more than 95% of people with diabetes have type 2 diabetes, and 59% of those living with the overall condition did not take medication for it in 2022.
+</think>
+
+The proportion of people with diabetes that have type 2 diabetes is more than 95%, and the percentage of those living with the overall condition who did not take medication for it in 2022 was more than half (59%).","[1] # Diabetes
+
+## Key facts
+
+The number of people living with diabetes rose from 200 million in 1990 to 830 million in 2022. Prevalence has been rising more rapidly in low- and middle-income countries than in high-income countries.
+
+More than half of people living with diabetes did not take medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation.
+
+In 2021, diabetes and kidney disease due to diabetes caused over 2 million deaths. In addition, around 11% of cardiovascular deaths were caused by high blood glucose.
+
+A healthy diet, regular physical activity, maintaining a normal body weight and avoiding tobacco use are ways to prevent or delay the onset of type 2 diabetes.
+
+Diabetes can be treated and its consequences avoided or delayed with diet, physical activity, medication and regular screening and treatment for complications.
+
+## Overview
+
+In 2022 , 14% of adults aged 18 years and older were living with diabetes, an increase from 7% in 1990. More than half (59%) of adults aged 30 years and over living with diabetes were not taking medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+In 2021, diabetes was the direct cause of 1.6 million deaths and 47% of all deaths due to diabetes occurred before the age of 70 years. Another 530 000 kidney disease deaths were caused by diabetes, and high blood glucose causes around 11% of cardiovascular deaths (1) .
+
+Since 2000, mortality rates from diabetes have been increasing. By contrast, the probability of dying from any one of the four main noncommunicable diseases (cardiovascular diseases, cancer, chronic respiratory diseases or diabetes) between the ages of 30 and 70 decreased by 20% globally
+
+[2] losing weight unintentionally
+
+Over time, diabetes can damage blood vessels in the heart, eyes, kidneys and nerves.
+
+People with diabetes have a higher risk of health problems including heart attack, stroke and kidney failure.
+
+Diabetes can cause permanent vision loss by damaging blood vessels in the eyes.
+
+Many people with diabetes develop problems with their feet from nerve damage and poor blood flow. This can cause foot ulcers and may lead to amputation.
+
+## Type 1 diabetes
+
+Type 1 diabetes (previously known as insulin-dependent, juvenile or childhood-onset) is characterized by deficient insulin production and requires daily administration of insulin. In 2017 there were 9 million people with type 1 diabetes; the majority of them live in high-income countries.Â Neither its cause nor the means to prevent it are known.
+
+## Type 2 diabetes
+
+Type 2 diabetes affects how your body uses sugar (glucose) for energy. It stops the body from using insulin properly, which can lead to high levels of blood sugar if not treated.
+
+Over time, type 2 diabetes can cause serious damage to the body, especially nerves and blood vessels.
+
+Type 2 diabetes is often preventable. Factors that contribute to developing type 2 diabetes include being overweight, not getting enough exercise, and genetics.
+
+Early diagnosis is important to prevent the worst effects of type 2 diabetes. The best way to detect diabetes early is to get regular check-ups and blood tests with a healthcare provider.
+
+Symptoms of type 2 diabetes can be mild. They may take several years to be noticed. Â Symptoms may be similar to those of type 1 diabetes but are often less marked. As a result, the disease may be diagnosed several years after onset, after complications have already arisen.
+
+More than 95% of people with diabetes have type 2 diabetes. Type 2 diabetes
+
+[3] Early diagnosis can be accomplished through relatively inexpensive testing of blood glucose. People with type 1 diabetes need insulin injections for survival.
+
+One of the most important ways to treat diabetes is to keep a healthy lifestyle.
+
+Some people with type 2 diabetes will need to take medicines to help manage their blood sugar levels. These can include insulin injections or other medicines. Some examples include:
+
+[4] metformin
+
+sulfonylureas
+
+sodium-glucose co-transporters type 2 (SGLT-2) inhibitors.
+
+Along with medicines to lower blood sugar, people with diabetes often need medications to lower their blood pressure and statins to reduce the risk of complications.
+
+Additional medical care may be needed to treat the effects of diabetes:
+
+foot care to treat ulcers
+
+screening and treatment for kidney disease
+
+eye exams to screen for retinopathy (which causes blindness).
+
+## WHO response
+
+[5] 1. Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2021. Results. Institute for Health Metrics and Evaluation. 2024 ( https://vizhub.healthdata.org/gbd-results/ ).
+
+Related
+
+Health topic: Diabetes
+
+Global Diabetes Compact
+
+Questions and answers: Diabetes
+
+Questions and answers: WHO's response
+
+Reducing the burden of noncommunicable diseases through strengthening prevention and control of diabetes (WHA 74.4)
+
+News
+
+Fact sheets",health-031,multi,"What proportion of all people with diabetes have type 2 diabetes, and what percentage of those living with the overall condition did not take medication for it in 2022?","More than 95% of people with diabetes have type 2 diabetes, and more than half did not take medication for their diabetes in 2022.",0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+,,,,,,"Got it, let's look at the context. The question is about medications needed alongside blood sugar-lowering medicines to reduce the risk of complications. Looking at the part about medicines to lower blood pressure and statins, and also the overview. Wait, the context says ""Along with medicines to lower blood sugar, people with diabetes often need medications to lower their blood pressure and statins to reduce the risk of complications."" So the medications are to lower blood pressure and statins (which are for reducing risk of complications). So the answer should be medications to lower blood pressure and statins.
+</think>
+
+To determine the medications often needed alongside blood sugar - lowering medicines to reduce the risk of diabetes complications, we refer to the context. It states, “Along with medicines to lower blood sugar, people with diabetes often need medications to lower their blood pressure and statins to reduce the risk of complications.” Therefore, the medications are those to lower blood pressure and statins (for reducing the risk of complications). The answer is \boxed{medications to lower blood pressure and statins to reduce the risk of complications}.","[1] metformin
+
+sulfonylureas
+
+sodium-glucose co-transporters type 2 (SGLT-2) inhibitors.
+
+Along with medicines to lower blood sugar, people with diabetes often need medications to lower their blood pressure and statins to reduce the risk of complications.
+
+Additional medical care may be needed to treat the effects of diabetes:
+
+foot care to treat ulcers
+
+screening and treatment for kidney disease
+
+eye exams to screen for retinopathy (which causes blindness).
+
+## WHO response
+
+[2] Early diagnosis can be accomplished through relatively inexpensive testing of blood glucose. People with type 1 diabetes need insulin injections for survival.
+
+One of the most important ways to treat diabetes is to keep a healthy lifestyle.
+
+Some people with type 2 diabetes will need to take medicines to help manage their blood sugar levels. These can include insulin injections or other medicines. Some examples include:
+
+[3] losing weight unintentionally
+
+Over time, diabetes can damage blood vessels in the heart, eyes, kidneys and nerves.
+
+People with diabetes have a higher risk of health problems including heart attack, stroke and kidney failure.
+
+Diabetes can cause permanent vision loss by damaging blood vessels in the eyes.
+
+Many people with diabetes develop problems with their feet from nerve damage and poor blood flow. This can cause foot ulcers and may lead to amputation.
+
+## Type 1 diabetes
+
+Type 1 diabetes (previously known as insulin-dependent, juvenile or childhood-onset) is characterized by deficient insulin production and requires daily administration of insulin. In 2017 there were 9 million people with type 1 diabetes; the majority of them live in high-income countries.Â Neither its cause nor the means to prevent it are known.
+
+## Type 2 diabetes
+
+Type 2 diabetes affects how your body uses sugar (glucose) for energy. It stops the body from using insulin properly, which can lead to high levels of blood sugar if not treated.
+
+Over time, type 2 diabetes can cause serious damage to the body, especially nerves and blood vessels.
+
+Type 2 diabetes is often preventable. Factors that contribute to developing type 2 diabetes include being overweight, not getting enough exercise, and genetics.
+
+Early diagnosis is important to prevent the worst effects of type 2 diabetes. The best way to detect diabetes early is to get regular check-ups and blood tests with a healthcare provider.
+
+Symptoms of type 2 diabetes can be mild. They may take several years to be noticed. Â Symptoms may be similar to those of type 1 diabetes but are often less marked. As a result, the disease may be diagnosed several years after onset, after complications have already arisen.
+
+More than 95% of people with diabetes have type 2 diabetes. Type 2 diabetes
+
+[4] # Diabetes
+
+## Key facts
+
+The number of people living with diabetes rose from 200 million in 1990 to 830 million in 2022. Prevalence has been rising more rapidly in low- and middle-income countries than in high-income countries.
+
+More than half of people living with diabetes did not take medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation.
+
+In 2021, diabetes and kidney disease due to diabetes caused over 2 million deaths. In addition, around 11% of cardiovascular deaths were caused by high blood glucose.
+
+A healthy diet, regular physical activity, maintaining a normal body weight and avoiding tobacco use are ways to prevent or delay the onset of type 2 diabetes.
+
+Diabetes can be treated and its consequences avoided or delayed with diet, physical activity, medication and regular screening and treatment for complications.
+
+## Overview
+
+In 2022 , 14% of adults aged 18 years and older were living with diabetes, an increase from 7% in 1990. More than half (59%) of adults aged 30 years and over living with diabetes were not taking medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+In 2021, diabetes was the direct cause of 1.6 million deaths and 47% of all deaths due to diabetes occurred before the age of 70 years. Another 530 000 kidney disease deaths were caused by diabetes, and high blood glucose causes around 11% of cardiovascular deaths (1) .
+
+Since 2000, mortality rates from diabetes have been increasing. By contrast, the probability of dying from any one of the four main noncommunicable diseases (cardiovascular diseases, cancer, chronic respiratory diseases or diabetes) between the ages of 30 and 70 decreased by 20% globally
+
+[5] was formerly called non-insulin dependent, or adult onset. Until recently, this type of diabetes was seen only in adults but it is now also occurring increasingly frequently in children.
+
+## Gestational diabetes
+
+Gestational diabetes is hyperglycaemia with blood glucose values above normal but below those diagnostic of diabetes. Gestational diabetes occurs during pregnancy.
+
+Women with gestational diabetes are at an increased risk of complications during pregnancy and at delivery. These women and possibly their children are also at increased risk of type 2 diabetes in the future.
+
+Gestational diabetes is diagnosed through prenatal screening, rather than through reported symptoms.
+
+## Impaired glucose tolerance and impaired fasting glycaemia
+
+Impaired glucose tolerance (IGT) and impaired fasting glycaemia (IFG) are intermediate conditions in the transition between normality and diabetes. People with IGT or IFG are at high risk of progressing to type 2 diabetes, although this is not inevitable.
+
+## Prevention
+
+Lifestyle changes are the best way to prevent or delay the onset of type 2 diabetes.
+
+To help prevent type 2 diabetes and its complications, people should:
+
+reach and keep a health body weight
+
+stay physically active with at least 150 minutes of moderate exercise each week
+
+eat a healthy diet and avoid sugar and saturated fat
+
+not smoke tobacco.
+
+## Diagnosis and treatment",health-026,multi,What medications are often needed alongside blood sugar-lowering medicines to reduce the risk of diabetes complications?,medications to lower blood pressure and statins,0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+0.0,0.0,0.0,4.0,4.0,4.0,"Got it, let's look at the part about WHO response. The question is about an initiative developed by WHO to help improve management of noncommunicable diseases in primary health care in low-resource settings, and what specific chronic respiratory diseases it includes protocols for. 
+
+Looking at the context, under WHO response, there's a mention of ""WHO Package of Essential Noncommunicable Disease Interventions (PEN) was developed to help improve NCD management in primary health care in low-resource settings. PEN includes protocols for the assessment, diagnosis and management of chronic respiratory diseases (asthma and chronic obstructive pulmonary disease), and modules on healthy lifestyle counselling, including tobacco cessation and self-care."" 
+
+So we need to identify the initiative (PEN) and the specific chronic respiratory diseases it includes. The initiative is the WHO Package of Essential Noncommunicable Disease Interventions (PEN), and it includes protocols for asthma and chronic obstructive pulmonary disease (COPD). 
+
+Wait, let's check the question: ""what initiative was developed by WHO to help improve the management of noncommunicable diseases in primary health care in low-resource settings, and what specific chronic respiratory diseases does it include protocols for?"" 
+
+From the context, the initiative is the WHO Package of Essential Noncommunicable Disease Interventions (PEN), and it includes protocols for asthma and chronic obstructive pulmonary disease (COPD). So the answer should mention the initiative (PEN) and the specific chronic respiratory diseases (asthma and COPD).
+</think>
+
+To determine the initiative developed by WHO for improving noncommunicable disease management in primary health care in low - resource settings and the specific chronic respiratory diseases it includes protocols for, we analyze the “WHO response” section. The initiative is the WHO Package of Essential Noncommunicable Disease Interventions (PEN), and it includes protocols for the assessment, diagnosis, and management of chronic respiratory diseases such as asthma and chronic obstructive pulmonary disease (COPD). Thus, the initiative is the WHO Package of Essential Noncommunicable Disease Interventions (PEN), and it includes protocols for asthma and chronic obstructive pulmonary disease.","[1] ## Self-care
+
+People with asthma and their families need education to understand more about their asthma. This includes their treatment options, triggers to avoid, and how to manage their symptoms at home.
+
+It is important for people with asthma to know how to increase their treatment when their symptoms are worsening to avoid a serious attack. Healthcare providers may give an asthma action plan to help people with asthma to take greater control of their treatment.
+
+## WHO response
+
+Asthma is included in the WHO Global Action Plan for the Prevention and Control of NCDs and the United Nations 2030 Agenda for Sustainable Development.
+
+WHO is taking action to extend diagnosis of and treatment for asthma in a number of ways.
+
+The WHO Package of Essential Noncommunicable Disease Interventions (PEN) was developed to help improve NCD management in primary health care in low-resource settings. PEN includes protocols for the assessment, diagnosis and management of chronic respiratory diseases (asthma and chronic obstructive pulmonary disease), and modules on healthy lifestyle counselling, including tobacco cessation and self-care.
+
+WHO is currently developing new guidelines for the diagnosis and management of asthma in primary care.
+
+Reducing tobacco smoke exposure is important for both primary prevention of asthma and disease management. The Framework Convention on Tobacco Control is enabling progress in this area as are WHO initiatives such as MPOWER and mTobacco Cessation.
+
+Air pollution is an important risk factor for asthma, causing new cases and making existing disease worse. WHO has developed training for health care workers on air pollution which highlights this link and offers practical advice to reduce and mitigate exposure.
+
+The Global Alliance against Chronic Respiratory Diseases (GARD) contributes to WHOâ€™s work to prevent and control chronic respiratory diseases. GARD is a voluntary alliance of national and international organizations and agencies from
+
+[2] 1) Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2023 (GBD 2023) . Seattle, United States: Institute for Health Metrics and Evaluation (IHME), 2025.
+
+Related
+
+Global health estimates 2021
+
+NCD country capacity survey
+
+Global action plan for the prevention and control of noncommunicable diseases 2013â€“2020
+
+The 2030 Agenda for Sustainable Development
+
+WHO package of essential noncommunicable (PEN) disease interventions for primary health care
+
+WHO Framework Convention on Tobacco Control
+
+[3] # Asthma
+
+Asthma is a major noncommunicable disease (NCD), affecting both children and adults, and is the most common chronic disease among children.
+
+Inflammation and narrowing of the small airways in the lungs cause asthma symptoms, which can be any combination of cough, wheeze, shortness of breath and chest tightness.
+
+Asthma affected an estimated 363Â million people in 2023 (1) and caused 442Â 000 deaths.
+
+Inhaled medication can control asthma symptoms and allow people with asthma to lead a normal, active life.
+
+Avoiding asthma triggers can also help to reduce asthma symptoms.
+
+Most asthma-related deaths occur in low- and lower-middle-income countries, where under-diagnosis and under-treatment is a challenge.
+
+WHO is committed to improving the diagnosis, treatment and monitoring of asthma to reduce the global burden of NCDs and make progress towards universal health coverage.
+
+## Overview
+
+[4] WHO aims to stimulate and support the adoption of effective measures for the surveillance, prevention and control of diabetes and its complications, particularly in low- and middle-income countries. To this end, WHO:
+
+provides scientific guidelines for the prevention of major noncommunicable diseases including diabetes;
+
+develops norms and standards for diabetes diagnosis and care;
+
+builds awareness on the global epidemic of diabetes, marking World Diabetes Day (14 November); and
+
+conducts surveillance of diabetes and its risk factors.
+
+In April 2021 WHO launched the Global Diabetes Compact, a global initiative aiming for sustained improvements in diabetes prevention and care, with a particular focus on supporting low- and middle-income countries.
+
+In May 2021, the World Health Assembly agreed a Resolution on strengthening prevention and control of diabetes. In May 2022 the World Health Assembly endorsed five global diabetes coverage targets to be achieved by 2030.
+
+To learn more about the Global Diabetes Compact, to access diabetes-related technical publications to get involved in upcoming initiatives, visit the Global Diabetes Compact webpage .
+
+References
+
+[5] MPOWER
+
+Be Healthy, Be Mobile: A handbook on how to implement mTobaccoCessation
+
+Global Alliance against Chronic Respiratory Diseases (GARD)
+
+WHO's work on chronic respiratory diseases
+
+Chronic respiratory diseases programme
+
+Science in 5: Asthma and you
+
+News
+
+Fact sheets
+
+Feature stories",health-023,multi,"What initiative was developed by WHO to help improve the management of noncommunicable diseases in primary health care in low-resource settings, and what specific chronic respiratory diseases does it include protocols for?","The WHO Package of Essential Noncommunicable Disease Interventions (PEN), which includes protocols for asthma and chronic obstructive pulmonary disease.",0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+,,,,,,"First, I need to understand the question: ""What severe medical intervention might be required if asthma symptoms become severe, and which organization has developed training for health care workers regarding an important risk factor that makes existing disease worse?""
+
+I need to look at the context. The context has sections about self-care, WHO response, impact, symptoms, causes, treatment, and overview.
+
+For the severe medical intervention: if asthma symptoms become severe, people might need emergency health care or be admitted to hospital for treatment and monitoring. From the impact section, it says: ""If symptoms are severe, people with asthma may need to receive emergency health care and they may be admitted to hospital for treatment and monitoring.""
+
+Now, for the organization that has developed training for health care workers regarding an important risk factor that makes existing disease worse. Looking at the WHO response, it mentions: ""WHO has developed training for health care workers on air pollution which highlights this link and offers practical advice to reduce and mitigate exposure."" So, the organization is WHO, and the training is regarding air pollution, which is an important risk factor for asthma.
+
+So, the severe medical intervention is emergency health care or hospital admission, and the organization is WHO, with training on air pollution.
+
+I should check if there's any other context. The question asks for the severe medical intervention and the organization that developed training.
+
+From the context, the severe medical intervention is likely hospital admission or emergency care. And the organization is WHO, with training on air pollution.
+
+Therefore, the answer should be: If asthma symptoms become severe, a severe medical intervention might be hospital admission for treatment and monitoring, and the organization that has developed training for health care workers regarding air pollution is WHO.
+
+But to be precise, I'll summarize.
+</think>
+
+If asthma symptoms become severe, a severe medical intervention that might be required is hospital admission for treatment and monitoring. The organization that has developed training for health care workers regarding an important risk factor (such as air pollution) that makes existing disease worse is the World Health Organization (WHO).","[1] ## Self-care
+
+People with asthma and their families need education to understand more about their asthma. This includes their treatment options, triggers to avoid, and how to manage their symptoms at home.
+
+It is important for people with asthma to know how to increase their treatment when their symptoms are worsening to avoid a serious attack. Healthcare providers may give an asthma action plan to help people with asthma to take greater control of their treatment.
+
+## WHO response
+
+Asthma is included in the WHO Global Action Plan for the Prevention and Control of NCDs and the United Nations 2030 Agenda for Sustainable Development.
+
+WHO is taking action to extend diagnosis of and treatment for asthma in a number of ways.
+
+The WHO Package of Essential Noncommunicable Disease Interventions (PEN) was developed to help improve NCD management in primary health care in low-resource settings. PEN includes protocols for the assessment, diagnosis and management of chronic respiratory diseases (asthma and chronic obstructive pulmonary disease), and modules on healthy lifestyle counselling, including tobacco cessation and self-care.
+
+WHO is currently developing new guidelines for the diagnosis and management of asthma in primary care.
+
+Reducing tobacco smoke exposure is important for both primary prevention of asthma and disease management. The Framework Convention on Tobacco Control is enabling progress in this area as are WHO initiatives such as MPOWER and mTobacco Cessation.
+
+Air pollution is an important risk factor for asthma, causing new cases and making existing disease worse. WHO has developed training for health care workers on air pollution which highlights this link and offers practical advice to reduce and mitigate exposure.
+
+The Global Alliance against Chronic Respiratory Diseases (GARD) contributes to WHOâ€™s work to prevent and control chronic respiratory diseases. GARD is a voluntary alliance of national and international organizations and agencies from
+
+[2] Asthma is a chronic lung disease affecting people of all ages. It is caused by inflammation and muscle tightening around the airways, which makes it harder to breathe.
+
+Symptoms can include coughing, wheezing, shortness of breath and chest tightness. These symptoms can be mild or severe and can come and go over time.
+
+Although asthma can be a serious condition, it can be managed with the right treatment. People with symptoms of asthma should speak to a health professional.
+
+## Impact
+
+Asthma is often under-diagnosed and under-treated, particularly in low- and middle-income countries.
+
+People with under-treated asthma can suffer sleep disturbance, tiredness during the day, and poor concentration. Asthma sufferers and their families may miss school and work, with financial impact on the family and wider community. If symptoms are severe, people with asthma may need to receive emergency health care and they may be admitted to hospital for treatment and monitoring. In the most severe cases, asthma can lead to death.
+
+## Symptoms
+
+Symptoms of asthma can vary from person to person. Symptoms sometimes get significantly worse. This is known as an asthma attack.Â Symptoms are often worse at night or during exercise.
+
+Common symptoms of asthma include:
+
+a persistent cough, especially at night
+
+wheezing when exhaling and sometimes when inhaling
+
+shortness of breath or difficulty breathing, sometimes even when resting
+
+[3] People with symptoms should talk to a healthcare provider.
+
+## Causes
+
+Many factors have been linked to an increased risk of developing asthma, although it is often difficult to find a single, direct cause.
+
+Asthma is more likely if other family members also have asthma â€“ particularly a close relative, such as a parent or sibling.
+
+Asthma is more likely in people who have other allergic conditions, such as eczema and rhinitis (hay fever).
+
+Urbanization is associated with increased asthma prevalence, probably due to multiple lifestyle factors.
+
+Events in early life affect the developing lungs and can increase the risk of asthma. These include low birth weight, prematurity, exposure to tobacco smoke and other sources of air pollution, as well as viral respiratory infections.
+
+Exposure to a range of environmental allergens and irritants are also thought to increase the risk of asthma, including indoor and outdoor air pollution, house dust mites, moulds, and occupational exposure to chemicals, fumes or dust.
+
+Children and adults who are overweight or obese are at a greater risk of asthma.
+
+## Treatment
+
+[4] # Asthma
+
+Asthma is a major noncommunicable disease (NCD), affecting both children and adults, and is the most common chronic disease among children.
+
+Inflammation and narrowing of the small airways in the lungs cause asthma symptoms, which can be any combination of cough, wheeze, shortness of breath and chest tightness.
+
+Asthma affected an estimated 363Â million people in 2023 (1) and caused 442Â 000 deaths.
+
+Inhaled medication can control asthma symptoms and allow people with asthma to lead a normal, active life.
+
+Avoiding asthma triggers can also help to reduce asthma symptoms.
+
+Most asthma-related deaths occur in low- and lower-middle-income countries, where under-diagnosis and under-treatment is a challenge.
+
+WHO is committed to improving the diagnosis, treatment and monitoring of asthma to reduce the global burden of NCDs and make progress towards universal health coverage.
+
+## Overview
+
+[5] MPOWER
+
+Be Healthy, Be Mobile: A handbook on how to implement mTobaccoCessation
+
+Global Alliance against Chronic Respiratory Diseases (GARD)
+
+WHO's work on chronic respiratory diseases
+
+Chronic respiratory diseases programme
+
+Science in 5: Asthma and you
+
+News
+
+Fact sheets
+
+Feature stories",health-027,multi,"What severe medical intervention might be required if asthma symptoms become severe, and which organization has developed training for health care workers regarding an important risk factor that makes existing disease worse?","People with severe asthma symptoms may need emergency health care and hospital admission, while WHO has developed training for health care workers on air pollution.",0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+,,,,,,"Got it, let's look at the context. The question is about the year the Global Burden of Disease Study was published alongside the 2023 availability data for bronchodilators. Looking at the first point, it says ""Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2023 (GBD 2023)"". So the study was published in 2023. Wait, but the question is asking for the year the study was published, which is 2023. Wait, let me check the related parts. The first related is Global Burden of Disease Collaborative Network, Global Burden of Disease Study 2023, published in 2025? Wait, no, the context says ""Seattle, United States: Institute for Health Metrics and Evaluation (IHME), 2025."" Wait, maybe the study is 2023, but the related entry for diabetes is Global Burden of Disease Study 2021. Wait, the question is about the year the Global Burden of Disease Study referenced alongside the 2023 availability data. Looking at the first point, the study is 2023, so the year is 2023. Wait, need to check the context again. The first item is ""1) Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2023 (GBD 2023)"". So the study was published in 2023. So the answer is 2023.
+</think>
+
+To determine the year the Global Burden of Disease Study was published, we examine the context under the first related entry. It states ""Global Burden of Disease Study 2023 (GBD 2023)"", indicating the study was published in 2023. Thus, the year is \boxed{2023}.","[1] 1) Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2023 (GBD 2023) . Seattle, United States: Institute for Health Metrics and Evaluation (IHME), 2025.
+
+Related
+
+Global health estimates 2021
+
+NCD country capacity survey
+
+Global action plan for the prevention and control of noncommunicable diseases 2013â€“2020
+
+The 2030 Agenda for Sustainable Development
+
+WHO package of essential noncommunicable (PEN) disease interventions for primary health care
+
+WHO Framework Convention on Tobacco Control
+
+[2] 1. Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2021. Results. Institute for Health Metrics and Evaluation. 2024 ( https://vizhub.healthdata.org/gbd-results/ ).
+
+Related
+
+Health topic: Diabetes
+
+Global Diabetes Compact
+
+Questions and answers: Diabetes
+
+Questions and answers: WHO's response
+
+Reducing the burden of noncommunicable diseases through strengthening prevention and control of diabetes (WHA 74.4)
+
+News
+
+Fact sheets
+
+[3] Using an inhaler can be difficult, especially for children and during emergency situations. Using a spacer device makes it easier to use an aerosol inhaler. This helps the medicine to reach the lungs more easily. A spacer is a plastic container with a mouthpiece or mask at one end and a hole for the inhaler in the other. A homemade spacer, made from a 500ml plastic bottle, can be as effective as commercially manufactured spacers.
+
+Access to inhalers is a problem in many countries. In 2023, potentially lifesaving bronchodilators were available in public primary health care facilities in less than two thirds of low- and low-middle income countries, and steroid inhalers available in less than half.
+
+It is also important to raise community awareness to reduce the myths and stigma associated with asthma in some settings.
+
+[4] # Asthma
+
+Asthma is a major noncommunicable disease (NCD), affecting both children and adults, and is the most common chronic disease among children.
+
+Inflammation and narrowing of the small airways in the lungs cause asthma symptoms, which can be any combination of cough, wheeze, shortness of breath and chest tightness.
+
+Asthma affected an estimated 363Â million people in 2023 (1) and caused 442Â 000 deaths.
+
+Inhaled medication can control asthma symptoms and allow people with asthma to lead a normal, active life.
+
+Avoiding asthma triggers can also help to reduce asthma symptoms.
+
+Most asthma-related deaths occur in low- and lower-middle-income countries, where under-diagnosis and under-treatment is a challenge.
+
+WHO is committed to improving the diagnosis, treatment and monitoring of asthma to reduce the global burden of NCDs and make progress towards universal health coverage.
+
+## Overview
+
+[5] MPOWER
+
+Be Healthy, Be Mobile: A handbook on how to implement mTobaccoCessation
+
+Global Alliance against Chronic Respiratory Diseases (GARD)
+
+WHO's work on chronic respiratory diseases
+
+Chronic respiratory diseases programme
+
+Science in 5: Asthma and you
+
+News
+
+Fact sheets
+
+Feature stories",health-032,multi,In what year was the Global Burden of Disease Study published that is referenced alongside the 2023 availability data for bronchodilators?,2025,0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+,,,,,,"Got it, let's look at the ""Overview"" section for the 2022 data. The sentence says ""In 2022, 14% of adults aged 18 years and older were living with diabetes, an increase from 7% in 1990."" So the percentage is 14%.
+</think>
+
+To determine the percentage of adults aged 18 years and older living with diabetes in 2022, we refer to the ""Overview"" section under the 2022 data. The text states that in 2022, 14% of adults aged 18 years and older were living with diabetes. Therefore, the answer is \boxed{14%}.","[1] # Diabetes
+
+## Key facts
+
+The number of people living with diabetes rose from 200 million in 1990 to 830 million in 2022. Prevalence has been rising more rapidly in low- and middle-income countries than in high-income countries.
+
+More than half of people living with diabetes did not take medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation.
+
+In 2021, diabetes and kidney disease due to diabetes caused over 2 million deaths. In addition, around 11% of cardiovascular deaths were caused by high blood glucose.
+
+A healthy diet, regular physical activity, maintaining a normal body weight and avoiding tobacco use are ways to prevent or delay the onset of type 2 diabetes.
+
+Diabetes can be treated and its consequences avoided or delayed with diet, physical activity, medication and regular screening and treatment for complications.
+
+## Overview
+
+In 2022 , 14% of adults aged 18 years and older were living with diabetes, an increase from 7% in 1990. More than half (59%) of adults aged 30 years and over living with diabetes were not taking medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+In 2021, diabetes was the direct cause of 1.6 million deaths and 47% of all deaths due to diabetes occurred before the age of 70 years. Another 530 000 kidney disease deaths were caused by diabetes, and high blood glucose causes around 11% of cardiovascular deaths (1) .
+
+Since 2000, mortality rates from diabetes have been increasing. By contrast, the probability of dying from any one of the four main noncommunicable diseases (cardiovascular diseases, cancer, chronic respiratory diseases or diabetes) between the ages of 30 and 70 decreased by 20% globally
+
+[2] losing weight unintentionally
+
+Over time, diabetes can damage blood vessels in the heart, eyes, kidneys and nerves.
+
+People with diabetes have a higher risk of health problems including heart attack, stroke and kidney failure.
+
+Diabetes can cause permanent vision loss by damaging blood vessels in the eyes.
+
+Many people with diabetes develop problems with their feet from nerve damage and poor blood flow. This can cause foot ulcers and may lead to amputation.
+
+## Type 1 diabetes
+
+Type 1 diabetes (previously known as insulin-dependent, juvenile or childhood-onset) is characterized by deficient insulin production and requires daily administration of insulin. In 2017 there were 9 million people with type 1 diabetes; the majority of them live in high-income countries.Â Neither its cause nor the means to prevent it are known.
+
+## Type 2 diabetes
+
+Type 2 diabetes affects how your body uses sugar (glucose) for energy. It stops the body from using insulin properly, which can lead to high levels of blood sugar if not treated.
+
+Over time, type 2 diabetes can cause serious damage to the body, especially nerves and blood vessels.
+
+Type 2 diabetes is often preventable. Factors that contribute to developing type 2 diabetes include being overweight, not getting enough exercise, and genetics.
+
+Early diagnosis is important to prevent the worst effects of type 2 diabetes. The best way to detect diabetes early is to get regular check-ups and blood tests with a healthcare provider.
+
+Symptoms of type 2 diabetes can be mild. They may take several years to be noticed. Â Symptoms may be similar to those of type 1 diabetes but are often less marked. As a result, the disease may be diagnosed several years after onset, after complications have already arisen.
+
+More than 95% of people with diabetes have type 2 diabetes. Type 2 diabetes
+
+[3] WHO aims to stimulate and support the adoption of effective measures for the surveillance, prevention and control of diabetes and its complications, particularly in low- and middle-income countries. To this end, WHO:
+
+provides scientific guidelines for the prevention of major noncommunicable diseases including diabetes;
+
+develops norms and standards for diabetes diagnosis and care;
+
+builds awareness on the global epidemic of diabetes, marking World Diabetes Day (14 November); and
+
+conducts surveillance of diabetes and its risk factors.
+
+In April 2021 WHO launched the Global Diabetes Compact, a global initiative aiming for sustained improvements in diabetes prevention and care, with a particular focus on supporting low- and middle-income countries.
+
+In May 2021, the World Health Assembly agreed a Resolution on strengthening prevention and control of diabetes. In May 2022 the World Health Assembly endorsed five global diabetes coverage targets to be achieved by 2030.
+
+To learn more about the Global Diabetes Compact, to access diabetes-related technical publications to get involved in upcoming initiatives, visit the Global Diabetes Compact webpage .
+
+References
+
+[4] 1. Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2021. Results. Institute for Health Metrics and Evaluation. 2024 ( https://vizhub.healthdata.org/gbd-results/ ).
+
+Related
+
+Health topic: Diabetes
+
+Global Diabetes Compact
+
+Questions and answers: Diabetes
+
+Questions and answers: WHO's response
+
+Reducing the burden of noncommunicable diseases through strengthening prevention and control of diabetes (WHA 74.4)
+
+News
+
+Fact sheets
+
+[5] was formerly called non-insulin dependent, or adult onset. Until recently, this type of diabetes was seen only in adults but it is now also occurring increasingly frequently in children.
+
+## Gestational diabetes
+
+Gestational diabetes is hyperglycaemia with blood glucose values above normal but below those diagnostic of diabetes. Gestational diabetes occurs during pregnancy.
+
+Women with gestational diabetes are at an increased risk of complications during pregnancy and at delivery. These women and possibly their children are also at increased risk of type 2 diabetes in the future.
+
+Gestational diabetes is diagnosed through prenatal screening, rather than through reported symptoms.
+
+## Impaired glucose tolerance and impaired fasting glycaemia
+
+Impaired glucose tolerance (IGT) and impaired fasting glycaemia (IFG) are intermediate conditions in the transition between normality and diabetes. People with IGT or IFG are at high risk of progressing to type 2 diabetes, although this is not inevitable.
+
+## Prevention
+
+Lifestyle changes are the best way to prevent or delay the onset of type 2 diabetes.
+
+To help prevent type 2 diabetes and its complications, people should:
+
+reach and keep a health body weight
+
+stay physically active with at least 150 minutes of moderate exercise each week
+
+eat a healthy diet and avoid sugar and saturated fat
+
+not smoke tobacco.
+
+## Diagnosis and treatment",health-010,single,What percentage of adults aged 18 years and older were living with diabetes in 2022?,14%,0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+1.0,1.0,0.0,5.0,4.0,5.0,"Okay, the user is asking about the physiological changes in the airways that cause asthma. Let me check the context provided.
+
+Looking at the section on causes, it mentions that asthma is caused by inflammation and muscle tightening around the airways. Also, under the symptoms, it's mentioned that the airways get harder to breathe due to inflammation and muscle tightening. 
+
+So, the physiological changes are inflammation and muscle tightening around the airways. That makes the airways more restrictive, leading to difficulty breathing. I should check if there's specific wording in the context. The first point says ""inflammation and muscle tightening around the airways"", so those are the causes. Therefore, the physiological changes are the inflammation leading to narrowing or constriction of the airways, and muscle tightening which further restricts breathing.
+</think>
+
+The physiological changes in the airways that cause asthma are inflammation and muscle tightening (constriction) around the airways. These changes make it harder for air to flow through, leading to difficulty breathing.","[1] Asthma is a chronic lung disease affecting people of all ages. It is caused by inflammation and muscle tightening around the airways, which makes it harder to breathe.
+
+Symptoms can include coughing, wheezing, shortness of breath and chest tightness. These symptoms can be mild or severe and can come and go over time.
+
+Although asthma can be a serious condition, it can be managed with the right treatment. People with symptoms of asthma should speak to a health professional.
+
+## Impact
+
+Asthma is often under-diagnosed and under-treated, particularly in low- and middle-income countries.
+
+People with under-treated asthma can suffer sleep disturbance, tiredness during the day, and poor concentration. Asthma sufferers and their families may miss school and work, with financial impact on the family and wider community. If symptoms are severe, people with asthma may need to receive emergency health care and they may be admitted to hospital for treatment and monitoring. In the most severe cases, asthma can lead to death.
+
+## Symptoms
+
+Symptoms of asthma can vary from person to person. Symptoms sometimes get significantly worse. This is known as an asthma attack.Â Symptoms are often worse at night or during exercise.
+
+Common symptoms of asthma include:
+
+a persistent cough, especially at night
+
+wheezing when exhaling and sometimes when inhaling
+
+shortness of breath or difficulty breathing, sometimes even when resting
+
+[2] People with symptoms should talk to a healthcare provider.
+
+## Causes
+
+Many factors have been linked to an increased risk of developing asthma, although it is often difficult to find a single, direct cause.
+
+Asthma is more likely if other family members also have asthma â€“ particularly a close relative, such as a parent or sibling.
+
+Asthma is more likely in people who have other allergic conditions, such as eczema and rhinitis (hay fever).
+
+Urbanization is associated with increased asthma prevalence, probably due to multiple lifestyle factors.
+
+Events in early life affect the developing lungs and can increase the risk of asthma. These include low birth weight, prematurity, exposure to tobacco smoke and other sources of air pollution, as well as viral respiratory infections.
+
+Exposure to a range of environmental allergens and irritants are also thought to increase the risk of asthma, including indoor and outdoor air pollution, house dust mites, moulds, and occupational exposure to chemicals, fumes or dust.
+
+Children and adults who are overweight or obese are at a greater risk of asthma.
+
+## Treatment
+
+[3] # Asthma
+
+Asthma is a major noncommunicable disease (NCD), affecting both children and adults, and is the most common chronic disease among children.
+
+Inflammation and narrowing of the small airways in the lungs cause asthma symptoms, which can be any combination of cough, wheeze, shortness of breath and chest tightness.
+
+Asthma affected an estimated 363Â million people in 2023 (1) and caused 442Â 000 deaths.
+
+Inhaled medication can control asthma symptoms and allow people with asthma to lead a normal, active life.
+
+Avoiding asthma triggers can also help to reduce asthma symptoms.
+
+Most asthma-related deaths occur in low- and lower-middle-income countries, where under-diagnosis and under-treatment is a challenge.
+
+WHO is committed to improving the diagnosis, treatment and monitoring of asthma to reduce the global burden of NCDs and make progress towards universal health coverage.
+
+## Overview
+
+[4] chest tightness, making it difficult to breathe deeply.
+
+Some people will have worse symptoms when they have a cold or during changes in the weather. Other triggers can include dust, smoke, fumes, grass and tree pollen, animal fur and feathers, strong soaps and perfume.
+
+Symptoms can be caused by other conditions as well.
+
+[5] ## Self-care
+
+People with asthma and their families need education to understand more about their asthma. This includes their treatment options, triggers to avoid, and how to manage their symptoms at home.
+
+It is important for people with asthma to know how to increase their treatment when their symptoms are worsening to avoid a serious attack. Healthcare providers may give an asthma action plan to help people with asthma to take greater control of their treatment.
+
+## WHO response
+
+Asthma is included in the WHO Global Action Plan for the Prevention and Control of NCDs and the United Nations 2030 Agenda for Sustainable Development.
+
+WHO is taking action to extend diagnosis of and treatment for asthma in a number of ways.
+
+The WHO Package of Essential Noncommunicable Disease Interventions (PEN) was developed to help improve NCD management in primary health care in low-resource settings. PEN includes protocols for the assessment, diagnosis and management of chronic respiratory diseases (asthma and chronic obstructive pulmonary disease), and modules on healthy lifestyle counselling, including tobacco cessation and self-care.
+
+WHO is currently developing new guidelines for the diagnosis and management of asthma in primary care.
+
+Reducing tobacco smoke exposure is important for both primary prevention of asthma and disease management. The Framework Convention on Tobacco Control is enabling progress in this area as are WHO initiatives such as MPOWER and mTobacco Cessation.
+
+Air pollution is an important risk factor for asthma, causing new cases and making existing disease worse. WHO has developed training for health care workers on air pollution which highlights this link and offers practical advice to reduce and mitigate exposure.
+
+The Global Alliance against Chronic Respiratory Diseases (GARD) contributes to WHOâ€™s work to prevent and control chronic respiratory diseases. GARD is a voluntary alliance of national and international organizations and agencies from",health-013,single,What physiological changes in the airways cause asthma?,"It is caused by inflammation and muscle tightening around the airways, which makes it harder to breathe.",0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+1.0,1.0,0.0,4.0,4.0,5.0,"Okay, let's see. The user is asking about the number of direct deaths caused by diabetes in 2021. I need to check the context provided.
+
+Looking at the facts under the diabetes section, there's a part that says: ""In 2021, diabetes and kidney disease due to diabetes caused over 2 million deaths."" Wait, but the question is about direct deaths caused by diabetes. However, the context mentions diabetes and kidney disease, but maybe the direct deaths are from diabetes.
+
+Wait, the question is specifically about direct deaths caused by diabetes in 2021. The context states: ""In 2021, diabetes was the direct cause of 1.6 million deaths and 47% of all deaths due to diabetes occurred before the age of 70 years."" Wait, no, let me check.
+
+Looking at the overview part: ""In 2021, diabetes was the direct cause of 1.6 million deaths and 47% of all deaths due to diabetes occurred before the age of 70 years."" So the direct deaths from diabetes in 2021 were 1.6 million. But wait, the user is asking how many direct deaths were caused by diabetes in 2021. So the answer should be 1.6 million.
+
+Wait, but maybe the context says ""diabetes and kidney disease due to diabetes caused over 2 million deaths."" But the question is about direct deaths caused by diabetes. The key part is the 2021 section: diabetes was the direct cause of 1.6 million deaths. So the answer is 1.6 million.
+</think>
+
+The number of direct deaths caused by diabetes in 2021 was over 1.6 million. This is based on the information provided under the 2021 section, where diabetes was identified as the direct cause of 1.6 million deaths.","[1] # Diabetes
+
+## Key facts
+
+The number of people living with diabetes rose from 200 million in 1990 to 830 million in 2022. Prevalence has been rising more rapidly in low- and middle-income countries than in high-income countries.
+
+More than half of people living with diabetes did not take medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation.
+
+In 2021, diabetes and kidney disease due to diabetes caused over 2 million deaths. In addition, around 11% of cardiovascular deaths were caused by high blood glucose.
+
+A healthy diet, regular physical activity, maintaining a normal body weight and avoiding tobacco use are ways to prevent or delay the onset of type 2 diabetes.
+
+Diabetes can be treated and its consequences avoided or delayed with diet, physical activity, medication and regular screening and treatment for complications.
+
+## Overview
+
+In 2022 , 14% of adults aged 18 years and older were living with diabetes, an increase from 7% in 1990. More than half (59%) of adults aged 30 years and over living with diabetes were not taking medication for their diabetes in 2022. Diabetes treatment coverage was lowest in low- and middle-income countries.
+
+In 2021, diabetes was the direct cause of 1.6 million deaths and 47% of all deaths due to diabetes occurred before the age of 70 years. Another 530 000 kidney disease deaths were caused by diabetes, and high blood glucose causes around 11% of cardiovascular deaths (1) .
+
+Since 2000, mortality rates from diabetes have been increasing. By contrast, the probability of dying from any one of the four main noncommunicable diseases (cardiovascular diseases, cancer, chronic respiratory diseases or diabetes) between the ages of 30 and 70 decreased by 20% globally
+
+[2] WHO aims to stimulate and support the adoption of effective measures for the surveillance, prevention and control of diabetes and its complications, particularly in low- and middle-income countries. To this end, WHO:
+
+provides scientific guidelines for the prevention of major noncommunicable diseases including diabetes;
+
+develops norms and standards for diabetes diagnosis and care;
+
+builds awareness on the global epidemic of diabetes, marking World Diabetes Day (14 November); and
+
+conducts surveillance of diabetes and its risk factors.
+
+In April 2021 WHO launched the Global Diabetes Compact, a global initiative aiming for sustained improvements in diabetes prevention and care, with a particular focus on supporting low- and middle-income countries.
+
+In May 2021, the World Health Assembly agreed a Resolution on strengthening prevention and control of diabetes. In May 2022 the World Health Assembly endorsed five global diabetes coverage targets to be achieved by 2030.
+
+To learn more about the Global Diabetes Compact, to access diabetes-related technical publications to get involved in upcoming initiatives, visit the Global Diabetes Compact webpage .
+
+References
+
+[3] 1. Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2021. Results. Institute for Health Metrics and Evaluation. 2024 ( https://vizhub.healthdata.org/gbd-results/ ).
+
+Related
+
+Health topic: Diabetes
+
+Global Diabetes Compact
+
+Questions and answers: Diabetes
+
+Questions and answers: WHO's response
+
+Reducing the burden of noncommunicable diseases through strengthening prevention and control of diabetes (WHA 74.4)
+
+News
+
+Fact sheets
+
+[4] losing weight unintentionally
+
+Over time, diabetes can damage blood vessels in the heart, eyes, kidneys and nerves.
+
+People with diabetes have a higher risk of health problems including heart attack, stroke and kidney failure.
+
+Diabetes can cause permanent vision loss by damaging blood vessels in the eyes.
+
+Many people with diabetes develop problems with their feet from nerve damage and poor blood flow. This can cause foot ulcers and may lead to amputation.
+
+## Type 1 diabetes
+
+Type 1 diabetes (previously known as insulin-dependent, juvenile or childhood-onset) is characterized by deficient insulin production and requires daily administration of insulin. In 2017 there were 9 million people with type 1 diabetes; the majority of them live in high-income countries.Â Neither its cause nor the means to prevent it are known.
+
+## Type 2 diabetes
+
+Type 2 diabetes affects how your body uses sugar (glucose) for energy. It stops the body from using insulin properly, which can lead to high levels of blood sugar if not treated.
+
+Over time, type 2 diabetes can cause serious damage to the body, especially nerves and blood vessels.
+
+Type 2 diabetes is often preventable. Factors that contribute to developing type 2 diabetes include being overweight, not getting enough exercise, and genetics.
+
+Early diagnosis is important to prevent the worst effects of type 2 diabetes. The best way to detect diabetes early is to get regular check-ups and blood tests with a healthcare provider.
+
+Symptoms of type 2 diabetes can be mild. They may take several years to be noticed. Â Symptoms may be similar to those of type 1 diabetes but are often less marked. As a result, the disease may be diagnosed several years after onset, after complications have already arisen.
+
+More than 95% of people with diabetes have type 2 diabetes. Type 2 diabetes
+
+[5] 1) Global Burden of Disease Collaborative Network. Global Burden of Disease Study 2023 (GBD 2023) . Seattle, United States: Institute for Health Metrics and Evaluation (IHME), 2025.
+
+Related
+
+Global health estimates 2021
+
+NCD country capacity survey
+
+Global action plan for the prevention and control of noncommunicable diseases 2013â€“2020
+
+The 2030 Agenda for Sustainable Development
+
+WHO package of essential noncommunicable (PEN) disease interventions for primary health care
+
+WHO Framework Convention on Tobacco Control",health-006,single,How many direct deaths were caused by diabetes in 2021?,1.6 million,0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+1.0,1.0,0.0,5.0,5.0,5.0,"Got it, let's look at the context. The question is about common triggers for asthma symptoms besides colds and weather changes. Looking at the context, under the causes or symptoms, there's a part that mentions other triggers. The context says ""Other triggers can include dust, smoke, fumes, grass and tree pollen, animal fur and feathers, strong soaps and perfume."" So we need to list those. Let's check the context section for triggers. So the common triggers besides colds and weather are dust, smoke, fumes, grass and tree pollen, animal fur and feathers, strong soaps and perfume.
+</think>
+
+To determine the common triggers for asthma symptoms besides colds and weather changes, we examine the ""Causes"" and ""Symptoms"" sections. The context states, ""Other triggers can include dust, smoke, fumes, grass and tree pollen, animal fur and feathers, strong soaps and perfume."" Thus, the common triggers are dust, smoke, fumes, grass and tree pollen, animal fur and feathers, strong soaps and perfume.","[1] chest tightness, making it difficult to breathe deeply.
+
+Some people will have worse symptoms when they have a cold or during changes in the weather. Other triggers can include dust, smoke, fumes, grass and tree pollen, animal fur and feathers, strong soaps and perfume.
+
+Symptoms can be caused by other conditions as well.
+
+[2] People with symptoms should talk to a healthcare provider.
+
+## Causes
+
+Many factors have been linked to an increased risk of developing asthma, although it is often difficult to find a single, direct cause.
+
+Asthma is more likely if other family members also have asthma â€“ particularly a close relative, such as a parent or sibling.
+
+Asthma is more likely in people who have other allergic conditions, such as eczema and rhinitis (hay fever).
+
+Urbanization is associated with increased asthma prevalence, probably due to multiple lifestyle factors.
+
+Events in early life affect the developing lungs and can increase the risk of asthma. These include low birth weight, prematurity, exposure to tobacco smoke and other sources of air pollution, as well as viral respiratory infections.
+
+Exposure to a range of environmental allergens and irritants are also thought to increase the risk of asthma, including indoor and outdoor air pollution, house dust mites, moulds, and occupational exposure to chemicals, fumes or dust.
+
+Children and adults who are overweight or obese are at a greater risk of asthma.
+
+## Treatment
+
+[3] Asthma is a chronic lung disease affecting people of all ages. It is caused by inflammation and muscle tightening around the airways, which makes it harder to breathe.
+
+Symptoms can include coughing, wheezing, shortness of breath and chest tightness. These symptoms can be mild or severe and can come and go over time.
+
+Although asthma can be a serious condition, it can be managed with the right treatment. People with symptoms of asthma should speak to a health professional.
+
+## Impact
+
+Asthma is often under-diagnosed and under-treated, particularly in low- and middle-income countries.
+
+People with under-treated asthma can suffer sleep disturbance, tiredness during the day, and poor concentration. Asthma sufferers and their families may miss school and work, with financial impact on the family and wider community. If symptoms are severe, people with asthma may need to receive emergency health care and they may be admitted to hospital for treatment and monitoring. In the most severe cases, asthma can lead to death.
+
+## Symptoms
+
+Symptoms of asthma can vary from person to person. Symptoms sometimes get significantly worse. This is known as an asthma attack.Â Symptoms are often worse at night or during exercise.
+
+Common symptoms of asthma include:
+
+a persistent cough, especially at night
+
+wheezing when exhaling and sometimes when inhaling
+
+shortness of breath or difficulty breathing, sometimes even when resting
+
+[4] # Asthma
+
+Asthma is a major noncommunicable disease (NCD), affecting both children and adults, and is the most common chronic disease among children.
+
+Inflammation and narrowing of the small airways in the lungs cause asthma symptoms, which can be any combination of cough, wheeze, shortness of breath and chest tightness.
+
+Asthma affected an estimated 363Â million people in 2023 (1) and caused 442Â 000 deaths.
+
+Inhaled medication can control asthma symptoms and allow people with asthma to lead a normal, active life.
+
+Avoiding asthma triggers can also help to reduce asthma symptoms.
+
+Most asthma-related deaths occur in low- and lower-middle-income countries, where under-diagnosis and under-treatment is a challenge.
+
+WHO is committed to improving the diagnosis, treatment and monitoring of asthma to reduce the global burden of NCDs and make progress towards universal health coverage.
+
+## Overview
+
+[5] ## Self-care
+
+People with asthma and their families need education to understand more about their asthma. This includes their treatment options, triggers to avoid, and how to manage their symptoms at home.
+
+It is important for people with asthma to know how to increase their treatment when their symptoms are worsening to avoid a serious attack. Healthcare providers may give an asthma action plan to help people with asthma to take greater control of their treatment.
+
+## WHO response
+
+Asthma is included in the WHO Global Action Plan for the Prevention and Control of NCDs and the United Nations 2030 Agenda for Sustainable Development.
+
+WHO is taking action to extend diagnosis of and treatment for asthma in a number of ways.
+
+The WHO Package of Essential Noncommunicable Disease Interventions (PEN) was developed to help improve NCD management in primary health care in low-resource settings. PEN includes protocols for the assessment, diagnosis and management of chronic respiratory diseases (asthma and chronic obstructive pulmonary disease), and modules on healthy lifestyle counselling, including tobacco cessation and self-care.
+
+WHO is currently developing new guidelines for the diagnosis and management of asthma in primary care.
+
+Reducing tobacco smoke exposure is important for both primary prevention of asthma and disease management. The Framework Convention on Tobacco Control is enabling progress in this area as are WHO initiatives such as MPOWER and mTobacco Cessation.
+
+Air pollution is an important risk factor for asthma, causing new cases and making existing disease worse. WHO has developed training for health care workers on air pollution which highlights this link and offers practical advice to reduce and mitigate exposure.
+
+The Global Alliance against Chronic Respiratory Diseases (GARD) contributes to WHOâ€™s work to prevent and control chronic respiratory diseases. GARD is a voluntary alliance of national and international organizations and agencies from",health-020,single,What are some common triggers for asthma symptoms besides colds and weather changes?,"Other triggers can include dust, smoke, fumes, grass and tree pollen, animal fur and feathers, strong soaps and perfume.",0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+1.0,1.0,0.0,5.0,5.0,5.0,"Got it, let's look at the section about Gestational diabetes. The context says ""Gestational diabetes is diagnosed through prenatal screening, rather than through reported symptoms."" So we need to check that part. The question is asking how gestational diabetes is diagnosed, so the answer should be through prenatal screening.
+</think>
+
+To determine how gestational diabetes is diagnosed, we refer to the section on Gestational diabetes. The context states it is ""diagnosed through prenatal screening, rather than through reported symptoms."" Therefore, the answer is derived from that information. (Note: Since the question is about the diagnosis, the key point is prenatal screening.)","[1] was formerly called non-insulin dependent, or adult onset. Until recently, this type of diabetes was seen only in adults but it is now also occurring increasingly frequently in children.
+
+## Gestational diabetes
+
+Gestational diabetes is hyperglycaemia with blood glucose values above normal but below those diagnostic of diabetes. Gestational diabetes occurs during pregnancy.
+
+Women with gestational diabetes are at an increased risk of complications during pregnancy and at delivery. These women and possibly their children are also at increased risk of type 2 diabetes in the future.
+
+Gestational diabetes is diagnosed through prenatal screening, rather than through reported symptoms.
+
+## Impaired glucose tolerance and impaired fasting glycaemia
+
+Impaired glucose tolerance (IGT) and impaired fasting glycaemia (IFG) are intermediate conditions in the transition between normality and diabetes. People with IGT or IFG are at high risk of progressing to type 2 diabetes, although this is not inevitable.
+
+## Prevention
+
+Lifestyle changes are the best way to prevent or delay the onset of type 2 diabetes.
+
+To help prevent type 2 diabetes and its complications, people should:
+
+reach and keep a health body weight
+
+stay physically active with at least 150 minutes of moderate exercise each week
+
+eat a healthy diet and avoid sugar and saturated fat
+
+not smoke tobacco.
+
+## Diagnosis and treatment
+
+[2] Early diagnosis can be accomplished through relatively inexpensive testing of blood glucose. People with type 1 diabetes need insulin injections for survival.
+
+One of the most important ways to treat diabetes is to keep a healthy lifestyle.
+
+Some people with type 2 diabetes will need to take medicines to help manage their blood sugar levels. These can include insulin injections or other medicines. Some examples include:
+
+[3] losing weight unintentionally
+
+Over time, diabetes can damage blood vessels in the heart, eyes, kidneys and nerves.
+
+People with diabetes have a higher risk of health problems including heart attack, stroke and kidney failure.
+
+Diabetes can cause permanent vision loss by damaging blood vessels in the eyes.
+
+Many people with diabetes develop problems with their feet from nerve damage and poor blood flow. This can cause foot ulcers and may lead to amputation.
+
+## Type 1 diabetes
+
+Type 1 diabetes (previously known as insulin-dependent, juvenile or childhood-onset) is characterized by deficient insulin production and requires daily administration of insulin. In 2017 there were 9 million people with type 1 diabetes; the majority of them live in high-income countries.Â Neither its cause nor the means to prevent it are known.
+
+## Type 2 diabetes
+
+Type 2 diabetes affects how your body uses sugar (glucose) for energy. It stops the body from using insulin properly, which can lead to high levels of blood sugar if not treated.
+
+Over time, type 2 diabetes can cause serious damage to the body, especially nerves and blood vessels.
+
+Type 2 diabetes is often preventable. Factors that contribute to developing type 2 diabetes include being overweight, not getting enough exercise, and genetics.
+
+Early diagnosis is important to prevent the worst effects of type 2 diabetes. The best way to detect diabetes early is to get regular check-ups and blood tests with a healthcare provider.
+
+Symptoms of type 2 diabetes can be mild. They may take several years to be noticed. Â Symptoms may be similar to those of type 1 diabetes but are often less marked. As a result, the disease may be diagnosed several years after onset, after complications have already arisen.
+
+More than 95% of people with diabetes have type 2 diabetes. Type 2 diabetes
+
+[4] Symptoms of diabetes may occur suddenly. In type 2 diabetes, the symptoms can be mild and may take many years to be noticed.
+
+Symptoms of diabetes include:
+
+feeling very thirsty
+
+needing to urinate more often than usual
+
+blurred vision
+
+feeling tired
+
+[5] metformin
+
+sulfonylureas
+
+sodium-glucose co-transporters type 2 (SGLT-2) inhibitors.
+
+Along with medicines to lower blood sugar, people with diabetes often need medications to lower their blood pressure and statins to reduce the risk of complications.
+
+Additional medical care may be needed to treat the effects of diabetes:
+
+foot care to treat ulcers
+
+screening and treatment for kidney disease
+
+eye exams to screen for retinopathy (which causes blindness).
+
+## WHO response",health-011,single,How is gestational diabetes diagnosed?,"Gestational diabetes is diagnosed through prenatal screening, rather than through reported symptoms.",0.0,health|semantic_p90|e5-small|dense|k5,dense,ollama,minicpm-v4.6:latest

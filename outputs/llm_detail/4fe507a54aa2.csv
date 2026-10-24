@@ -1,0 +1,1614 @@
+groundedness,correctness,abstained,answer_relevance,faithfulness_level,truthfulness_level,answer,context,qid,qtype,question,reference,exact,key,mode,provider,llm_model
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Changed in version 3.10: Added the key parameter.
+
+## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.
+For locating specific values, dictionaries are more performant.
+
+The insort() functions are O ( n ) because the logarithmic search step
+is dominated by the linear time insertion step.
+
+The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+
+[2] For example, JSON or YAML conversions have complex error cases that require
+better reporting than can be given by the type keyword. A JSONDecodeError would not be well formatted and a FileNotFoundError exception would not be handled at all.
+
+Even FileType has its limitations for use with the type keyword. If one argument uses FileType and then a
+subsequent argument fails, an error is reported but the file is not
+automatically closed. In this case, it would be better to wait until after
+the parser has run and then use the with -statement to manage the
+files.
+
+For type checkers that simply check against a fixed set of values, consider
+using the choices keyword instead.
+
+### choices
+
+Some command-line arguments should be selected from a restricted set of values.
+
+[3] The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+If the key function isnÃ¢Â€Â™t fast, consider wrapping it with @functools.cache to avoid duplicate computations. Alternatively,
+consider searching an array of precomputed keys to locate the insertion
+point (as shown in the examples section below).
+
+See also
+
+Sorted Collections is a high performance
+module that uses bisect to managed sorted collections of data.
+
+The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+[4] ### type
+
+By default, the parser reads command-line arguments in as simple
+strings. However, quite often the command-line string should instead be
+interpreted as another type, such as a float or int . The type keyword for add_argument() allows any
+necessary type-checking and type conversions to be performed.
+
+If the type keyword is used with the default keyword, the type converter
+is only applied if the default is a string.
+
+The argument to type can be a callable that accepts a single string or
+the name of a registered type (see register() )
+If the function raises ArgumentTypeError , TypeError , or ValueError , the exception is caught and a nicely formatted error
+message is displayed. Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+[5] Most calls to the ArgumentParser constructor will use the description= keyword argument. This argument gives a brief description of
+what the program does and how it works. In help messages, the description is
+displayed between the command-line usage string and the help messages for the
+various arguments.
+
+By default, the description will be line-wrapped so that it fits within the
+given space. To change this behavior, see the formatter_class argument.
+
+### epilog
+
+Some programs like to display additional description of the program after the
+description of the arguments. Such text can be specified using the epilog= argument to ArgumentParser :",tech_docs-081,unanswerable,What specific formatting changes occur when the --sort-keys option is used with the JSON command-line interface?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+## Searching Sorted Lists
+
+The above bisect functions are useful for finding insertion points but
+can be tricky or awkward to use for common searching tasks. The following five
+functions show how to transform them into the standard lookups for sorted
+lists:
+
+```
+def index(a, x):
+    'Locate the leftmost value exactly equal to x'
+    i = bisect_left(a, x)
+    if i != len(a) and a[i] == x:
+        return i
+    raise ValueError
+
+def find_lt(a, x):
+    'Find rightmost value less than x'
+    i = bisect_left(a, x)
+    if i:
+        return a[i-1]
+    raise ValueError
+
+def find_le(a, x):
+    'Find rightmost value less than or equal to x'
+    i = bisect_right(a, x)
+    if i:
+        return a[i-1]
+    raise ValueError
+
+def find_gt(a, x):
+    'Find leftmost value greater than x'
+    i = bisect_right(a, x)
+    if i != len(a):
+        return a[i]
+    raise ValueError
+
+def find_ge(a, x):
+    'Find leftmost item greater than or equal to x'
+    i = bisect_left(a, x)
+    if i != len(a):
+        return a[i]
+    raise ValueError
+```
+
+## Examples
+
+The bisect() function can be useful for numeric table lookups.
+
+[2] # bisect Ã¢Â€Â” Array bisection algorithm
+
+Source code: Lib/bisect.py
+
+This module provides support for maintaining a list in sorted order without
+having to sort the list after each insertion. For long lists of items with
+expensive comparison operations, this can be an improvement over
+linear searches or frequent resorting.
+
+The module is called bisect because it uses a basic bisection
+algorithm to do its work. Unlike other bisection tools that search for a
+specific value, the functions in this module are designed to locate an
+insertion point. Accordingly, the functions never call an __eq__() method to determine whether a value has been found. Instead, the
+functions only call the __lt__() method and will return an insertion
+point between values in an array.
+
+[3] ## Examples
+
+The bisect() function can be useful for numeric table lookups. This
+example uses bisect() to look up a letter grade for an exam score (say)
+based on a set of ordered numeric breakpoints: 90 and up is an Ã¢Â€Â˜AÃ¢Â€Â™, 80 to 89 is
+a Ã¢Â€Â˜BÃ¢Â€Â™, and so on:
+
+```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+[4] For example, using insort_left() on the same list from multiple threads
+may result in the list becoming unsorted.
+
+The following functions are provided:
+
+bisect. bisect_left ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Locate the insertion point for x in a to maintain sorted order.
+The parameters lo and hi may be used to specify a subset of the list
+which should be considered; by default the entire list is used. If x is
+already present in a , the insertion point will be before (to the left of)
+any existing entries. The return value is suitable for use as the first
+parameter to list.insert() assuming that a is already sorted. The returned insertion point ip partitions the array a into two
+slices such that all(elem < x for elem in a[lo : ip]) is true for the
+left slice and all(elem >= x for elem in a[ip : hi]) is true for the
+right slice. key specifies a key function of one argument that is used to
+extract a comparison key from each element in the array.
+
+[5] ```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+```
+>>> data = [('red', 5), ('blue', 1), ('yellow', 8), ('black', 0)]
+>>> data.sort(key=lambda r: r[1])       # Or use operator.itemgetter(1).
+>>> keys = [r[1] for r in data]         # Precompute a list of keys.
+>>> data[bisect_left(keys, 0)]
+('black', 0)
+>>> data[bisect_left(keys, 1)]
+('blue', 1)
+>>> data[bisect_left(keys, 5)]
+('red', 5)
+>>> data[bisect_left(keys, 8)]
+('yellow', 8)
+```",tech_docs-084,unanswerable,What is the complete Python implementation code provided for itertools.permutations?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Supplying a set of
+characters that does not include - will cause -f/--foo options to be
+disallowed.
+
+### fromfile_prefix_chars
+
+Sometimes, when dealing with a particularly long argument list, it
+may make sense to keep the list of arguments in a file rather than typing it out
+at the command line. If the fromfile_prefix_chars= argument is given to the ArgumentParser constructor, then arguments that start with any of the
+specified characters will be treated as files, and will be replaced by the
+arguments they contain. For example:
+
+```
+>>> with open('args.txt', 'w', encoding=sys.getfilesystemencoding()) as fp:
+...     fp.write('-f\nbar')
+...
+>>> parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
+>>> parser.add_argument('-f')
+>>> parser.parse_args(['-f', 'foo', '@args.txt'])
+Namespace(f='bar')
+```
+
+Arguments read from a file must be one per line by default (but see also convert_arg_line_to_args() ) and are treated as if they
+were in the same place as the original file referencing argument on the command
+line. So in the example above, the expression ['-f', 'foo', '@args.txt'] is considered equivalent to the expression ['-f', 'foo', '-f', 'bar'] .
+
+[2] For optional argument actions, the value of dest is normally inferred from
+the option strings. ArgumentParser generates the value of dest by
+taking the first double-dash long option string and stripping away the initial - characters.
+If no double-dash long option strings were supplied, dest will be derived
+from the first single-dash long option string by stripping the initial - character.
+If no long option strings were supplied, dest will be derived from
+the first short option string by stripping the initial - character. Any
+internal - characters will be converted to _ characters to make sure
+the string is a valid attribute name. The examples below illustrate this
+behavior:
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('-f', '--foo-bar', '--foo')
+>>> parser.add_argument('-q', '-quz')
+>>> parser.add_argument('-x', '-y')
+>>> parser.parse_args('-f 1 -q 2 -x 3'.split())
+Namespace(foo_bar='1', quz='2', x='3')
+>>> parser.parse_args('--foo 1 -quz 2 -y 3'.split())
+Namespace(foo_bar='1', quz='2', x='2')
+```
+
+dest allows a custom attribute name to be provided:
+
+[3] formatter_class - A class for customizing the help output
+
+prefix_chars - The set of characters that prefix optional arguments
+(default: Ã¢Â€Â˜-Ã¢Â€Â˜)
+
+fromfile_prefix_chars - The set of characters that prefix files from
+which additional arguments should be read (default: None )
+
+argument_default - The global default value for arguments
+(default: None )
+
+conflict_handler - The strategy for resolving conflicting optionals
+(usually unnecessary)
+
+add_help - Add a -h/--help option to the parser (default: True )
+
+allow_abbrev - Allows long options to be abbreviated if the
+abbreviation is unambiguous (default: True )
+
+exit_on_error - Determines whether or not ArgumentParser exits with
+error info when an error occurs.
+
+[4] In
+this case, the first character in prefix_chars is used to prefix
+the help options:
+
+```
+>>> parser = argparse.ArgumentParser(prog='PROG', prefix_chars='+/')
+>>> parser.print_help()
+usage: PROG [+h]
+
+options:
+  +h, ++help  show this help message and exit
+```
+
+### exit_on_error
+
+Normally, when you pass an invalid argument list to the parse_args() method of an ArgumentParser , it will print a message to sys.stderr and exit with a status
+code of 2.
+
+If the user would like to catch errors manually, the feature can be enabled by setting exit_on_error to False :
+
+```
+>>> parser = argparse.ArgumentParser(exit_on_error=False)
+>>> parser.add_argument('--integers', type=int)
+_StoreAction(option_strings=['--integers'], dest='integers', nargs=None, const=None, default=None, type=<class 'int'>, choices=None, help=None, metavar=None)
+>>> try:
+...     parser.parse_args('--integers a'.split())
+... except argparse.ArgumentError:
+...     print('Catching an argumentError')
+...
+Catching an argumentError
+```
+
+Added in version 3.9.
+
+### suggest_on_error
+
+[5] ArgumentParser. format_usage ( )
+
+Return a string containing a brief description of how the ArgumentParser should be invoked on the command line.
+
+ArgumentParser. format_help ( )
+
+Return a string containing a help message, including the program usage and
+information about the arguments registered with the ArgumentParser .
+
+### Partial parsing
+
+ArgumentParser. parse_known_args ( args = None , namespace = None )
+
+Sometimes a script only needs to handle a specific set of command-line
+arguments, leaving any unrecognized arguments for another script or program.
+In these cases, the parse_known_args() method can be
+useful.",tech_docs-085,unanswerable,What specific function is being described for escaping backslashes in regular expressions?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] ## Examples
+
+The bisect() function can be useful for numeric table lookups. This
+example uses bisect() to look up a letter grade for an exam score (say)
+based on a set of ordered numeric breakpoints: 90 and up is an Ã¢Â€Â˜AÃ¢Â€Â™, 80 to 89 is
+a Ã¢Â€Â˜BÃ¢Â€Â™, and so on:
+
+```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+[2] Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+```
+import argparse
+import pathlib
+
+parser = argparse.ArgumentParser()
+parser.add_argument('count', type=int)
+parser.add_argument('distance', type=float)
+parser.add_argument('street', type=ascii)
+parser.add_argument('code_point', type=ord)
+parser.add_argument('datapath', type=pathlib.Path)
+```
+
+User defined functions can be used as well:
+
+```
+>>> def hyphenated(string):
+...     return '-'.join([word[:4] for word in string.casefold().split()])
+...
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('short_title', type=hyphenated)
+>>> parser.parse_args(['""The Tale of Two Cities""'])
+Namespace(short_title='""the-tale-of-two-citi')
+```
+
+The bool() function is not recommended as a type converter. All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+[3] The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+## Searching Sorted Lists
+
+The above bisect functions are useful for finding insertion points but
+can be tricky or awkward to use for common searching tasks. The following five
+functions show how to transform them into the standard lookups for sorted
+lists:
+
+```
+def index(a, x):
+    'Locate the leftmost value exactly equal to x'
+    i = bisect_left(a, x)
+    if i != len(a) and a[i] == x:
+        return i
+    raise ValueError
+
+def find_lt(a, x):
+    'Find rightmost value less than x'
+    i = bisect_left(a, x)
+    if i:
+        return a[i-1]
+    raise ValueError
+
+def find_le(a, x):
+    'Find rightmost value less than or equal to x'
+    i = bisect_right(a, x)
+    if i:
+        return a[i-1]
+    raise ValueError
+
+def find_gt(a, x):
+    'Find leftmost value greater than x'
+    i = bisect_right(a, x)
+    if i != len(a):
+        return a[i]
+    raise ValueError
+
+def find_ge(a, x):
+    'Find leftmost item greater than or equal to x'
+    i = bisect_left(a, x)
+    if i != len(a):
+        return a[i]
+    raise ValueError
+```
+
+## Examples
+
+The bisect() function can be useful for numeric table lookups.
+
+[4] # bisect Ã¢Â€Â” Array bisection algorithm
+
+Source code: Lib/bisect.py
+
+This module provides support for maintaining a list in sorted order without
+having to sort the list after each insertion. For long lists of items with
+expensive comparison operations, this can be an improvement over
+linear searches or frequent resorting.
+
+The module is called bisect because it uses a basic bisection
+algorithm to do its work. Unlike other bisection tools that search for a
+specific value, the functions in this module are designed to locate an
+insertion point. Accordingly, the functions never call an __eq__() method to determine whether a value has been found. Instead, the
+functions only call the __lt__() method and will return an insertion
+point between values in an array.
+
+[5] ```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+```
+>>> data = [('red', 5), ('blue', 1), ('yellow', 8), ('black', 0)]
+>>> data.sort(key=lambda r: r[1])       # Or use operator.itemgetter(1).
+>>> keys = [r[1] for r in data]         # Precompute a list of keys.
+>>> data[bisect_left(keys, 0)]
+('black', 0)
+>>> data[bisect_left(keys, 1)]
+('blue', 1)
+>>> data[bisect_left(keys, 5)]
+('red', 5)
+>>> data[bisect_left(keys, 8)]
+('yellow', 8)
+```",tech_docs-077,unanswerable,In what version of Python were these itertools functions introduced?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] This function first runs bisect_left() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Similar to insort_left() , but inserting x in a after any existing
+entries of x .
+
+[2] Each parameter
+has its own more detailed description below, but in short they are: name or flags - Either a name or a list of option strings, e.g. 'foo' or '-f', '--foo' . action - The basic type of action to be taken when this argument is
+encountered at the command line. nargs - The number of command-line arguments that should be consumed. const - A constant value required by some action and nargs selections. default - The value produced if the argument is absent from the
+command line and if it is absent from the namespace object. type - The type to which the command-line argument should be converted. choices - A sequence of the allowable values for the argument. required - Whether or not the command-line option may be omitted
+(optionals only). help - A brief description of what the argument does. metavar - A name for the argument in usage messages. dest - The name of the attribute to be added to the object returned by parse_args() . deprecated - Whether or not use of the argument is deprecated. The method returns an Action object representing the argument.
+
+name or flags - Either a name or a list of option strings, e.g. 'foo' or '-f', '--foo' .
+
+action - The basic type of action to be taken when this argument is
+encountered at the command line.
+
+nargs - The number of command-line arguments that should be consumed.
+
+const - A constant value required by some action and nargs selections.
+
+[3] Similarly, when a help message is requested from a subparser, only the help
+for that particular parser will be printed.  The help message will not
+include parent parser or sibling parser messages.  (A help message for each
+subparser command, however, can be given by supplying the help= argument
+to add_parser() as above.) ```
+>>> parser.parse_args(['--help'])
+usage: PROG [-h] [--foo] {a,b} ...
+
+positional arguments:
+  {a,b}   subcommand help
+    a     a help
+    b     b help
+
+options:
+  -h, --help  show this help message and exit
+  --foo   foo help
+
+>>> parser.parse_args(['a', '--help'])
+usage: PROG a [-h] bar
+
+positional arguments:
+  bar     bar help
+
+options:
+  -h, --help  show this help message and exit
+
+>>> parser.parse_args(['b', '--help'])
+usage: PROG b [-h] [--baz {X,Y,Z}]
+
+options:
+  -h, --help     show this help message and exit
+  --baz {X,Y,Z}  baz help
+``` The add_subparsers() method also supports title and description keyword arguments.  When either is present, the subparserÃ¢Â€Â™s commands will
+appear in their own group in the help output.  For example: ```
+>>> parser = argparse.ArgumentParser()
+>>> subparsers = parser.add_subparsers(title='subcommands',
+...                                    description='valid subcommands',
+...                                    help='additional help')
+>>> subparsers.add_parser('foo')
+>>> subparsers.add_parser('bar')
+>>> parser.parse_args(['-h'])
+usage:  [-h] {foo,bar} ...
+
+options:
+  -h, --help  show this help message and exit
+
+subcommands:
+  valid subcommands
+
+  {foo,bar}   additional help
+```
+
+[4] nargs - The number of command-line arguments that should be consumed.
+
+const - A constant value required by some action and nargs selections.
+
+default - The value produced if the argument is absent from the
+command line and if it is absent from the namespace object.
+
+type - The type to which the command-line argument should be converted.
+
+choices - A sequence of the allowable values for the argument.
+
+required - Whether or not the command-line option may be omitted
+(optionals only).
+
+help - A brief description of what the argument does.
+
+metavar - A name for the argument in usage messages.
+
+[5] bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Similar to insort_left() , but inserting x in a after any existing
+entries of x . This function first runs bisect_right() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+## Performance Notes",tech_docs-078,unanswerable,What specific destinations can handlers send log records to?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] formatter_class - A class for customizing the help output
+
+prefix_chars - The set of characters that prefix optional arguments
+(default: Ã¢Â€Â˜-Ã¢Â€Â˜)
+
+fromfile_prefix_chars - The set of characters that prefix files from
+which additional arguments should be read (default: None )
+
+argument_default - The global default value for arguments
+(default: None )
+
+conflict_handler - The strategy for resolving conflicting optionals
+(usually unnecessary)
+
+add_help - Add a -h/--help option to the parser (default: True )
+
+allow_abbrev - Allows long options to be abbreviated if the
+abbreviation is unambiguous (default: True )
+
+exit_on_error - Determines whether or not ArgumentParser exits with
+error info when an error occurs.
+
+[2] All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('--verbose', type=bool)
+>>> parser.parse_args(['--verbose', 'False'])
+Namespace(verbose=True)
+```
+
+See BooleanOptionalAction or action='store_true' for common
+alternatives.
+
+In general, the type keyword is a convenience that should only be used for
+simple conversions that can only raise one of the three supported exceptions.
+Anything with more interesting error-handling or resource management should be
+done downstream after the arguments are parsed.
+
+For example, JSON or YAML conversions have complex error cases that require
+better reporting than can be given by the type keyword. A JSONDecodeError would not be well formatted and a FileNotFoundError exception would not be handled at all.
+
+[3] Changed in version 3.12: ArgumentParser changed encoding and errors to read arguments files
+from default (e.g. locale.getpreferredencoding(False) and ""strict"" ) to the filesystem encoding and error handler .
+Arguments file should be encoded in UTF-8 instead of ANSI Codepage on Windows.
+
+### argument_default
+
+Generally, argument defaults are specified either by passing a default to add_argument() or by calling the set_defaults() methods with a specific set of name-value
+pairs. Sometimes however, it may be useful to specify a single parser-wide
+default for arguments. This can be accomplished by passing the argument_default= keyword argument to ArgumentParser . For example,
+to globally suppress attribute creation on parse_args() calls, we supply argument_default=SUPPRESS :
+
+```
+>>> parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS)
+>>> parser.add_argument('--foo')
+>>> parser.add_argument('bar', nargs='?')
+>>> parser.parse_args(['--foo', '1', 'BAR'])
+Namespace(bar='BAR', foo='1')
+>>> parser.parse_args([])
+Namespace()
+```
+
+[4] format_usage ( )
+
+Action subclasses can define a format_usage() method that takes no argument
+and return a string which will be used when printing the usage of the program.
+If such method is not provided, a sensible default will be used.
+
+class argparse. BooleanOptionalAction
+
+A subclass of Action for handling boolean flags with positive
+and negative options. Adding a single argument such as --foo automatically
+creates both --foo and --no-foo options, storing True and False respectively: ```
+>>> import argparse
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', action=argparse.BooleanOptionalAction)
+>>> parser.parse_args(['--no-foo'])
+Namespace(foo=False)
+```
+
+[5] Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+```
+import argparse
+import pathlib
+
+parser = argparse.ArgumentParser()
+parser.add_argument('count', type=int)
+parser.add_argument('distance', type=float)
+parser.add_argument('street', type=ascii)
+parser.add_argument('code_point', type=ord)
+parser.add_argument('datapath', type=pathlib.Path)
+```
+
+User defined functions can be used as well:
+
+```
+>>> def hyphenated(string):
+...     return '-'.join([word[:4] for word in string.casefold().split()])
+...
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('short_title', type=hyphenated)
+>>> parser.parse_args(['""The Tale of Two Cities""'])
+Namespace(short_title='""the-tale-of-two-citi')
+```
+
+The bool() function is not recommended as a type converter. All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:",tech_docs-079,unanswerable,What specific method does the serializer use to handle non-ASCII Unicode characters when ensure_ascii is set to False?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] format_usage ( )
+
+Action subclasses can define a format_usage() method that takes no argument
+and return a string which will be used when printing the usage of the program.
+If such method is not provided, a sensible default will be used.
+
+class argparse. BooleanOptionalAction
+
+A subclass of Action for handling boolean flags with positive
+and negative options. Adding a single argument such as --foo automatically
+creates both --foo and --no-foo options, storing True and False respectively: ```
+>>> import argparse
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', action=argparse.BooleanOptionalAction)
+>>> parser.parse_args(['--no-foo'])
+Namespace(foo=False)
+```
+
+[2] formatter_class - A class for customizing the help output
+
+prefix_chars - The set of characters that prefix optional arguments
+(default: Ã¢Â€Â˜-Ã¢Â€Â˜)
+
+fromfile_prefix_chars - The set of characters that prefix files from
+which additional arguments should be read (default: None )
+
+argument_default - The global default value for arguments
+(default: None )
+
+conflict_handler - The strategy for resolving conflicting optionals
+(usually unnecessary)
+
+add_help - Add a -h/--help option to the parser (default: True )
+
+allow_abbrev - Allows long options to be abbreviated if the
+abbreviation is unambiguous (default: True )
+
+exit_on_error - Determines whether or not ArgumentParser exits with
+error info when an error occurs.
+
+[3] Most actions add an attribute to this
+object using setattr() . values - The associated command-line arguments, with any type conversions
+applied. Type conversions are specified with the type keyword argument to add_argument() . option_string - The option string that was used to invoke this action.
+The option_string argument is optional, and will be absent if the action
+is associated with a positional argument. The __call__() method may perform arbitrary actions, but will typically set
+attributes on the namespace based on dest and values . format_usage ( ) Action subclasses can define a format_usage() method that takes no argument
+and return a string which will be used when printing the usage of the program.
+If such method is not provided, a sensible default will be used.
+
+__call__ ( parser , namespace , values , option_string = None )
+
+Action instances should be callable, so subclasses must override the __call__() method, which should accept four parameters: parser - The ArgumentParser object which contains this action. namespace - The Namespace object that will be returned by parse_args() . Most actions add an attribute to this
+object using setattr() . values - The associated command-line arguments, with any type conversions
+applied.
+
+[4] Get the default value for a namespace attribute, as set by either add_argument() or by set_defaults() : ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', default='badger')
+>>> parser.get_default('foo')
+'badger'
+```
+
+### Printing help
+
+In most typical applications, parse_args() will take
+care of formatting and printing any usage or error messages. However, several
+formatting methods are available:
+
+ArgumentParser. print_usage ( file = None )
+
+Print a brief description of how the ArgumentParser should be
+invoked on the command line. If file is None , sys.stdout is
+assumed.
+
+[5] Print a brief description of how the ArgumentParser should be
+invoked on the command line. If file is None , sys.stdout is
+assumed.
+
+ArgumentParser. print_help ( file = None )
+
+Print a help message, including the program usage and information about the
+arguments registered with the ArgumentParser . If file is None , sys.stdout is assumed.
+
+There are also variants of these methods that simply return a string instead of
+printing it:
+
+ArgumentParser. format_usage ( )
+
+Return a string containing a brief description of how the ArgumentParser should be invoked on the command line.",tech_docs-080,unanswerable,How can a custom LogRecord attribute be accessed within a custom logging formatter in Python?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] ## Examples
+
+The bisect() function can be useful for numeric table lookups. This
+example uses bisect() to look up a letter grade for an exam score (say)
+based on a set of ordered numeric breakpoints: 90 and up is an Ã¢Â€Â˜AÃ¢Â€Â™, 80 to 89 is
+a Ã¢Â€Â˜BÃ¢Â€Â™, and so on:
+
+```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+[2] Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+```
+import argparse
+import pathlib
+
+parser = argparse.ArgumentParser()
+parser.add_argument('count', type=int)
+parser.add_argument('distance', type=float)
+parser.add_argument('street', type=ascii)
+parser.add_argument('code_point', type=ord)
+parser.add_argument('datapath', type=pathlib.Path)
+```
+
+User defined functions can be used as well:
+
+```
+>>> def hyphenated(string):
+...     return '-'.join([word[:4] for word in string.casefold().split()])
+...
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('short_title', type=hyphenated)
+>>> parser.parse_args(['""The Tale of Two Cities""'])
+Namespace(short_title='""the-tale-of-two-citi')
+```
+
+The bool() function is not recommended as a type converter. All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+[3] All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('--verbose', type=bool)
+>>> parser.parse_args(['--verbose', 'False'])
+Namespace(verbose=True)
+```
+
+See BooleanOptionalAction or action='store_true' for common
+alternatives.
+
+In general, the type keyword is a convenience that should only be used for
+simple conversions that can only raise one of the three supported exceptions.
+Anything with more interesting error-handling or resource management should be
+done downstream after the arguments are parsed.
+
+For example, JSON or YAML conversions have complex error cases that require
+better reporting than can be given by the type keyword. A JSONDecodeError would not be well formatted and a FileNotFoundError exception would not be handled at all.
+
+[4] Changed in version 3.14: Negative-number matching was expanded to include numbers in scientific
+notation ( -2.5e-6 ), numbers containing underscores ( -1_234.5 ),
+and complex numbers ( -1.2e-3j ).
+
+### Argument abbreviations (prefix matching)
+
+The parse_args() method by default allows long options to be abbreviated to a prefix, if the abbreviation is
+unambiguous (the prefix matches a unique option):
+
+```
+>>> parser = argparse.ArgumentParser(prog='PROG')
+>>> parser.add_argument('-bacon')
+>>> parser.add_argument('-badger')
+>>> parser.parse_args('-bac MMM'.split())
+Namespace(bacon='MMM', badger=None)
+>>> parser.parse_args('-bad WOOD'.split())
+Namespace(bacon=None, badger='WOOD')
+>>> parser.parse_args('-ba BA'.split())
+usage: PROG [-h] [-bacon BACON] [-badger BADGER]
+PROG: error: ambiguous option: -ba could match -badger, -bacon
+```
+
+An error is produced for arguments that could produce more than one options.
+This feature can be disabled by setting allow_abbrev to False .
+
+### Beyond sys.argv
+
+Sometimes it may be useful to have an ArgumentParser parse arguments other than those
+of sys.argv .
+
+[5] # bisect Ã¢Â€Â” Array bisection algorithm
+
+Source code: Lib/bisect.py
+
+This module provides support for maintaining a list in sorted order without
+having to sort the list after each insertion. For long lists of items with
+expensive comparison operations, this can be an improvement over
+linear searches or frequent resorting.
+
+The module is called bisect because it uses a basic bisection
+algorithm to do its work. Unlike other bisection tools that search for a
+specific value, the functions in this module are designed to locate an
+insertion point. Accordingly, the functions never call an __eq__() method to determine whether a value has been found. Instead, the
+functions only call the __lt__() method and will return an insertion
+point between values in an array.",tech_docs-059,single,In what Python version was support added for splitting on a pattern that could match an empty string?,Changed in version 3.7: Added support of splitting on a pattern that could match an empty string.,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,0.0,1.0,1.0,5.0,1.0,I don't know.,"[1] 'extend' - This appends each item from a multi-value
+argument to a list.
+The 'extend' action is typically used with the nargs keyword argument
+value '+' or '*' .
+Note that when nargs is None (the default) or '?' , each
+character of the argument string will be appended to the list.
+Example usage: ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument(""--foo"", action=""extend"", nargs=""+"", type=str)
+>>> parser.parse_args([""--foo"", ""f1"", ""--foo"", ""f2"", ""f3"", ""f4""])
+Namespace(foo=['f1', 'f2', 'f3', 'f4'])
+``` Added in version 3.8.
+
+'count' - This counts the number of times an argument occurs. For
+example, this is useful for increasing verbosity levels:
+
+[2] ## Examples
+
+The bisect() function can be useful for numeric table lookups. This
+example uses bisect() to look up a letter grade for an exam score (say)
+based on a set of ordered numeric breakpoints: 90 and up is an Ã¢Â€Â˜AÃ¢Â€Â™, 80 to 89 is
+a Ã¢Â€Â˜BÃ¢Â€Â™, and so on:
+
+```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+[3] class argparse. Namespace
+
+Simple class used by default by parse_args() to create
+an object holding attributes and return it. This class is deliberately simple, just an object subclass with a
+readable string representation. If you prefer to have dict-like view of the
+attributes, you can use the standard Python idiom, vars() : ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo')
+>>> args = parser.parse_args(['--foo', 'BAR'])
+>>> vars(args)
+{'foo': 'BAR'}
+``` It may also be useful to have an ArgumentParser assign attributes to an
+already existing object, rather than a new Namespace object.  This can
+be achieved by specifying the namespace= keyword argument:
+
+[4] Example usage: ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', action='append', default=['0'])
+>>> parser.parse_args('--foo 1 --foo 2'.split())
+Namespace(foo=['0', '1', '2'])
+```
+
+'append_const' - This appends the value specified by
+the const keyword argument to a list; note that the const keyword
+argument defaults to None . The 'append_const' action is typically
+useful when multiple arguments need to store constants to the same list. For
+example: ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--str', dest='types', action='append_const', const=str)
+>>> parser.add_argument('--int', dest='types', action='append_const', const=int)
+>>> parser.parse_args('--str --int'.split())
+Namespace(types=[<class 'str'>, <class 'int'>])
+```
+
+'extend' - This appends each item from a multi-value
+argument to a list.
+The 'extend' action is typically used with the nargs keyword argument
+value '+' or '*' .
+
+[5] Previous calls to add_argument() determine exactly what objects are
+created and how they are assigned. See the documentation for add_argument() for details. args - List of strings to parse. The default is taken from sys.argv . namespace - An object to take the attributes. The default is a new empty Namespace object.
+
+args - List of strings to parse. The default is taken from sys.argv .
+
+namespace - An object to take the attributes. The default is a new empty Namespace object.",tech_docs-040,single,How many additional methods and attributes do named tuples support in addition to the methods inherited from tuples?,three additional methods and two attributes,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Because nargs='*' gathers any supplied values into a list, an absent
+positional argument yields an empty list ( [] ). Only a non- None default overrides this (so default=None still gives [] ).
+
+For required arguments, the default value is ignored. For example, this
+applies to positional arguments with nargs values other than ? or * ,
+or optional arguments marked as required=True .
+
+Providing default=argparse.SUPPRESS causes no attribute to be added if the
+command-line argument was not present:
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', default=argparse.SUPPRESS)
+>>> parser.parse_args([])
+Namespace()
+>>> parser.parse_args(['--foo', '1'])
+Namespace(foo='1')
+```
+
+### type
+
+By default, the parser reads command-line arguments in as simple
+strings.
+
+[2] The add_argument() method must know whether an optional
+argument, like -f or --foo , or a positional argument, like a list of
+filenames, is expected. The first arguments passed to add_argument() must therefore be either a series of
+flags, or a simple argument name.
+
+For example, an optional argument could be created like:
+
+```
+>>> parser.add_argument('-f', '--foo')
+```
+
+while a positional argument could be created like:
+
+```
+>>> parser.add_argument('bar')
+```
+
+When parse_args() is called, optional arguments will be
+identified by the - prefix, and the remaining arguments will be assumed to
+be positional:
+
+```
+>>> parser = argparse.ArgumentParser(prog='PROG')
+>>> parser.add_argument('-f', '--foo')
+>>> parser.add_argument('bar')
+>>> parser.parse_args(['BAR'])
+Namespace(bar='BAR', foo=None)
+>>> parser.parse_args(['BAR', '--foo', 'FOO'])
+Namespace(bar='BAR', foo='FOO')
+>>> parser.parse_args(['--foo', 'FOO'])
+usage: PROG [-h] [-f FOO] bar
+PROG: error: the following arguments are required: bar
+```
+
+[3] These parsers do not support all the argparse features, and will raise
+exceptions if unsupported features are used.  In particular, subparsers,
+and mutually exclusive groups that include both
+optionals and positionals are not supported. The following example shows the difference between parse_known_args() and parse_intermixed_args() : the former returns ['2', '3'] as unparsed arguments, while the latter collects all the positionals
+into rest . ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo')
+>>> parser.add_argument('cmd')
+>>> parser.add_argument('rest', nargs='*', type=int)
+>>> parser.parse_known_args('doit 1 --foo bar 2 3'.split())
+(Namespace(cmd='doit', foo='bar', rest=[1]), ['2', '3'])
+>>> parser.parse_intermixed_args('doit 1 --foo bar 2 3'.split())
+Namespace(cmd='doit', foo='bar', rest=[1, 2, 3])
+``` parse_known_intermixed_args() returns a two item tuple
+containing the populated namespace and the list of remaining argument strings. parse_intermixed_args() raises an error if there are any
+remaining unparsed argument strings. Added in version 3.7.
+
+### Registering custom types or actions
+
+ArgumentParser. register ( registry_name , value , object )
+
+[4] Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+```
+import argparse
+import pathlib
+
+parser = argparse.ArgumentParser()
+parser.add_argument('count', type=int)
+parser.add_argument('distance', type=float)
+parser.add_argument('street', type=ascii)
+parser.add_argument('code_point', type=ord)
+parser.add_argument('datapath', type=pathlib.Path)
+```
+
+User defined functions can be used as well:
+
+```
+>>> def hyphenated(string):
+...     return '-'.join([word[:4] for word in string.casefold().split()])
+...
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('short_title', type=hyphenated)
+>>> parser.parse_args(['""The Tale of Two Cities""'])
+Namespace(short_title='""the-tale-of-two-citi')
+```
+
+The bool() function is not recommended as a type converter. All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+[5] This nesting was never supported, often failed to work
+correctly, and was unintentionally exposed through inheritance. Deprecated since version 3.14: Passing prefix_chars to add_argument_group() is now deprecated.
+
+### Mutual exclusion
+
+ArgumentParser. add_mutually_exclusive_group ( required = False )
+
+Create a mutually exclusive group. argparse will make sure that only
+one of the arguments in the mutually exclusive group was present on the
+command line: ```
+>>> parser = argparse.ArgumentParser(prog='PROG')
+>>> group = parser.add_mutually_exclusive_group()
+>>> group.add_argument('--foo', action='store_true')
+>>> group.add_argument('--bar', action='store_false')
+>>> parser.parse_args(['--foo'])
+Namespace(bar=True, foo=True)
+>>> parser.parse_args(['--bar'])
+Namespace(bar=False, foo=False)
+>>> parser.parse_args(['--foo', '--bar'])
+usage: PROG [-h] [--foo | --bar]
+PROG: error: argument --bar: not allowed with argument --foo
+``` The add_mutually_exclusive_group() method also accepts a required argument, to indicate that at least one of the mutually exclusive arguments
+is required: ```
+>>> parser = argparse.ArgumentParser(prog='PROG')
+>>> group = parser.add_mutually_exclusive_group(required=True)
+>>> group.add_argument('--foo', action='store_true')
+>>> group.add_argument('--bar', action='store_false')
+>>> parser.parse_args([])
+usage: PROG [-h] (--foo | --bar)
+PROG: error: one of the arguments --foo --bar is required
+```",tech_docs-031,single,Why is the re.U flag considered redundant in Python 3?,"In Python 3, Unicode characters are matched by default for str patterns. This flag is therefore redundant with no effect and is only kept for backward compatibility.",0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] ### Exiting methods
+
+ArgumentParser. exit ( status = 0 , message = None )
+
+This method terminates the program, exiting with the specified status and, if given, it prints a message to sys.stderr before that.
+The user can override this method to handle these steps differently: ```
+class ErrorCatchingArgumentParser(argparse.ArgumentParser):
+    def exit(self, status=0, message=None):
+        if status:
+            raise Exception(f'Exiting because of an error: {message}')
+        exit(status)
+```
+
+ArgumentParser. error ( message )
+
+This method prints a usage message, including the message , to sys.stderr and terminates the program with a status code of 2.
+
+### Intermixed parsing
+
+[2] Changed in version 3.10: Added the key parameter.
+
+## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.
+For locating specific values, dictionaries are more performant.
+
+The insort() functions are O ( n ) because the logarithmic search step
+is dominated by the linear time insertion step.
+
+The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+
+[3] This method prints a usage message, including the message , to sys.stderr and terminates the program with a status code of 2.
+
+### Intermixed parsing
+
+ArgumentParser. parse_intermixed_args ( args = None , namespace = None )
+
+ArgumentParser. parse_known_intermixed_args ( args = None , namespace = None )
+
+A number of Unix commands allow the user to intermix optional arguments with
+positional arguments.  The parse_intermixed_args() and parse_known_intermixed_args() methods
+support this parsing style. These parsers do not support all the argparse features, and will raise
+exceptions if unsupported features are used.  In particular, subparsers,
+and mutually exclusive groups that include both
+optionals and positionals are not supported.
+
+[4] Added in version 3.9.
+
+### suggest_on_error
+
+By default, when a user passes an invalid argument choice or subparser name, ArgumentParser will exit with error info and provide suggestions for
+mistyped arguments. The error message will list the permissible argument
+choices (if specified) or subparser names, along with a Ã¢Â€Âœmaybe you meantÃ¢Â€Â
+suggestion if a close match is found. Note that this only applies for arguments
+when the choices specified are strings:
+
+```
+>>> parser = argparse.ArgumentParser(suggest_on_error=True)
+>>> parser.add_argument('--action', choices=['debug', 'dryrun'])
+>>> parser.parse_args(['--action', 'debugg'])
+usage: tester.py [-h] [--action {debug,dryrun}]
+tester.py: error: argument --action: invalid choice: 'debugg', maybe you meant 'debug'? (choose from debug, dryrun)
+```
+
+You can disable suggestions by setting suggest_on_error to False .
+
+Added in version 3.14.
+
+[5] For example, JSON or YAML conversions have complex error cases that require
+better reporting than can be given by the type keyword. A JSONDecodeError would not be well formatted and a FileNotFoundError exception would not be handled at all.
+
+Even FileType has its limitations for use with the type keyword. If one argument uses FileType and then a
+subsequent argument fails, an error is reported but the file is not
+automatically closed. In this case, it would be better to wait until after
+the parser has run and then use the with -statement to manage the
+files.
+
+For type checkers that simply check against a fixed set of values, consider
+using the choices keyword instead.
+
+### choices
+
+Some command-line arguments should be selected from a restricted set of values.",tech_docs-050,single,When should logging.shutdown() be called?,This should be called at application exit and no further use of the logging system should be made after this call.,0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,0.0,1.0,1.0,5.0,1.0,I don't know.,"[1] ## Examples
+
+The bisect() function can be useful for numeric table lookups. This
+example uses bisect() to look up a letter grade for an exam score (say)
+based on a set of ordered numeric breakpoints: 90 and up is an Ã¢Â€Â˜AÃ¢Â€Â™, 80 to 89 is
+a Ã¢Â€Â˜BÃ¢Â€Â™, and so on:
+
+```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+[2] ```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+```
+>>> data = [('red', 5), ('blue', 1), ('yellow', 8), ('black', 0)]
+>>> data.sort(key=lambda r: r[1])       # Or use operator.itemgetter(1).
+>>> keys = [r[1] for r in data]         # Precompute a list of keys.
+>>> data[bisect_left(keys, 0)]
+('black', 0)
+>>> data[bisect_left(keys, 1)]
+('blue', 1)
+>>> data[bisect_left(keys, 5)]
+('red', 5)
+>>> data[bisect_left(keys, 8)]
+('yellow', 8)
+```
+
+[3] Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+```
+import argparse
+import pathlib
+
+parser = argparse.ArgumentParser()
+parser.add_argument('count', type=int)
+parser.add_argument('distance', type=float)
+parser.add_argument('street', type=ascii)
+parser.add_argument('code_point', type=ord)
+parser.add_argument('datapath', type=pathlib.Path)
+```
+
+User defined functions can be used as well:
+
+```
+>>> def hyphenated(string):
+...     return '-'.join([word[:4] for word in string.casefold().split()])
+...
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('short_title', type=hyphenated)
+>>> parser.parse_args(['""The Tale of Two Cities""'])
+Namespace(short_title='""the-tale-of-two-citi')
+```
+
+The bool() function is not recommended as a type converter. All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+[4] The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+## Searching Sorted Lists
+
+The above bisect functions are useful for finding insertion points but
+can be tricky or awkward to use for common searching tasks. The following five
+functions show how to transform them into the standard lookups for sorted
+lists:
+
+```
+def index(a, x):
+    'Locate the leftmost value exactly equal to x'
+    i = bisect_left(a, x)
+    if i != len(a) and a[i] == x:
+        return i
+    raise ValueError
+
+def find_lt(a, x):
+    'Find rightmost value less than x'
+    i = bisect_left(a, x)
+    if i:
+        return a[i-1]
+    raise ValueError
+
+def find_le(a, x):
+    'Find rightmost value less than or equal to x'
+    i = bisect_right(a, x)
+    if i:
+        return a[i-1]
+    raise ValueError
+
+def find_gt(a, x):
+    'Find leftmost value greater than x'
+    i = bisect_right(a, x)
+    if i != len(a):
+        return a[i]
+    raise ValueError
+
+def find_ge(a, x):
+    'Find leftmost item greater than or equal to x'
+    i = bisect_left(a, x)
+    if i != len(a):
+        return a[i]
+    raise ValueError
+```
+
+## Examples
+
+The bisect() function can be useful for numeric table lookups.
+
+[5] 'extend' - This appends each item from a multi-value
+argument to a list.
+The 'extend' action is typically used with the nargs keyword argument
+value '+' or '*' .
+Note that when nargs is None (the default) or '?' , each
+character of the argument string will be appended to the list.
+Example usage: ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument(""--foo"", action=""extend"", nargs=""+"", type=str)
+>>> parser.parse_args([""--foo"", ""f1"", ""--foo"", ""f2"", ""f3"", ""f4""])
+Namespace(foo=['f1', 'f2', 'f3', 'f4'])
+``` Added in version 3.8.
+
+'count' - This counts the number of times an argument occurs. For
+example, this is useful for increasing verbosity levels:",tech_docs-020,single,How do you convert a dictionary to a named tuple?,"To convert a dictionary to a named tuple, use the double-star-operator (as described in Unpacking Argument Lists ):",0.0,tech_docs|sent_8_o2|gte-small|dense|k5,dense,gemini,gemini-3.5-flash-lite

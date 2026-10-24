@@ -1,0 +1,21 @@
+Clause,Requirement,Status,How this study covers it
+7.1,Data access,Partial,"Text, HTML, PDF and markdown corpora; no images or video; not large-scale"
+7.2,Data segmentation,Implemented,"Fixed-length, sentence/punctuation, semantic, structure-aware and parent-child; configurable size and overlap. Recursive-character splitting not included"
+7.3,Data indexing,Partial,"Dense vector index (FAISS) and inverted-index scoring (BM25); no layer, list or graph indexes"
+7.4,Data updates,Out of scope,"Static corpus; embeddings are cached per text set, not updated incrementally or in real time"
+7.5,Data storage,Partial,"Index compression studied (dimension truncation, binary codes); no distributed storage, backup or partitioning"
+8.1.1,Retrieval modes,Implemented,"Semantic (dense), keyword (BM25), hybrid and combined retrieval with reranking; no MMR, iterative or cross-modal retrieval"
+8.1.2,Retrieval quality,Implemented,"P_A, R_A and MAP at n = 5 (eq. 1-4) plus span-based recall, precision and f_ctx"
+8.2.1,Answer relevance (Table A.1),Implemented,5-level LLM grade; multi-reviewer averaging through human rating sheets
+8.2.2,Answer reliability / faithfulness (Table A.2),Implemented,5-level LLM grade against the retrieved context (clause text cites A.1; read as A.2)
+8.2.3,Answer truthfulness (Table A.3),Implemented,5-level LLM grade against the reference answer and context
+8.2.4,Answer correctness (eq. 5),Implemented,Exact-match rate plus a judged correctness score (exact match is very strict for free-text answers)
+8.2.5,Context relevance (Table A.4),Not implemented,Table A.4 grades coherence with preceding and following text; not meaningful for single-turn QA
+8.3.1-8.3.5,Optimization capabilities,Partial,"Reranking, hybrid fusion, parent-child retrieval, constrained prompt template and context numbering; no query rewrite, HyDE, embedding fine-tuning, hallucination correction or feedback loop"
+9.1,Application maturity,Partial,"Modular components (loader, embedder, vector store, retriever, generator), configurable by script and by the Streamlit app; text only; no API or SDK"
+9.2.1,"Robustness (noise, counterfactual)",Not implemented,No noisy-document or counterfactual test sets
+9.2.2,Security,Out of scope,Research prototype; only public documents are sent to the LLM provider
+9.2.3,Throughput (TPS),Implemented,Retrieval-level TPS with 1 and several threads (cell above)
+9.2.4,Response time,Implemented,Retrieval response time and end-to-end non-streaming response time (cell above)
+9.2.5,Negative rejection (eq. 11-13),Implemented,"P_ERR, P_EAR, P_NRR on the unanswerable and answerable questions of Stage 3b"
+9.2.6,Information integration (eq. 14),Implemented,P_MIR on the multi-hop questions of Stage 3b

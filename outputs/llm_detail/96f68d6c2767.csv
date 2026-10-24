@@ -1,0 +1,343 @@
+groundedness,correctness,abstained,answer_relevance,faithfulness_level,truthfulness_level,answer,context,qid,qtype,question,reference,exact,key,mode,provider,llm_model
+1.0,1.0,0.0,5.0,5.0,5.0,"First, I need to determine how many countries currently adhere to the intergovernmental AI standard that was initially adopted in May 2019. Looking at the context, under the section ""Countries adhering to the AI Principles,"" it says ""Today, there are 47 adherents to the Principles."" Also, the section ""Countries adhering to the AI Principles"" mentions the OECD Recommendation on AI, which is the first intergovernmental standard.
+
+The question is: How many countries currently adhere to the intergovernmental AI standard that was initially adopted in May 2019?
+
+From the context, the section ""Countries adhering to the AI Principles"" states ""Today, there are 47 adherents to the Principles."" Since the AI Principles are the intergovernmental standard initially adopted in May 2019, the number of countries adhering to it is 47.
+
+But let's check the other sections. The ""Countries adhering to the AI Principles"" is listed, and it says ""Today, there are 47 adherents to the Principles."" So, the answer should be 47.
+
+I should confirm if the question is asking about the number of countries adhering to the standard, which is indeed mentioned as 47.
+</think>
+
+Based on the context, the number of countries currently adhering to the intergovernmental AI standard that was initially adopted in May 2019 is stated as 47. Therefore, the answer is 47.","[1] development and well-being
+
+#### Human rights and democratic values, including fairness and privacy
+
+#### Transparency and explainability
+
+#### Robustness, security and safety
+
+#### Accountability
+
+### Recommendations for policymakers
+
+#### Investing in AI research and development
+
+#### Fostering an inclusive AI-enabling ecosystem
+
+#### Shaping an enabling interoperable governance and policy environment for AI
+
+#### Building human capacity and preparing for labour market transition
+
+#### International co-operation for trustworthy AI
+
+## Countries adhering to the AI Principles
+
+The OECD Recommendation on AI is the first intergovernmental standard on AI. Today, there are 47 adherents to the Principles.
+
+## AI terms & concepts
+
+AI system
+
+AI system lifecycle
+
+An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs
+
+[2] # OECD AI Principles overview
+
+The OECD AI Principles promote use of AI that is innovative and trustworthy and that respects human rights and democratic values. Adopted in May 2019, they set standards for AI that are practical and flexible enough to stand the test of time.
+
+## Principles for trustworthy AI
+
+The OECD AI Principles were initially adopted in 2019 and updated in May 2024 . Adherents updated them to consider new technological and policy developments, ensuring they remain robust and fit for purpose.
+
+The Principles guide AI actors in their efforts to develop trustworthy AI and provide policymakers with recommendations for effective AI policies.
+
+Countries use the OECD AI Principles and related tools to shape policies and create AI risk frameworks, building a foundation for global
+
+[3] AI and provide policymakers with recommendations for effective AI policies.
+
+Countries use the OECD AI Principles and related tools to shape policies and create AI risk frameworks, building a foundation for global interoperability between jurisdictions. Today, the European Union , the Council of Europe, the United States , and the United Nations and other jurisdictions use the OECDâ€™s definition of an AI system and lifecycle below in their legislative and regulatory frameworks and guidance. The principles, definition and lifecycle are all part of the OECD Recommendation on Artificial Intelligence.
+
+### Values-based principles
+
+#### Inclusive growth, sustainable development and well-being
+
+#### Human rights and democratic values, including fairness and privacy
+
+#### Transparency and explainability
+
+#### Robustness, security and safety
+
+#### Accountability
+
+### Recommendations for policymakers
+
+#### Investing in AI
+
+[4] AI terms & concepts
+
+AI system
+
+AI system lifecycle
+
+An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments. Different AI systems vary in their levels of autonomy and adaptiveness after deployment.
+
+## Governments that have committed to the AI Principles
+
+### OECD Members
+
+### Non-Members",ai_governance-004,multi,How many countries currently adhere to the intergovernmental AI standard that was initially adopted in May 2019?,47,0.0,ai_governance|fixed_128_o32|bge-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+1.0,1.0,0.0,5.0,5.0,5.0,"First, I need to find the information about the number of adherents to the AI Principles. Looking at the context, under ""Countries adhering to the AI Principles,"" it says: ""Today, there are 47 adherents to the Principles."" Also, in the OECD Recommendation on AI, it mentions ""Today, there are 47 adherents to the Principles."" So, the number of adherents is 47.
+
+I should confirm if there's any other part that might specify, but from the context, it's clear. The question is: ""How many adherents to the AI Principles are there today?"" Based on the given context, the answer is 47.
+</think>
+
+Based on the context provided, there are 47 adherents to the AI Principles today.","[1] development and well-being
+
+#### Human rights and democratic values, including fairness and privacy
+
+#### Transparency and explainability
+
+#### Robustness, security and safety
+
+#### Accountability
+
+### Recommendations for policymakers
+
+#### Investing in AI research and development
+
+#### Fostering an inclusive AI-enabling ecosystem
+
+#### Shaping an enabling interoperable governance and policy environment for AI
+
+#### Building human capacity and preparing for labour market transition
+
+#### International co-operation for trustworthy AI
+
+## Countries adhering to the AI Principles
+
+The OECD Recommendation on AI is the first intergovernmental standard on AI. Today, there are 47 adherents to the Principles.
+
+## AI terms & concepts
+
+AI system
+
+AI system lifecycle
+
+An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs
+
+[2] # OECD AI Principles overview
+
+The OECD AI Principles promote use of AI that is innovative and trustworthy and that respects human rights and democratic values. Adopted in May 2019, they set standards for AI that are practical and flexible enough to stand the test of time.
+
+## Principles for trustworthy AI
+
+The OECD AI Principles were initially adopted in 2019 and updated in May 2024 . Adherents updated them to consider new technological and policy developments, ensuring they remain robust and fit for purpose.
+
+The Principles guide AI actors in their efforts to develop trustworthy AI and provide policymakers with recommendations for effective AI policies.
+
+Countries use the OECD AI Principles and related tools to shape policies and create AI risk frameworks, building a foundation for global
+
+[3] AI and provide policymakers with recommendations for effective AI policies.
+
+Countries use the OECD AI Principles and related tools to shape policies and create AI risk frameworks, building a foundation for global interoperability between jurisdictions. Today, the European Union , the Council of Europe, the United States , and the United Nations and other jurisdictions use the OECDâ€™s definition of an AI system and lifecycle below in their legislative and regulatory frameworks and guidance. The principles, definition and lifecycle are all part of the OECD Recommendation on Artificial Intelligence.
+
+### Values-based principles
+
+#### Inclusive growth, sustainable development and well-being
+
+#### Human rights and democratic values, including fairness and privacy
+
+#### Transparency and explainability
+
+#### Robustness, security and safety
+
+#### Accountability
+
+### Recommendations for policymakers
+
+#### Investing in AI
+
+[4] AI terms & concepts
+
+AI system
+
+AI system lifecycle
+
+An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments. Different AI systems vary in their levels of autonomy and adaptiveness after deployment.
+
+## Governments that have committed to the AI Principles
+
+### OECD Members
+
+### Non-Members",ai_governance-003,single,How many adherents to the AI Principles are there today?,"Today, there are 47 adherents to the Principles.",0.0,ai_governance|fixed_128_o32|bge-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+,,,,,,"First, I need to find out when the OECD AI Principles were initially adopted. Looking at the context, under the first point, it says: ""The OECD AI Principles promote use of AI that is innovative and trustworthy and that respects human rights and democratic values. Adopted in May 2019."" So, the initial adoption was in May 2019.
+
+The question is: When were the OECD AI Principles initially adopted? Based on the context, the answer is May 2019.
+</think>
+
+The OECD AI Principles were initially adopted in May 2019.","[1] # OECD AI Principles overview
+
+The OECD AI Principles promote use of AI that is innovative and trustworthy and that respects human rights and democratic values. Adopted in May 2019, they set standards for AI that are practical and flexible enough to stand the test of time.
+
+## Principles for trustworthy AI
+
+The OECD AI Principles were initially adopted in 2019 and updated in May 2024 . Adherents updated them to consider new technological and policy developments, ensuring they remain robust and fit for purpose.
+
+The Principles guide AI actors in their efforts to develop trustworthy AI and provide policymakers with recommendations for effective AI policies.
+
+Countries use the OECD AI Principles and related tools to shape policies and create AI risk frameworks, building a foundation for global
+
+[2] AI and provide policymakers with recommendations for effective AI policies.
+
+Countries use the OECD AI Principles and related tools to shape policies and create AI risk frameworks, building a foundation for global interoperability between jurisdictions. Today, the European Union , the Council of Europe, the United States , and the United Nations and other jurisdictions use the OECDâ€™s definition of an AI system and lifecycle below in their legislative and regulatory frameworks and guidance. The principles, definition and lifecycle are all part of the OECD Recommendation on Artificial Intelligence.
+
+### Values-based principles
+
+#### Inclusive growth, sustainable development and well-being
+
+#### Human rights and democratic values, including fairness and privacy
+
+#### Transparency and explainability
+
+#### Robustness, security and safety
+
+#### Accountability
+
+### Recommendations for policymakers
+
+#### Investing in AI
+
+[3] development and well-being
+
+#### Human rights and democratic values, including fairness and privacy
+
+#### Transparency and explainability
+
+#### Robustness, security and safety
+
+#### Accountability
+
+### Recommendations for policymakers
+
+#### Investing in AI research and development
+
+#### Fostering an inclusive AI-enabling ecosystem
+
+#### Shaping an enabling interoperable governance and policy environment for AI
+
+#### Building human capacity and preparing for labour market transition
+
+#### International co-operation for trustworthy AI
+
+## Countries adhering to the AI Principles
+
+The OECD Recommendation on AI is the first intergovernmental standard on AI. Today, there are 47 adherents to the Principles.
+
+## AI terms & concepts
+
+AI system
+
+AI system lifecycle
+
+An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs
+
+[4] AI terms & concepts
+
+AI system
+
+AI system lifecycle
+
+An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments. Different AI systems vary in their levels of autonomy and adaptiveness after deployment.
+
+## Governments that have committed to the AI Principles
+
+### OECD Members
+
+### Non-Members",ai_governance-002,single,When were the OECD AI Principles initially adopted?,May 2019,0.0,ai_governance|fixed_128_o32|bge-small|dense|k5,dense,ollama,minicpm-v4.6:latest
+1.0,1.0,0.0,5.0,5.0,5.0,"Got it, let's look at the context. The part about countries using the OECD AI Principles and related tools says ""the European Union , the Council of Europe, the United States , and the United Nations and other jurisdictions use the OECDâ€™s definition of an AI system and lifecycle below in their legislative and regulatory frameworks and guidance."" So we need to list the bodies that incorporate it. The question is asking which international and governmental bodies incorporate the OECD's definition. From the context, the ones mentioned are European Union, Council of Europe, United States, United Nations, and others. But let's check the question: ""Which international and governmental bodies incorporate the OECD's definition of an AI system and lifecycle into their regulatory frameworks and guidance?"" So the answer should include the bodies like European Union, Council of Europe, United States, United Nations, etc. But based on the context, the key is the bodies that use the OECD's definition in their frameworks. So the answer would be the European Union, Council of Europe, United States, United Nations, and other jurisdictions. But let's check the context again. The sentence says ""the European Union , the Council of Europe, the United States , and the United Nations and other jurisdictions use the OECDâ€™s definition of an AI system and lifecycle below in their legislative and regulatory frameworks and guidance."" So the bodies are European Union, Council of Europe, United States, United Nations, and other. So the answer is those bodies.
+</think>
+
+To determine which international and governmental bodies incorporate the OECD's definition of an AI system and lifecycle into their regulatory frameworks and guidance, we analyze the context. The context states, ""Today, the European Union, the Council of Europe, the United States, and the United Nations and other jurisdictions use the OECDâ€™s definition of an AI system and lifecycle below in their legislative and regulatory frameworks and guidance."" Thus, the bodies are the European Union, Council of Europe, United States, United Nations, and other jurisdictions. 
+
+The answer is the European Union, Council of Europe, United States, and United Nations (and other jurisdictions).","[1] AI and provide policymakers with recommendations for effective AI policies.
+
+Countries use the OECD AI Principles and related tools to shape policies and create AI risk frameworks, building a foundation for global interoperability between jurisdictions. Today, the European Union , the Council of Europe, the United States , and the United Nations and other jurisdictions use the OECDâ€™s definition of an AI system and lifecycle below in their legislative and regulatory frameworks and guidance. The principles, definition and lifecycle are all part of the OECD Recommendation on Artificial Intelligence.
+
+### Values-based principles
+
+#### Inclusive growth, sustainable development and well-being
+
+#### Human rights and democratic values, including fairness and privacy
+
+#### Transparency and explainability
+
+#### Robustness, security and safety
+
+#### Accountability
+
+### Recommendations for policymakers
+
+#### Investing in AI
+
+[2] development and well-being
+
+#### Human rights and democratic values, including fairness and privacy
+
+#### Transparency and explainability
+
+#### Robustness, security and safety
+
+#### Accountability
+
+### Recommendations for policymakers
+
+#### Investing in AI research and development
+
+#### Fostering an inclusive AI-enabling ecosystem
+
+#### Shaping an enabling interoperable governance and policy environment for AI
+
+#### Building human capacity and preparing for labour market transition
+
+#### International co-operation for trustworthy AI
+
+## Countries adhering to the AI Principles
+
+The OECD Recommendation on AI is the first intergovernmental standard on AI. Today, there are 47 adherents to the Principles.
+
+## AI terms & concepts
+
+AI system
+
+AI system lifecycle
+
+An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs
+
+[3] # OECD AI Principles overview
+
+The OECD AI Principles promote use of AI that is innovative and trustworthy and that respects human rights and democratic values. Adopted in May 2019, they set standards for AI that are practical and flexible enough to stand the test of time.
+
+## Principles for trustworthy AI
+
+The OECD AI Principles were initially adopted in 2019 and updated in May 2024 . Adherents updated them to consider new technological and policy developments, ensuring they remain robust and fit for purpose.
+
+The Principles guide AI actors in their efforts to develop trustworthy AI and provide policymakers with recommendations for effective AI policies.
+
+Countries use the OECD AI Principles and related tools to shape policies and create AI risk frameworks, building a foundation for global
+
+[4] AI terms & concepts
+
+AI system
+
+AI system lifecycle
+
+An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments. Different AI systems vary in their levels of autonomy and adaptiveness after deployment.
+
+## Governments that have committed to the AI Principles
+
+### OECD Members
+
+### Non-Members",ai_governance-001,single,Which international and governmental bodies incorporate the OECD's definition of an AI system and lifecycle into their regulatory frameworks and guidance?,"The European Union, the Council of Europe, the United States, and the United Nations and other jurisdictions",0.0,ai_governance|fixed_128_o32|bge-small|dense|k5,dense,ollama,minicpm-v4.6:latest

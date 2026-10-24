@@ -1,0 +1,757 @@
+groundedness,correctness,abstained,answer_relevance,faithfulness_level,truthfulness_level,answer,context,qid,qtype,question,reference,exact,key,mode,provider,llm_model
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+[2] Changed in version 3.10: Added the key parameter.
+
+bisect. insort_left ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Insert x in a in sorted order. This function first runs bisect_left() to locate an insertion point.
+
+[3] The return value is suitable for use as the first
+parameter to list.insert() assuming that a is already sorted. The returned insertion point ip partitions the array a into two
+slices such that all(elem < x for elem in a[lo : ip]) is true for the
+left slice and all(elem >= x for elem in a[ip : hi]) is true for the
+right slice. key specifies a key function of one argument that is used to
+extract a comparison key from each element in the array. To support
+searching complex records, the key function is not applied to the x value. If key is None , the elements are compared directly and
+no key function is called.
+
+[4] The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+## Searching Sorted Lists
+
+The above bisect functions are useful for finding insertion points but
+can be tricky or awkward to use for common searching tasks.
+
+[5] Alternatively,
+consider searching an array of precomputed keys to locate the insertion
+point (as shown in the examples section below).
+
+See also
+
+Sorted Collections is a high performance
+module that uses bisect to managed sorted collections of data.
+
+The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function.",tech_docs-081,unanswerable,What specific formatting changes occur when the --sort-keys option is used with the JSON command-line interface?,UNANSWERABLE,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Merge multiple sorted inputs into a single sorted output (for example, merge
+timestamped entries from multiple log files). Returns an iterator over the sorted values. Similar to sorted(itertools.chain(*iterables)) but returns an iterable, does
+not pull the data into memory all at once, and assumes that each of the input
+streams is already sorted (smallest to largest). Has two optional arguments which must be specified as keyword arguments. key specifies a key function of one argument that is used to
+extract a comparison key from each input element.
+
+[2] Added in version 3.14.
+
+The module also offers three general purpose functions based on heaps.
+
+heapq. merge ( * iterables , key = None , reverse = False )
+
+Merge multiple sorted inputs into a single sorted output (for example, merge
+timestamped entries from multiple log files).
+
+[3] Has two optional arguments which must be specified as keyword arguments. key specifies a key function of one argument that is used to
+extract a comparison key from each input element. The default value is None (compare the elements directly). reverse is a boolean value. If set to True , then the input elements
+are merged as if each comparison were reversed. To achieve behavior similar
+to sorted(itertools.chain(*iterables), reverse=True) , all iterables must
+be sorted from largest to smallest.
+
+[4] To achieve behavior similar
+to sorted(itertools.chain(*iterables), reverse=True) , all iterables must
+be sorted from largest to smallest. Changed in version 3.5: Added the optional key and reverse parameters.
+
+heapq. nlargest ( n , iterable , key = None )
+
+Return a list with the n largest elements from the dataset defined by iterable . key , if provided, specifies a function of one argument that is
+used to extract a comparison key from each element in iterable (for example, key=str.lower ).
+
+[5] So, a possible solution is to mark the
+entry as removed and add a new entry with the revised priority:
+
+```
+pq = []                         # list of entries arranged in a heap
+entry_finder = {}               # mapping of tasks to entries
+REMOVED = '<removed-task>'      # placeholder for a removed task
+counter = itertools.count()     # unique sequence count
+
+def add_task(task, priority=0):
+    'Add a new task or update the priority of an existing task'
+    if task in entry_finder:
+        remove_task(task)
+    count = next(counter)
+    entry = [priority, count, task]
+    entry_finder[task] = entry
+    heappush(pq, entry)
+
+def remove_task(task):
+    'Mark an existing task as REMOVED.  Raise KeyError if not found.'
+    entry = entry_finder.pop(task)
+    entry[-1] = REMOVED
+
+def pop_task():
+    'Remove and return the lowest priority task. Raise KeyError if empty.'
+    while pq:
+        priority, count, task = heappop(pq)
+        if task is not REMOVED:
+            del entry_finder[task]
+            return task
+    raise KeyError('pop from an empty priority queue')
+```
+
+## Theory
+
+Heaps are arrays for which a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for all k , counting elements from 0.",tech_docs-084,unanswerable,What is the complete Python implementation code provided for itertools.permutations?,UNANSWERABLE,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] The return value is suitable for use as the first
+parameter to list.insert() assuming that a is already sorted. The returned insertion point ip partitions the array a into two
+slices such that all(elem < x for elem in a[lo : ip]) is true for the
+left slice and all(elem >= x for elem in a[ip : hi]) is true for the
+right slice. key specifies a key function of one argument that is used to
+extract a comparison key from each element in the array. To support
+searching complex records, the key function is not applied to the x value. If key is None , the elements are compared directly and
+no key function is called.
+
+[2] This function first runs bisect_left() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step.
+
+[3] Has two optional arguments which must be specified as keyword arguments. key specifies a key function of one argument that is used to
+extract a comparison key from each input element. The default value is None (compare the elements directly). reverse is a boolean value. If set to True , then the input elements
+are merged as if each comparison were reversed. To achieve behavior similar
+to sorted(itertools.chain(*iterables), reverse=True) , all iterables must
+be sorted from largest to smallest.
+
+[4] ```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+[5] For example, using insort_left() on the same list from multiple threads
+may result in the list becoming unsorted.
+
+The following functions are provided:
+
+bisect. bisect_left ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Locate the insertion point for x in a to maintain sorted order.",tech_docs-085,unanswerable,What specific function is being described for escaping backslashes in regular expressions?,UNANSWERABLE,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Merge multiple sorted inputs into a single sorted output (for example, merge
+timestamped entries from multiple log files). Returns an iterator over the sorted values. Similar to sorted(itertools.chain(*iterables)) but returns an iterable, does
+not pull the data into memory all at once, and assumes that each of the input
+streams is already sorted (smallest to largest). Has two optional arguments which must be specified as keyword arguments. key specifies a key function of one argument that is used to
+extract a comparison key from each input element.
+
+[2] Added in version 3.14.
+
+The module also offers three general purpose functions based on heaps.
+
+heapq. merge ( * iterables , key = None , reverse = False )
+
+Merge multiple sorted inputs into a single sorted output (for example, merge
+timestamped entries from multiple log files).
+
+[3] To achieve behavior similar
+to sorted(itertools.chain(*iterables), reverse=True) , all iterables must
+be sorted from largest to smallest. Changed in version 3.5: Added the optional key and reverse parameters.
+
+heapq. nlargest ( n , iterable , key = None )
+
+Return a list with the n largest elements from the dataset defined by iterable . key , if provided, specifies a function of one argument that is
+used to extract a comparison key from each element in iterable (for example, key=str.lower ).
+
+[4] Has two optional arguments which must be specified as keyword arguments. key specifies a key function of one argument that is used to
+extract a comparison key from each input element. The default value is None (compare the elements directly). reverse is a boolean value. If set to True , then the input elements
+are merged as if each comparison were reversed. To achieve behavior similar
+to sorted(itertools.chain(*iterables), reverse=True) , all iterables must
+be sorted from largest to smallest.
+
+[5] So, a possible solution is to mark the
+entry as removed and add a new entry with the revised priority:
+
+```
+pq = []                         # list of entries arranged in a heap
+entry_finder = {}               # mapping of tasks to entries
+REMOVED = '<removed-task>'      # placeholder for a removed task
+counter = itertools.count()     # unique sequence count
+
+def add_task(task, priority=0):
+    'Add a new task or update the priority of an existing task'
+    if task in entry_finder:
+        remove_task(task)
+    count = next(counter)
+    entry = [priority, count, task]
+    entry_finder[task] = entry
+    heappush(pq, entry)
+
+def remove_task(task):
+    'Mark an existing task as REMOVED.  Raise KeyError if not found.'
+    entry = entry_finder.pop(task)
+    entry[-1] = REMOVED
+
+def pop_task():
+    'Remove and return the lowest priority task. Raise KeyError if empty.'
+    while pq:
+        priority, count, task = heappop(pq)
+        if task is not REMOVED:
+            del entry_finder[task]
+            return task
+    raise KeyError('pop from an empty priority queue')
+```
+
+## Theory
+
+Heaps are arrays for which a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for all k , counting elements from 0.",tech_docs-077,unanswerable,In what version of Python were these itertools functions introduced?,UNANSWERABLE,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] This function first runs bisect_left() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step.
+
+[2] Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+[3] By iterating over all items, you get an O ( n log n ) sort.
+
+A nice feature of this sort is that you can efficiently insert new items while
+the sort is going on, provided that the inserted items are not Ã¢Â€ÂœbetterÃ¢Â€Â than the
+last 0Ã¢Â€Â™th element you extracted. This is especially useful in simulation
+contexts, where the tree holds all incoming events, and the Ã¢Â€ÂœwinÃ¢Â€Â condition
+means the smallest scheduled time. When an event schedules other events for
+execution, they are scheduled into the future, so they can easily go into the
+heap.
+
+[4] If this heap invariant is protected at all time, index 0 is clearly the overall
+winner. The simplest algorithmic way to remove it and find the Ã¢Â€ÂœnextÃ¢Â€Â winner is
+to move some loser (letÃ¢Â€Â™s say cell 30 in the diagram above) into the 0 position,
+and then percolate this new 0 down the tree, exchanging values, until the
+invariant is re-established. This is clearly logarithmic on the total number of
+items in the tree. By iterating over all items, you get an O ( n log n ) sort.
+
+[5] Or if a pending task needs to be deleted, how do you find it and remove it
+from the queue?
+
+A solution to the first two challenges is to store entries as 3-element list
+including the priority, an entry count, and the task. The entry count serves as
+a tie-breaker so that two tasks with the same priority are returned in the order
+they were added. And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.",tech_docs-078,unanswerable,What specific destinations can handlers send log records to?,UNANSWERABLE,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+Another solution to the problem of non-comparable tasks is to create a wrapper
+class that ignores the task item and only compares the priority field:
+
+```
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(order=True)
+class PrioritizedItem:
+    priority: int
+    item: Any=field(compare=False)
+```
+
+The remaining challenges revolve around finding a pending task and making
+changes to its priority or removing it entirely.
+
+[2] Accordingly, the functions never call an __eq__() method to determine whether a value has been found. Instead, the
+functions only call the __lt__() method and will return an insertion
+point between values in an array.
+
+Note
+
+The functions in this module are not thread-safe.
+
+[3] This function first runs bisect_left() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step.
+
+[4] For example, using insort_left() on the same list from multiple threads
+may result in the list becoming unsorted.
+
+The following functions are provided:
+
+bisect. bisect_left ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Locate the insertion point for x in a to maintain sorted order.
+
+[5] Changed in version 3.10: Added the key parameter.
+
+## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.",tech_docs-079,unanswerable,What specific method does the serializer use to handle non-ASCII Unicode characters when ensure_ascii is set to False?,UNANSWERABLE,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] This function first runs bisect_left() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step.
+
+[2] ```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+[3] Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[4] Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+[5] By iterating over all items, you get an O ( n log n ) sort.
+
+A nice feature of this sort is that you can efficiently insert new items while
+the sort is going on, provided that the inserted items are not Ã¢Â€ÂœbetterÃ¢Â€Â than the
+last 0Ã¢Â€Â™th element you extracted. This is especially useful in simulation
+contexts, where the tree holds all incoming events, and the Ã¢Â€ÂœwinÃ¢Â€Â condition
+means the smallest scheduled time. When an event schedules other events for
+execution, they are scheduled into the future, so they can easily go into the
+heap.",tech_docs-080,unanswerable,How can a custom LogRecord attribute be accessed within a custom logging formatter in Python?,UNANSWERABLE,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+Another solution to the problem of non-comparable tasks is to create a wrapper
+class that ignores the task item and only compares the priority field:
+
+```
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(order=True)
+class PrioritizedItem:
+    priority: int
+    item: Any=field(compare=False)
+```
+
+The remaining challenges revolve around finding a pending task and making
+changes to its priority or removing it entirely.
+
+[2] If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap .
+
+[3] This is similar to sorted(iterable) , but unlike sorted() , this
+implementation is not stable.
+
+Heap elements can be tuples. This is useful for assigning comparison values
+(such as task priorities) alongside the main record being tracked:
+
+```
+>>> h = []
+>>> heappush(h, (5, 'write code'))
+>>> heappush(h, (7, 'release product'))
+>>> heappush(h, (1, 'write spec'))
+>>> heappush(h, (3, 'create tests'))
+>>> heappop(h)
+(1, 'write spec')
+```
+
+[4] Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised.
+
+[5] This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!",tech_docs-059,single,In what Python version was support added for splitting on a pattern that could match an empty string?,Changed in version 3.7: Added support of splitting on a pattern that could match an empty string.,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,0.0,1.0,1.0,5.0,1.0,I don't know.,"[1] This is similar to sorted(iterable) , but unlike sorted() , this
+implementation is not stable.
+
+Heap elements can be tuples. This is useful for assigning comparison values
+(such as task priorities) alongside the main record being tracked:
+
+```
+>>> h = []
+>>> heappush(h, (5, 'write code'))
+>>> heappush(h, (7, 'release product'))
+>>> heappush(h, (1, 'write spec'))
+>>> heappush(h, (3, 'create tests'))
+>>> heappop(h)
+(1, 'write spec')
+```
+
+[2] ```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+[3] And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+Another solution to the problem of non-comparable tasks is to create a wrapper
+class that ignores the task item and only compares the priority field:
+
+```
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(order=True)
+class PrioritizedItem:
+    priority: int
+    item: Any=field(compare=False)
+```
+
+The remaining challenges revolve around finding a pending task and making
+changes to its priority or removing it entirely.
+
+[4] Sort stability: how do you get two tasks with equal priorities to be returned
+in the order they were originally added?
+
+Tuple comparison breaks for (priority, task) pairs if the priorities are equal
+and the tasks do not have a default comparison order.
+
+If the priority of a task changes, how do you move it to a new position in
+the heap?
+
+Or if a pending task needs to be deleted, how do you find it and remove it
+from the queue?
+
+[5] ## Examples
+
+The bisect() function can be useful for numeric table lookups. This
+example uses bisect() to look up a letter grade for an exam score (say)
+based on a set of ordered numeric breakpoints: 90 and up is an Ã¢Â€Â˜AÃ¢Â€Â™, 80 to 89 is
+a Ã¢Â€Â˜BÃ¢Â€Â™, and so on:
+
+```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```",tech_docs-040,single,How many additional methods and attributes do named tuples support in addition to the methods inherited from tuples?,three additional methods and two attributes,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] If key is None , the elements are compared directly and
+no key function is called. Changed in version 3.10: Added the key parameter.
+
+bisect. bisect_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. bisect ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[2] This is similar to sorted(iterable) , but unlike sorted() , this
+implementation is not stable.
+
+Heap elements can be tuples. This is useful for assigning comparison values
+(such as task priorities) alongside the main record being tracked:
+
+```
+>>> h = []
+>>> heappush(h, (5, 'write code'))
+>>> heappush(h, (7, 'release product'))
+>>> heappush(h, (1, 'write spec'))
+>>> heappush(h, (3, 'create tests'))
+>>> heappop(h)
+(1, 'write spec')
+```
+
+[3] In a usual
+binary tournament we see in sports, each cell is the winner over the two cells
+it tops, and we can trace the winner down the tree to see all opponents s/he
+had. However, in many computer applications of such tournaments, we do not need
+to trace the history of a winner. To be more memory efficient, when a winner is
+promoted, we try to replace it by something else at a lower level, and the rule
+becomes that a cell and the two cells it tops contain three different items, but
+the top cell Ã¢Â€ÂœwinsÃ¢Â€Â over the two topped cells.
+
+If this heap invariant is protected at all time, index 0 is clearly the overall
+winner.
+
+[4] And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+Another solution to the problem of non-comparable tasks is to create a wrapper
+class that ignores the task item and only compares the priority field:
+
+```
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(order=True)
+class PrioritizedItem:
+    priority: int
+    item: Any=field(compare=False)
+```
+
+The remaining challenges revolve around finding a pending task and making
+changes to its priority or removing it entirely.
+
+[5] Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )",tech_docs-031,single,Why is the re.U flag considered redundant in Python 3?,"In Python 3, Unicode characters are matched by default for str patterns. This flag is therefore redundant with no effect and is only kept for backward compatibility.",0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Added in version 3.14.
+
+The module also offers three general purpose functions based on heaps.
+
+heapq. merge ( * iterables , key = None , reverse = False )
+
+Merge multiple sorted inputs into a single sorted output (for example, merge
+timestamped entries from multiple log files).
+
+[2] Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[3] Changed in version 3.10: Added the key parameter.
+
+## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.
+
+[4] Or if a pending task needs to be deleted, how do you find it and remove it
+from the queue?
+
+A solution to the first two challenges is to store entries as 3-element list
+including the priority, an entry count, and the task. The entry count serves as
+a tie-breaker so that two tasks with the same priority are returned in the order
+they were added. And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+[5] If this heap invariant is protected at all time, index 0 is clearly the overall
+winner. The simplest algorithmic way to remove it and find the Ã¢Â€ÂœnextÃ¢Â€Â winner is
+to move some loser (letÃ¢Â€Â™s say cell 30 in the diagram above) into the 0 position,
+and then percolate this new 0 down the tree, exchanging values, until the
+invariant is re-established. This is clearly logarithmic on the total number of
+items in the tree. By iterating over all items, you get an O ( n log n ) sort.",tech_docs-050,single,When should logging.shutdown() be called?,This should be called at application exit and no further use of the logging system should be made after this call.,0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite
+1.0,0.0,1.0,1.0,5.0,1.0,I don't know.,"[1] Sort stability: how do you get two tasks with equal priorities to be returned
+in the order they were originally added?
+
+Tuple comparison breaks for (priority, task) pairs if the priorities are equal
+and the tasks do not have a default comparison order.
+
+If the priority of a task changes, how do you move it to a new position in
+the heap?
+
+Or if a pending task needs to be deleted, how do you find it and remove it
+from the queue?
+
+[2] If key is None , the elements are compared directly and
+no key function is called. Changed in version 3.10: Added the key parameter.
+
+bisect. bisect_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. bisect ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[3] ```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+[4] Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[5] This is similar to sorted(iterable) , but unlike sorted() , this
+implementation is not stable.
+
+Heap elements can be tuples. This is useful for assigning comparison values
+(such as task priorities) alongside the main record being tracked:
+
+```
+>>> h = []
+>>> heappush(h, (5, 'write code'))
+>>> heappush(h, (7, 'release product'))
+>>> heappush(h, (1, 'write spec'))
+>>> heappush(h, (3, 'create tests'))
+>>> heappop(h)
+(1, 'write spec')
+```",tech_docs-020,single,How do you convert a dictionary to a named tuple?,"To convert a dictionary to a named tuple, use the double-star-operator (as described in Unpacking Argument Lists ):",0.0,tech_docs|sent_4_o1|e5-small|dense|k5,dense,gemini,gemini-3.5-flash-lite

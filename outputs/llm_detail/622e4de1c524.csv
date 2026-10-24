@@ -1,0 +1,1686 @@
+groundedness,correctness,abstained,answer_relevance,faithfulness_level,truthfulness_level,answer,context,qid,qtype,question,reference,exact,key,mode,provider,llm_model
+1.0,1.0,0.0,5.0,5.0,5.0,"To access the smallest item without popping it, use heap[0] .","[1] To create a heap, use a list initialized as [] , or transform an existing list
+into a min-heap or max-heap using the heapify() or heapify_max() functions, respectively.
+
+The following functions are provided for min-heaps:
+
+heapq. heapify ( x )
+
+Transform list x into a min-heap, in-place, in linear time.
+
+heapq. heappush ( heap , item )
+
+Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap . The combined action runs more efficiently than heappush() followed by a separate call to heappop() .
+
+heapq. heapreplace ( heap , item )
+
+Pop and return the smallest item from the heap , and also push the new item .
+The heap size doesnÃ¢Â€Â™t change. If the heap is empty, IndexError is raised. This one step operation is more efficient than a heappop() followed by heappush() and can be more appropriate when using a fixed-size heap.
+The pop/push combination always returns an element from the heap and replaces
+it with item . The value returned may be larger than the item added. If that isnÃ¢Â€Â™t
+desired, consider using heappushpop() instead. Its push/pop
+combination returns the smaller of the two values, leaving the larger value
+on the heap.
+
+For max-heaps, the following functions are provided:
+
+heapq. heapify_max ( x )
+
+Transform list x into a max-heap, in-place, in linear time. Added in version 3.14.
+
+heapq. heappush_max ( heap , item )
+
+[2] ## Priority Queue Implementation Notes
+
+A priority queue is common use
+for a heap, and it presents several implementation challenges:
+
+Sort stability: how do you get two tasks with equal priorities to be returned
+in the order they were originally added?
+
+Tuple comparison breaks for (priority, task) pairs if the priorities are equal
+and the tasks do not have a default comparison order.
+
+If the priority of a task changes, how do you move it to a new position in
+the heap?
+
+Or if a pending task needs to be deleted, how do you find it and remove it
+from the queue?
+
+A solution to the first two challenges is to store entries as 3-element list
+including the priority, an entry count, and the task. The entry count serves as
+a tie-breaker so that two tasks with the same priority are returned in the order
+they were added. And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+Another solution to the problem of non-comparable tasks is to create a wrapper
+class that ignores the task item and only compares the priority field:
+
+```
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(order=True)
+class PrioritizedItem:
+    priority: int
+    item: Any=field(compare=False)
+```
+
+The remaining challenges revolve around finding a pending task and making
+changes to its priority or removing it entirely. Finding a task can be done
+with a dictionary pointing to an entry in the queue.
+
+Removing the entry or changing its priority is more difficult because it would
+break the heap structure invariants. So, a possible solution is to mark the
+entry as removed and add a new entry with the revised priority:
+
+[3] # heapq Ã¢Â€Â” Heap queue algorithm
+
+Source code: Lib/heapq.py
+
+This module provides an implementation of the heap queue algorithm, also known
+as the priority queue algorithm.
+
+Min-heaps are binary trees for which every parent node has a value less than
+or equal to any of its children.
+We refer to this condition as the heap invariant.
+
+For min-heaps, this implementation uses lists for which heap[k] <= heap[2*k+1] and heap[k] <= heap[2*k+2] for all k for which
+the compared elements exist. Elements are counted from zero. The interesting
+property of a min-heap is that its smallest element is always the root, heap[0] .
+
+Max-heaps satisfy the reverse invariant: every parent node has a value greater than any of its children. These are implemented as lists for which maxheap[2*k+1] <= maxheap[k] and maxheap[2*k+2] <= maxheap[k] for all k for which the compared elements exist.
+The root, maxheap[0] , contains the largest element; heap.sort(reverse=True) maintains the max-heap invariant.
+
+The heapq API differs from textbook heap algorithms in two aspects: (a)
+We use zero-based indexing. This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!
+
+Like list.sort() , this implementation uses only the < operator
+for comparisons, for both min-heaps and max-heaps.
+
+In the API below, and in this documentation, the unqualified term heap generally refers to a min-heap.
+The API for max-heaps is named using a _max suffix.
+
+[4] Push the value item onto the max-heap heap , maintaining the max-heap
+invariant. Added in version 3.14.
+
+heapq. heappop_max ( heap )
+
+Pop and return the largest item from the max-heap heap , maintaining the
+max-heap invariant. If the max-heap is empty, IndexError is raised.
+To access the largest item without popping it, use maxheap[0] . Added in version 3.14.
+
+heapq. heappushpop_max ( heap , item )
+
+Push item on the max-heap heap , then pop and return the largest item
+from heap .
+The combined action runs more efficiently than heappush_max() followed by a separate call to heappop_max() . Added in version 3.14.
+
+heapq. heapreplace_max ( heap , item )
+
+Pop and return the largest item from the max-heap heap and also push the
+new item .
+The max-heap size doesnÃ¢Â€Â™t change. If the max-heap is empty, IndexError is raised. The value returned may be smaller than the item added. Refer to the
+analogous function heapreplace() for detailed usage notes. Added in version 3.14.
+
+The module also offers three general purpose functions based on heaps.
+
+heapq. merge ( * iterables , key = None , reverse = False )
+
+[5] Moreover, if you output the 0Ã¢Â€Â™th item on disk and get an input which may not fit
+in the current tournament (because the value Ã¢Â€ÂœwinsÃ¢Â€Â over the last output value),
+it cannot fit in the heap, so the size of the heap decreases. The freed memory
+could be cleverly reused immediately for progressively building a second heap,
+which grows at exactly the same rate the first heap is melting. When the first
+heap completely vanishes, you switch heaps and start a new run. Clever and
+quite effective!
+
+In a word, heaps are useful memory structures to know. I use them in a few
+applications, and I think it is good to keep a Ã¢Â€Â˜heapÃ¢Â€Â™ module around. :-)
+
+Footnotes",tech_docs-023,multi,How can you access the smallest item in a min-heap without popping it when storing entries as 3-element lists or using the PrioritizedItem wrapper class?,heap[0],0.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,0.0,1.0,1.0,5.0,1.0,I don't know.,"[1] ## Priority Queue Implementation Notes
+
+A priority queue is common use
+for a heap, and it presents several implementation challenges:
+
+Sort stability: how do you get two tasks with equal priorities to be returned
+in the order they were originally added?
+
+Tuple comparison breaks for (priority, task) pairs if the priorities are equal
+and the tasks do not have a default comparison order.
+
+If the priority of a task changes, how do you move it to a new position in
+the heap?
+
+Or if a pending task needs to be deleted, how do you find it and remove it
+from the queue?
+
+A solution to the first two challenges is to store entries as 3-element list
+including the priority, an entry count, and the task. The entry count serves as
+a tie-breaker so that two tasks with the same priority are returned in the order
+they were added. And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+Another solution to the problem of non-comparable tasks is to create a wrapper
+class that ignores the task item and only compares the priority field:
+
+```
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(order=True)
+class PrioritizedItem:
+    priority: int
+    item: Any=field(compare=False)
+```
+
+The remaining challenges revolve around finding a pending task and making
+changes to its priority or removing it entirely. Finding a task can be done
+with a dictionary pointing to an entry in the queue.
+
+Removing the entry or changing its priority is more difficult because it would
+break the heap structure invariants. So, a possible solution is to mark the
+entry as removed and add a new entry with the revised priority:
+
+[2] Merge multiple sorted inputs into a single sorted output (for example, merge
+timestamped entries from multiple log files). Returns an iterator over the sorted values. Similar to sorted(itertools.chain(*iterables)) but returns an iterable, does
+not pull the data into memory all at once, and assumes that each of the input
+streams is already sorted (smallest to largest). Has two optional arguments which must be specified as keyword arguments. key specifies a key function of one argument that is used to
+extract a comparison key from each input element. The default value is None (compare the elements directly). reverse is a boolean value. If set to True , then the input elements
+are merged as if each comparison were reversed. To achieve behavior similar
+to sorted(itertools.chain(*iterables), reverse=True) , all iterables must
+be sorted from largest to smallest. Changed in version 3.5: Added the optional key and reverse parameters.
+
+heapq. nlargest ( n , iterable , key = None )
+
+Return a list with the n largest elements from the dataset defined by iterable . key , if provided, specifies a function of one argument that is
+used to extract a comparison key from each element in iterable (for example, key=str.lower ). Equivalent to: sorted(iterable, key=key, reverse=True)[:n] .
+
+heapq. nsmallest ( n , iterable , key = None )
+
+Return a list with the n smallest elements from the dataset defined by iterable . key , if provided, specifies a function of one argument that is
+used to extract a comparison key from each element in iterable (for example, key=str.lower ). Equivalent to: sorted(iterable, key=key)[:n] .
+
+[3] ```
+pq = []                         # list of entries arranged in a heap
+entry_finder = {}               # mapping of tasks to entries
+REMOVED = '<removed-task>'      # placeholder for a removed task
+counter = itertools.count()     # unique sequence count
+
+def add_task(task, priority=0):
+    'Add a new task or update the priority of an existing task'
+    if task in entry_finder:
+        remove_task(task)
+    count = next(counter)
+    entry = [priority, count, task]
+    entry_finder[task] = entry
+    heappush(pq, entry)
+
+def remove_task(task):
+    'Mark an existing task as REMOVED.  Raise KeyError if not found.'
+    entry = entry_finder.pop(task)
+    entry[-1] = REMOVED
+
+def pop_task():
+    'Remove and return the lowest priority task. Raise KeyError if empty.'
+    while pq:
+        priority, count, task = heappop(pq)
+        if task is not REMOVED:
+            del entry_finder[task]
+            return task
+    raise KeyError('pop from an empty priority queue')
+```
+
+[4] Locate the insertion point for x in a to maintain sorted order.
+The parameters lo and hi may be used to specify a subset of the list
+which should be considered; by default the entire list is used. If x is
+already present in a , the insertion point will be before (to the left of)
+any existing entries. The return value is suitable for use as the first
+parameter to list.insert() assuming that a is already sorted. The returned insertion point ip partitions the array a into two
+slices such that all(elem < x for elem in a[lo : ip]) is true for the
+left slice and all(elem >= x for elem in a[ip : hi]) is true for the
+right slice. key specifies a key function of one argument that is used to
+extract a comparison key from each element in the array. To support
+searching complex records, the key function is not applied to the x value. If key is None , the elements are compared directly and
+no key function is called. Changed in version 3.10: Added the key parameter.
+
+bisect. bisect_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. bisect ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[5] # heapq Ã¢Â€Â” Heap queue algorithm
+
+Source code: Lib/heapq.py
+
+This module provides an implementation of the heap queue algorithm, also known
+as the priority queue algorithm.
+
+Min-heaps are binary trees for which every parent node has a value less than
+or equal to any of its children.
+We refer to this condition as the heap invariant.
+
+For min-heaps, this implementation uses lists for which heap[k] <= heap[2*k+1] and heap[k] <= heap[2*k+2] for all k for which
+the compared elements exist. Elements are counted from zero. The interesting
+property of a min-heap is that its smallest element is always the root, heap[0] .
+
+Max-heaps satisfy the reverse invariant: every parent node has a value greater than any of its children. These are implemented as lists for which maxheap[2*k+1] <= maxheap[k] and maxheap[2*k+2] <= maxheap[k] for all k for which the compared elements exist.
+The root, maxheap[0] , contains the largest element; heap.sort(reverse=True) maintains the max-heap invariant.
+
+The heapq API differs from textbook heap algorithms in two aspects: (a)
+We use zero-based indexing. This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!
+
+Like list.sort() , this implementation uses only the < operator
+for comparisons, for both min-heaps and max-heaps.
+
+In the API below, and in this documentation, the unqualified term heap generally refers to a min-heap.
+The API for max-heaps is named using a _max suffix.",tech_docs-027,multi,"What happens to tuple comparison for (priority, task) pairs if the priorities are equal and the optional reverse parameter is set to True?","Tuple comparison breaks for (priority, task) pairs if the priorities are equal and the tasks do not have a default comparison order.",0.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"To support inserting records in a table, the key function (if any) is applied to x for the search step but not for the insertion step. Additionally, across the module's search functions (such as for bisect_right / bisect), the key function is not applied to the x value to support searching complex records.","[1] Similar to insort_left() , but inserting x in a after any existing
+entries of x . This function first runs bisect_right() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+[2] ## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.
+For locating specific values, dictionaries are more performant.
+
+The insort() functions are O ( n ) because the logarithmic search step
+is dominated by the linear time insertion step.
+
+The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+If the key function isnÃ¢Â€Â™t fast, consider wrapping it with @functools.cache to avoid duplicate computations. Alternatively,
+consider searching an array of precomputed keys to locate the insertion
+point (as shown in the examples section below).
+
+See also
+
+Sorted Collections is a high performance
+module that uses bisect to managed sorted collections of data.
+
+The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+[3] Similar to bisect_left() , but returns an insertion point which comes
+after (to the right of) any existing entries of x in a . The returned insertion point ip partitions the array a into two slices
+such that all(elem <= x for elem in a[lo : ip]) is true for the left slice and all(elem > x for elem in a[ip : hi]) is true for the right slice. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_left ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Insert x in a in sorted order. This function first runs bisect_left() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[4] Locate the insertion point for x in a to maintain sorted order.
+The parameters lo and hi may be used to specify a subset of the list
+which should be considered; by default the entire list is used. If x is
+already present in a , the insertion point will be before (to the left of)
+any existing entries. The return value is suitable for use as the first
+parameter to list.insert() assuming that a is already sorted. The returned insertion point ip partitions the array a into two
+slices such that all(elem < x for elem in a[lo : ip]) is true for the
+left slice and all(elem >= x for elem in a[ip : hi]) is true for the
+right slice. key specifies a key function of one argument that is used to
+extract a comparison key from each element in the array. To support
+searching complex records, the key function is not applied to the x value. If key is None , the elements are compared directly and
+no key function is called. Changed in version 3.10: Added the key parameter.
+
+bisect. bisect_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. bisect ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[5] # bisect Ã¢Â€Â” Array bisection algorithm
+
+Source code: Lib/bisect.py
+
+This module provides support for maintaining a list in sorted order without
+having to sort the list after each insertion. For long lists of items with
+expensive comparison operations, this can be an improvement over
+linear searches or frequent resorting.
+
+The module is called bisect because it uses a basic bisection
+algorithm to do its work. Unlike other bisection tools that search for a
+specific value, the functions in this module are designed to locate an
+insertion point. Accordingly, the functions never call an __eq__() method to determine whether a value has been found. Instead, the
+functions only call the __lt__() method and will return an insertion
+point between values in an array.
+
+Note
+
+The functions in this module are not thread-safe. If multiple threads
+concurrently use bisect functions on the same sequence, this
+may result in undefined behaviour. Likewise, if the provided sequence
+is mutated by a different thread while a bisect function
+is operating on it, the result is undefined. For example, using insort_left() on the same list from multiple threads
+may result in the list becoming unsorted.
+
+The following functions are provided:
+
+bisect. bisect_left ( a , x , lo = 0 , hi = len(a) , * , key = None )",tech_docs-028,multi,"How is the key function handled differently during the search step versus the insertion step when inserting records using insort_right, and what is the general rule regarding the application of the key function to the x value across the module's search functions?","For insort_right, the key function is applied to x during the search step but not the insertion step. Additionally, for the module's search functions in general, the key function is not applied to the x value.",0.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,Starting in version 3.14.,"[1] Push the value item onto the max-heap heap , maintaining the max-heap
+invariant. Added in version 3.14.
+
+heapq. heappop_max ( heap )
+
+Pop and return the largest item from the max-heap heap , maintaining the
+max-heap invariant. If the max-heap is empty, IndexError is raised.
+To access the largest item without popping it, use maxheap[0] . Added in version 3.14.
+
+heapq. heappushpop_max ( heap , item )
+
+Push item on the max-heap heap , then pop and return the largest item
+from heap .
+The combined action runs more efficiently than heappush_max() followed by a separate call to heappop_max() . Added in version 3.14.
+
+heapq. heapreplace_max ( heap , item )
+
+Pop and return the largest item from the max-heap heap and also push the
+new item .
+The max-heap size doesnÃ¢Â€Â™t change. If the max-heap is empty, IndexError is raised. The value returned may be smaller than the item added. Refer to the
+analogous function heapreplace() for detailed usage notes. Added in version 3.14.
+
+The module also offers three general purpose functions based on heaps.
+
+heapq. merge ( * iterables , key = None , reverse = False )
+
+[2] To create a heap, use a list initialized as [] , or transform an existing list
+into a min-heap or max-heap using the heapify() or heapify_max() functions, respectively.
+
+The following functions are provided for min-heaps:
+
+heapq. heapify ( x )
+
+Transform list x into a min-heap, in-place, in linear time.
+
+heapq. heappush ( heap , item )
+
+Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap . The combined action runs more efficiently than heappush() followed by a separate call to heappop() .
+
+heapq. heapreplace ( heap , item )
+
+Pop and return the smallest item from the heap , and also push the new item .
+The heap size doesnÃ¢Â€Â™t change. If the heap is empty, IndexError is raised. This one step operation is more efficient than a heappop() followed by heappush() and can be more appropriate when using a fixed-size heap.
+The pop/push combination always returns an element from the heap and replaces
+it with item . The value returned may be larger than the item added. If that isnÃ¢Â€Â™t
+desired, consider using heappushpop() instead. Its push/pop
+combination returns the smaller of the two values, leaving the larger value
+on the heap.
+
+For max-heaps, the following functions are provided:
+
+heapq. heapify_max ( x )
+
+Transform list x into a max-heap, in-place, in linear time. Added in version 3.14.
+
+heapq. heappush_max ( heap , item )
+
+[3] # heapq Ã¢Â€Â” Heap queue algorithm
+
+Source code: Lib/heapq.py
+
+This module provides an implementation of the heap queue algorithm, also known
+as the priority queue algorithm.
+
+Min-heaps are binary trees for which every parent node has a value less than
+or equal to any of its children.
+We refer to this condition as the heap invariant.
+
+For min-heaps, this implementation uses lists for which heap[k] <= heap[2*k+1] and heap[k] <= heap[2*k+2] for all k for which
+the compared elements exist. Elements are counted from zero. The interesting
+property of a min-heap is that its smallest element is always the root, heap[0] .
+
+Max-heaps satisfy the reverse invariant: every parent node has a value greater than any of its children. These are implemented as lists for which maxheap[2*k+1] <= maxheap[k] and maxheap[2*k+2] <= maxheap[k] for all k for which the compared elements exist.
+The root, maxheap[0] , contains the largest element; heap.sort(reverse=True) maintains the max-heap invariant.
+
+The heapq API differs from textbook heap algorithms in two aspects: (a)
+We use zero-based indexing. This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!
+
+Like list.sort() , this implementation uses only the < operator
+for comparisons, for both min-heaps and max-heaps.
+
+In the API below, and in this documentation, the unqualified term heap generally refers to a min-heap.
+The API for max-heaps is named using a _max suffix.
+
+[4] ## Basic Examples
+
+A heapsort can be implemented by
+pushing all values onto a heap and then popping off the smallest values one at a
+time:
+
+```
+>>> def heapsort(iterable):
+...     h = []
+...     for value in iterable:
+...         heappush(h, value)
+...     return [heappop(h) for i in range(len(h))]
+...
+>>> heapsort([1, 3, 5, 7, 9, 2, 4, 6, 8, 0])
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+This is similar to sorted(iterable) , but unlike sorted() , this
+implementation is not stable.
+
+Heap elements can be tuples. This is useful for assigning comparison values
+(such as task priorities) alongside the main record being tracked:
+
+```
+>>> h = []
+>>> heappush(h, (5, 'write code'))
+>>> heappush(h, (7, 'release product'))
+>>> heappush(h, (1, 'write spec'))
+>>> heappush(h, (3, 'create tests'))
+>>> heappop(h)
+(1, 'write spec')
+```
+
+[5] ## Priority Queue Implementation Notes
+
+A priority queue is common use
+for a heap, and it presents several implementation challenges:
+
+Sort stability: how do you get two tasks with equal priorities to be returned
+in the order they were originally added?
+
+Tuple comparison breaks for (priority, task) pairs if the priorities are equal
+and the tasks do not have a default comparison order.
+
+If the priority of a task changes, how do you move it to a new position in
+the heap?
+
+Or if a pending task needs to be deleted, how do you find it and remove it
+from the queue?
+
+A solution to the first two challenges is to store entries as 3-element list
+including the priority, an entry count, and the task. The entry count serves as
+a tie-breaker so that two tasks with the same priority are returned in the order
+they were added. And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+Another solution to the problem of non-comparable tasks is to create a wrapper
+class that ignores the task item and only compares the priority field:
+
+```
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(order=True)
+class PrioritizedItem:
+    priority: int
+    item: Any=field(compare=False)
+```
+
+The remaining challenges revolve around finding a pending task and making
+changes to its priority or removing it entirely. Finding a task can be done
+with a dictionary pointing to an entry in the queue.
+
+Removing the entry or changing its priority is more difficult because it would
+break the heap structure invariants. So, a possible solution is to mark the
+entry as removed and add a new entry with the revised priority:",tech_docs-025,multi,Starting in which Python version is the combined action of pushing an item onto a max-heap and then popping and returning the largest item available?,Version 3.14,0.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"Heaps are structured as arrays for which $a[k] <= a[2*k+1]$ and $a[k] <= a[2*k+2]$ for all $k$, counting elements from 0 (with non-existing elements considered to be infinite).","[1] # heapq Ã¢Â€Â” Heap queue algorithm
+
+Source code: Lib/heapq.py
+
+This module provides an implementation of the heap queue algorithm, also known
+as the priority queue algorithm.
+
+Min-heaps are binary trees for which every parent node has a value less than
+or equal to any of its children.
+We refer to this condition as the heap invariant.
+
+For min-heaps, this implementation uses lists for which heap[k] <= heap[2*k+1] and heap[k] <= heap[2*k+2] for all k for which
+the compared elements exist. Elements are counted from zero. The interesting
+property of a min-heap is that its smallest element is always the root, heap[0] .
+
+Max-heaps satisfy the reverse invariant: every parent node has a value greater than any of its children. These are implemented as lists for which maxheap[2*k+1] <= maxheap[k] and maxheap[2*k+2] <= maxheap[k] for all k for which the compared elements exist.
+The root, maxheap[0] , contains the largest element; heap.sort(reverse=True) maintains the max-heap invariant.
+
+The heapq API differs from textbook heap algorithms in two aspects: (a)
+We use zero-based indexing. This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!
+
+Like list.sort() , this implementation uses only the < operator
+for comparisons, for both min-heaps and max-heaps.
+
+In the API below, and in this documentation, the unqualified term heap generally refers to a min-heap.
+The API for max-heaps is named using a _max suffix.
+
+[2] ## Theory
+
+Heaps are arrays for which a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for all k , counting elements from 0. For the sake of comparison, non-existing
+elements are considered to be infinite. The interesting property of a heap is
+that a[0] is always its smallest element.
+
+The strange invariant above is meant to be an efficient memory representation
+for a tournament. The numbers below are k , not a[k] :
+
+In the tree above, each cell k is topping 2*k+1 and 2*k+2 . In a usual
+binary tournament we see in sports, each cell is the winner over the two cells
+it tops, and we can trace the winner down the tree to see all opponents s/he
+had. However, in many computer applications of such tournaments, we do not need
+to trace the history of a winner. To be more memory efficient, when a winner is
+promoted, we try to replace it by something else at a lower level, and the rule
+becomes that a cell and the two cells it tops contain three different items, but
+the top cell Ã¢Â€ÂœwinsÃ¢Â€Â over the two topped cells.
+
+If this heap invariant is protected at all time, index 0 is clearly the overall
+winner. The simplest algorithmic way to remove it and find the Ã¢Â€ÂœnextÃ¢Â€Â winner is
+to move some loser (letÃ¢Â€Â™s say cell 30 in the diagram above) into the 0 position,
+and then percolate this new 0 down the tree, exchanging values, until the
+invariant is re-established. This is clearly logarithmic on the total number of
+items in the tree. By iterating over all items, you get an O ( n log n ) sort.
+
+[3] To create a heap, use a list initialized as [] , or transform an existing list
+into a min-heap or max-heap using the heapify() or heapify_max() functions, respectively.
+
+The following functions are provided for min-heaps:
+
+heapq. heapify ( x )
+
+Transform list x into a min-heap, in-place, in linear time.
+
+heapq. heappush ( heap , item )
+
+Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap . The combined action runs more efficiently than heappush() followed by a separate call to heappop() .
+
+heapq. heapreplace ( heap , item )
+
+Pop and return the smallest item from the heap , and also push the new item .
+The heap size doesnÃ¢Â€Â™t change. If the heap is empty, IndexError is raised. This one step operation is more efficient than a heappop() followed by heappush() and can be more appropriate when using a fixed-size heap.
+The pop/push combination always returns an element from the heap and replaces
+it with item . The value returned may be larger than the item added. If that isnÃ¢Â€Â™t
+desired, consider using heappushpop() instead. Its push/pop
+combination returns the smaller of the two values, leaving the larger value
+on the heap.
+
+For max-heaps, the following functions are provided:
+
+heapq. heapify_max ( x )
+
+Transform list x into a max-heap, in-place, in linear time. Added in version 3.14.
+
+heapq. heappush_max ( heap , item )
+
+[4] ## Priority Queue Implementation Notes
+
+A priority queue is common use
+for a heap, and it presents several implementation challenges:
+
+Sort stability: how do you get two tasks with equal priorities to be returned
+in the order they were originally added?
+
+Tuple comparison breaks for (priority, task) pairs if the priorities are equal
+and the tasks do not have a default comparison order.
+
+If the priority of a task changes, how do you move it to a new position in
+the heap?
+
+Or if a pending task needs to be deleted, how do you find it and remove it
+from the queue?
+
+A solution to the first two challenges is to store entries as 3-element list
+including the priority, an entry count, and the task. The entry count serves as
+a tie-breaker so that two tasks with the same priority are returned in the order
+they were added. And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+Another solution to the problem of non-comparable tasks is to create a wrapper
+class that ignores the task item and only compares the priority field:
+
+```
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(order=True)
+class PrioritizedItem:
+    priority: int
+    item: Any=field(compare=False)
+```
+
+The remaining challenges revolve around finding a pending task and making
+changes to its priority or removing it entirely. Finding a task can be done
+with a dictionary pointing to an entry in the queue.
+
+Removing the entry or changing its priority is more difficult because it would
+break the heap structure invariants. So, a possible solution is to mark the
+entry as removed and add a new entry with the revised priority:
+
+[5] A nice feature of this sort is that you can efficiently insert new items while
+the sort is going on, provided that the inserted items are not Ã¢Â€ÂœbetterÃ¢Â€Â than the
+last 0Ã¢Â€Â™th element you extracted. This is especially useful in simulation
+contexts, where the tree holds all incoming events, and the Ã¢Â€ÂœwinÃ¢Â€Â condition
+means the smallest scheduled time. When an event schedules other events for
+execution, they are scheduled into the future, so they can easily go into the
+heap. So, a heap is a good structure for implementing schedulers (this is what
+I used for my MIDI sequencer :-).
+
+Various structures for implementing schedulers have been extensively studied,
+and heaps are good for this, as they are reasonably speedy, the speed is almost
+constant, and the worst case is not much different than the average case.
+However, there are other representations which are more efficient overall, yet
+the worst cases might be terrible.
+
+Heaps are also very useful in big disk sorts. You most probably all know that a
+big sort implies producing Ã¢Â€ÂœrunsÃ¢Â€Â (which are pre-sorted sequences, whose size is
+usually related to the amount of CPU memory), followed by a merging passes for
+these runs, which merging is often very cleverly organised [ 1 ] . It is very
+important that the initial sort produces the longest runs possible. Tournaments
+are a good way to achieve that. If, using all the memory available to hold a
+tournament, you replace and percolate items that happen to fit the current run,
+youÃ¢Â€Â™ll produce runs which are twice the size of the memory for random input, and
+much better for input fuzzily ordered.",tech_docs-030,multi,How are heaps structured to ensure that a[0] is the smallest element?,"They are structured as arrays satisfying the condition a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for all k, counting elements from 0.",0.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"Based on the provided context, the root, `maxheap[0]`, contains the largest element. To access the largest item without popping it, use `maxheap[0]`.","[1] Push the value item onto the max-heap heap , maintaining the max-heap
+invariant. Added in version 3.14.
+
+heapq. heappop_max ( heap )
+
+Pop and return the largest item from the max-heap heap , maintaining the
+max-heap invariant. If the max-heap is empty, IndexError is raised.
+To access the largest item without popping it, use maxheap[0] . Added in version 3.14.
+
+heapq. heappushpop_max ( heap , item )
+
+Push item on the max-heap heap , then pop and return the largest item
+from heap .
+The combined action runs more efficiently than heappush_max() followed by a separate call to heappop_max() . Added in version 3.14.
+
+heapq. heapreplace_max ( heap , item )
+
+Pop and return the largest item from the max-heap heap and also push the
+new item .
+The max-heap size doesnÃ¢Â€Â™t change. If the max-heap is empty, IndexError is raised. The value returned may be smaller than the item added. Refer to the
+analogous function heapreplace() for detailed usage notes. Added in version 3.14.
+
+The module also offers three general purpose functions based on heaps.
+
+heapq. merge ( * iterables , key = None , reverse = False )
+
+[2] To create a heap, use a list initialized as [] , or transform an existing list
+into a min-heap or max-heap using the heapify() or heapify_max() functions, respectively.
+
+The following functions are provided for min-heaps:
+
+heapq. heapify ( x )
+
+Transform list x into a min-heap, in-place, in linear time.
+
+heapq. heappush ( heap , item )
+
+Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap . The combined action runs more efficiently than heappush() followed by a separate call to heappop() .
+
+heapq. heapreplace ( heap , item )
+
+Pop and return the smallest item from the heap , and also push the new item .
+The heap size doesnÃ¢Â€Â™t change. If the heap is empty, IndexError is raised. This one step operation is more efficient than a heappop() followed by heappush() and can be more appropriate when using a fixed-size heap.
+The pop/push combination always returns an element from the heap and replaces
+it with item . The value returned may be larger than the item added. If that isnÃ¢Â€Â™t
+desired, consider using heappushpop() instead. Its push/pop
+combination returns the smaller of the two values, leaving the larger value
+on the heap.
+
+For max-heaps, the following functions are provided:
+
+heapq. heapify_max ( x )
+
+Transform list x into a max-heap, in-place, in linear time. Added in version 3.14.
+
+heapq. heappush_max ( heap , item )
+
+[3] # heapq Ã¢Â€Â” Heap queue algorithm
+
+Source code: Lib/heapq.py
+
+This module provides an implementation of the heap queue algorithm, also known
+as the priority queue algorithm.
+
+Min-heaps are binary trees for which every parent node has a value less than
+or equal to any of its children.
+We refer to this condition as the heap invariant.
+
+For min-heaps, this implementation uses lists for which heap[k] <= heap[2*k+1] and heap[k] <= heap[2*k+2] for all k for which
+the compared elements exist. Elements are counted from zero. The interesting
+property of a min-heap is that its smallest element is always the root, heap[0] .
+
+Max-heaps satisfy the reverse invariant: every parent node has a value greater than any of its children. These are implemented as lists for which maxheap[2*k+1] <= maxheap[k] and maxheap[2*k+2] <= maxheap[k] for all k for which the compared elements exist.
+The root, maxheap[0] , contains the largest element; heap.sort(reverse=True) maintains the max-heap invariant.
+
+The heapq API differs from textbook heap algorithms in two aspects: (a)
+We use zero-based indexing. This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!
+
+Like list.sort() , this implementation uses only the < operator
+for comparisons, for both min-heaps and max-heaps.
+
+In the API below, and in this documentation, the unqualified term heap generally refers to a min-heap.
+The API for max-heaps is named using a _max suffix.
+
+[4] ## Theory
+
+Heaps are arrays for which a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for all k , counting elements from 0. For the sake of comparison, non-existing
+elements are considered to be infinite. The interesting property of a heap is
+that a[0] is always its smallest element.
+
+The strange invariant above is meant to be an efficient memory representation
+for a tournament. The numbers below are k , not a[k] :
+
+In the tree above, each cell k is topping 2*k+1 and 2*k+2 . In a usual
+binary tournament we see in sports, each cell is the winner over the two cells
+it tops, and we can trace the winner down the tree to see all opponents s/he
+had. However, in many computer applications of such tournaments, we do not need
+to trace the history of a winner. To be more memory efficient, when a winner is
+promoted, we try to replace it by something else at a lower level, and the rule
+becomes that a cell and the two cells it tops contain three different items, but
+the top cell Ã¢Â€ÂœwinsÃ¢Â€Â over the two topped cells.
+
+If this heap invariant is protected at all time, index 0 is clearly the overall
+winner. The simplest algorithmic way to remove it and find the Ã¢Â€ÂœnextÃ¢Â€Â winner is
+to move some loser (letÃ¢Â€Â™s say cell 30 in the diagram above) into the 0 position,
+and then percolate this new 0 down the tree, exchanging values, until the
+invariant is re-established. This is clearly logarithmic on the total number of
+items in the tree. By iterating over all items, you get an O ( n log n ) sort.
+
+[5] Merge multiple sorted inputs into a single sorted output (for example, merge
+timestamped entries from multiple log files). Returns an iterator over the sorted values. Similar to sorted(itertools.chain(*iterables)) but returns an iterable, does
+not pull the data into memory all at once, and assumes that each of the input
+streams is already sorted (smallest to largest). Has two optional arguments which must be specified as keyword arguments. key specifies a key function of one argument that is used to
+extract a comparison key from each input element. The default value is None (compare the elements directly). reverse is a boolean value. If set to True , then the input elements
+are merged as if each comparison were reversed. To achieve behavior similar
+to sorted(itertools.chain(*iterables), reverse=True) , all iterables must
+be sorted from largest to smallest. Changed in version 3.5: Added the optional key and reverse parameters.
+
+heapq. nlargest ( n , iterable , key = None )
+
+Return a list with the n largest elements from the dataset defined by iterable . key , if provided, specifies a function of one argument that is
+used to extract a comparison key from each element in iterable (for example, key=str.lower ). Equivalent to: sorted(iterable, key=key, reverse=True)[:n] .
+
+heapq. nsmallest ( n , iterable , key = None )
+
+Return a list with the n smallest elements from the dataset defined by iterable . key , if provided, specifies a function of one argument that is
+used to extract a comparison key from each element in iterable (for example, key=str.lower ). Equivalent to: sorted(iterable, key=key)[:n] .",tech_docs-034,multi,"Which specific element of a max-heap contains the largest element, and how can one access it without popping it according to the functions provided?",maxheap[0],0.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,heapify_max(),"[1] To create a heap, use a list initialized as [] , or transform an existing list
+into a min-heap or max-heap using the heapify() or heapify_max() functions, respectively.
+
+The following functions are provided for min-heaps:
+
+heapq. heapify ( x )
+
+Transform list x into a min-heap, in-place, in linear time.
+
+heapq. heappush ( heap , item )
+
+Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap . The combined action runs more efficiently than heappush() followed by a separate call to heappop() .
+
+heapq. heapreplace ( heap , item )
+
+Pop and return the smallest item from the heap , and also push the new item .
+The heap size doesnÃ¢Â€Â™t change. If the heap is empty, IndexError is raised. This one step operation is more efficient than a heappop() followed by heappush() and can be more appropriate when using a fixed-size heap.
+The pop/push combination always returns an element from the heap and replaces
+it with item . The value returned may be larger than the item added. If that isnÃ¢Â€Â™t
+desired, consider using heappushpop() instead. Its push/pop
+combination returns the smaller of the two values, leaving the larger value
+on the heap.
+
+For max-heaps, the following functions are provided:
+
+heapq. heapify_max ( x )
+
+Transform list x into a max-heap, in-place, in linear time. Added in version 3.14.
+
+heapq. heappush_max ( heap , item )
+
+[2] # heapq Ã¢Â€Â” Heap queue algorithm
+
+Source code: Lib/heapq.py
+
+This module provides an implementation of the heap queue algorithm, also known
+as the priority queue algorithm.
+
+Min-heaps are binary trees for which every parent node has a value less than
+or equal to any of its children.
+We refer to this condition as the heap invariant.
+
+For min-heaps, this implementation uses lists for which heap[k] <= heap[2*k+1] and heap[k] <= heap[2*k+2] for all k for which
+the compared elements exist. Elements are counted from zero. The interesting
+property of a min-heap is that its smallest element is always the root, heap[0] .
+
+Max-heaps satisfy the reverse invariant: every parent node has a value greater than any of its children. These are implemented as lists for which maxheap[2*k+1] <= maxheap[k] and maxheap[2*k+2] <= maxheap[k] for all k for which the compared elements exist.
+The root, maxheap[0] , contains the largest element; heap.sort(reverse=True) maintains the max-heap invariant.
+
+The heapq API differs from textbook heap algorithms in two aspects: (a)
+We use zero-based indexing. This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!
+
+Like list.sort() , this implementation uses only the < operator
+for comparisons, for both min-heaps and max-heaps.
+
+In the API below, and in this documentation, the unqualified term heap generally refers to a min-heap.
+The API for max-heaps is named using a _max suffix.
+
+[3] Push the value item onto the max-heap heap , maintaining the max-heap
+invariant. Added in version 3.14.
+
+heapq. heappop_max ( heap )
+
+Pop and return the largest item from the max-heap heap , maintaining the
+max-heap invariant. If the max-heap is empty, IndexError is raised.
+To access the largest item without popping it, use maxheap[0] . Added in version 3.14.
+
+heapq. heappushpop_max ( heap , item )
+
+Push item on the max-heap heap , then pop and return the largest item
+from heap .
+The combined action runs more efficiently than heappush_max() followed by a separate call to heappop_max() . Added in version 3.14.
+
+heapq. heapreplace_max ( heap , item )
+
+Pop and return the largest item from the max-heap heap and also push the
+new item .
+The max-heap size doesnÃ¢Â€Â™t change. If the max-heap is empty, IndexError is raised. The value returned may be smaller than the item added. Refer to the
+analogous function heapreplace() for detailed usage notes. Added in version 3.14.
+
+The module also offers three general purpose functions based on heaps.
+
+heapq. merge ( * iterables , key = None , reverse = False )
+
+[4] The latter two functions perform best for smaller values of n . For larger
+values, it is more efficient to use the sorted() function. Also, when n==1 , it is more efficient to use the built-in min() and max() functions. If repeated usage of these functions is required, consider turning
+the iterable into an actual heap.
+
+[5] ```
+pq = []                         # list of entries arranged in a heap
+entry_finder = {}               # mapping of tasks to entries
+REMOVED = '<removed-task>'      # placeholder for a removed task
+counter = itertools.count()     # unique sequence count
+
+def add_task(task, priority=0):
+    'Add a new task or update the priority of an existing task'
+    if task in entry_finder:
+        remove_task(task)
+    count = next(counter)
+    entry = [priority, count, task]
+    entry_finder[task] = entry
+    heappush(pq, entry)
+
+def remove_task(task):
+    'Mark an existing task as REMOVED.  Raise KeyError if not found.'
+    entry = entry_finder.pop(task)
+    entry[-1] = REMOVED
+
+def pop_task():
+    'Remove and return the lowest priority task. Raise KeyError if empty.'
+    while pq:
+        priority, count, task = heappop(pq)
+        if task is not REMOVED:
+            del entry_finder[task]
+            return task
+    raise KeyError('pop from an empty priority queue')
+```",tech_docs-032,multi,"In Python, which function transforms an existing list into a max-heap?",heapify_max(),1.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,IndexError,"[1] Push the value item onto the max-heap heap , maintaining the max-heap
+invariant. Added in version 3.14.
+
+heapq. heappop_max ( heap )
+
+Pop and return the largest item from the max-heap heap , maintaining the
+max-heap invariant. If the max-heap is empty, IndexError is raised.
+To access the largest item without popping it, use maxheap[0] . Added in version 3.14.
+
+heapq. heappushpop_max ( heap , item )
+
+Push item on the max-heap heap , then pop and return the largest item
+from heap .
+The combined action runs more efficiently than heappush_max() followed by a separate call to heappop_max() . Added in version 3.14.
+
+heapq. heapreplace_max ( heap , item )
+
+Pop and return the largest item from the max-heap heap and also push the
+new item .
+The max-heap size doesnÃ¢Â€Â™t change. If the max-heap is empty, IndexError is raised. The value returned may be smaller than the item added. Refer to the
+analogous function heapreplace() for detailed usage notes. Added in version 3.14.
+
+The module also offers three general purpose functions based on heaps.
+
+heapq. merge ( * iterables , key = None , reverse = False )
+
+[2] To create a heap, use a list initialized as [] , or transform an existing list
+into a min-heap or max-heap using the heapify() or heapify_max() functions, respectively.
+
+The following functions are provided for min-heaps:
+
+heapq. heapify ( x )
+
+Transform list x into a min-heap, in-place, in linear time.
+
+heapq. heappush ( heap , item )
+
+Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap . The combined action runs more efficiently than heappush() followed by a separate call to heappop() .
+
+heapq. heapreplace ( heap , item )
+
+Pop and return the smallest item from the heap , and also push the new item .
+The heap size doesnÃ¢Â€Â™t change. If the heap is empty, IndexError is raised. This one step operation is more efficient than a heappop() followed by heappush() and can be more appropriate when using a fixed-size heap.
+The pop/push combination always returns an element from the heap and replaces
+it with item . The value returned may be larger than the item added. If that isnÃ¢Â€Â™t
+desired, consider using heappushpop() instead. Its push/pop
+combination returns the smaller of the two values, leaving the larger value
+on the heap.
+
+For max-heaps, the following functions are provided:
+
+heapq. heapify_max ( x )
+
+Transform list x into a max-heap, in-place, in linear time. Added in version 3.14.
+
+heapq. heappush_max ( heap , item )
+
+[3] ```
+pq = []                         # list of entries arranged in a heap
+entry_finder = {}               # mapping of tasks to entries
+REMOVED = '<removed-task>'      # placeholder for a removed task
+counter = itertools.count()     # unique sequence count
+
+def add_task(task, priority=0):
+    'Add a new task or update the priority of an existing task'
+    if task in entry_finder:
+        remove_task(task)
+    count = next(counter)
+    entry = [priority, count, task]
+    entry_finder[task] = entry
+    heappush(pq, entry)
+
+def remove_task(task):
+    'Mark an existing task as REMOVED.  Raise KeyError if not found.'
+    entry = entry_finder.pop(task)
+    entry[-1] = REMOVED
+
+def pop_task():
+    'Remove and return the lowest priority task. Raise KeyError if empty.'
+    while pq:
+        priority, count, task = heappop(pq)
+        if task is not REMOVED:
+            del entry_finder[task]
+            return task
+    raise KeyError('pop from an empty priority queue')
+```
+
+[4] ## Priority Queue Implementation Notes
+
+A priority queue is common use
+for a heap, and it presents several implementation challenges:
+
+Sort stability: how do you get two tasks with equal priorities to be returned
+in the order they were originally added?
+
+Tuple comparison breaks for (priority, task) pairs if the priorities are equal
+and the tasks do not have a default comparison order.
+
+If the priority of a task changes, how do you move it to a new position in
+the heap?
+
+Or if a pending task needs to be deleted, how do you find it and remove it
+from the queue?
+
+A solution to the first two challenges is to store entries as 3-element list
+including the priority, an entry count, and the task. The entry count serves as
+a tie-breaker so that two tasks with the same priority are returned in the order
+they were added. And since no two entry counts are the same, the tuple
+comparison will never attempt to directly compare two tasks.
+
+Another solution to the problem of non-comparable tasks is to create a wrapper
+class that ignores the task item and only compares the priority field:
+
+```
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(order=True)
+class PrioritizedItem:
+    priority: int
+    item: Any=field(compare=False)
+```
+
+The remaining challenges revolve around finding a pending task and making
+changes to its priority or removing it entirely. Finding a task can be done
+with a dictionary pointing to an entry in the queue.
+
+Removing the entry or changing its priority is more difficult because it would
+break the heap structure invariants. So, a possible solution is to mark the
+entry as removed and add a new entry with the revised priority:
+
+[5] # heapq Ã¢Â€Â” Heap queue algorithm
+
+Source code: Lib/heapq.py
+
+This module provides an implementation of the heap queue algorithm, also known
+as the priority queue algorithm.
+
+Min-heaps are binary trees for which every parent node has a value less than
+or equal to any of its children.
+We refer to this condition as the heap invariant.
+
+For min-heaps, this implementation uses lists for which heap[k] <= heap[2*k+1] and heap[k] <= heap[2*k+2] for all k for which
+the compared elements exist. Elements are counted from zero. The interesting
+property of a min-heap is that its smallest element is always the root, heap[0] .
+
+Max-heaps satisfy the reverse invariant: every parent node has a value greater than any of its children. These are implemented as lists for which maxheap[2*k+1] <= maxheap[k] and maxheap[2*k+2] <= maxheap[k] for all k for which the compared elements exist.
+The root, maxheap[0] , contains the largest element; heap.sort(reverse=True) maintains the max-heap invariant.
+
+The heapq API differs from textbook heap algorithms in two aspects: (a)
+We use zero-based indexing. This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!
+
+Like list.sort() , this implementation uses only the < operator
+for comparisons, for both min-heaps and max-heaps.
+
+In the API below, and in this documentation, the unqualified term heap generally refers to a min-heap.
+The API for max-heaps is named using a _max suffix.",tech_docs-006,single,What exception is raised if an attempt is made to pop an item from an empty heap using heapq.heappop?,IndexError,1.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,Version 3.10,"[1] Similar to bisect_left() , but returns an insertion point which comes
+after (to the right of) any existing entries of x in a . The returned insertion point ip partitions the array a into two slices
+such that all(elem <= x for elem in a[lo : ip]) is true for the left slice and all(elem > x for elem in a[ip : hi]) is true for the right slice. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_left ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Insert x in a in sorted order. This function first runs bisect_left() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[2] Similar to insort_left() , but inserting x in a after any existing
+entries of x . This function first runs bisect_right() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+[3] Locate the insertion point for x in a to maintain sorted order.
+The parameters lo and hi may be used to specify a subset of the list
+which should be considered; by default the entire list is used. If x is
+already present in a , the insertion point will be before (to the left of)
+any existing entries. The return value is suitable for use as the first
+parameter to list.insert() assuming that a is already sorted. The returned insertion point ip partitions the array a into two
+slices such that all(elem < x for elem in a[lo : ip]) is true for the
+left slice and all(elem >= x for elem in a[ip : hi]) is true for the
+right slice. key specifies a key function of one argument that is used to
+extract a comparison key from each element in the array. To support
+searching complex records, the key function is not applied to the x value. If key is None , the elements are compared directly and
+no key function is called. Changed in version 3.10: Added the key parameter.
+
+bisect. bisect_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. bisect ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[4] # bisect Ã¢Â€Â” Array bisection algorithm
+
+Source code: Lib/bisect.py
+
+This module provides support for maintaining a list in sorted order without
+having to sort the list after each insertion. For long lists of items with
+expensive comparison operations, this can be an improvement over
+linear searches or frequent resorting.
+
+The module is called bisect because it uses a basic bisection
+algorithm to do its work. Unlike other bisection tools that search for a
+specific value, the functions in this module are designed to locate an
+insertion point. Accordingly, the functions never call an __eq__() method to determine whether a value has been found. Instead, the
+functions only call the __lt__() method and will return an insertion
+point between values in an array.
+
+Note
+
+The functions in this module are not thread-safe. If multiple threads
+concurrently use bisect functions on the same sequence, this
+may result in undefined behaviour. Likewise, if the provided sequence
+is mutated by a different thread while a bisect function
+is operating on it, the result is undefined. For example, using insort_left() on the same list from multiple threads
+may result in the list becoming unsorted.
+
+The following functions are provided:
+
+bisect. bisect_left ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+[5] ## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.
+For locating specific values, dictionaries are more performant.
+
+The insort() functions are O ( n ) because the logarithmic search step
+is dominated by the linear time insertion step.
+
+The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+If the key function isnÃ¢Â€Â™t fast, consider wrapping it with @functools.cache to avoid duplicate computations. Alternatively,
+consider searching an array of precomputed keys to locate the insertion
+point (as shown in the examples section below).
+
+See also
+
+Sorted Collections is a high performance
+module that uses bisect to managed sorted collections of data.
+
+The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.",tech_docs-021,single,In which Python version was the key parameter added to the bisect.insort_left function?,Changed in version 3.10: Added the key parameter.,0.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"The simplest algorithmic way to remove it and find the “next” winner is to move some loser into the 0 position, and then percolate this new 0 down the tree, exchanging values, until the invariant is re-established.","[1] ## Theory
+
+Heaps are arrays for which a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for all k , counting elements from 0. For the sake of comparison, non-existing
+elements are considered to be infinite. The interesting property of a heap is
+that a[0] is always its smallest element.
+
+The strange invariant above is meant to be an efficient memory representation
+for a tournament. The numbers below are k , not a[k] :
+
+In the tree above, each cell k is topping 2*k+1 and 2*k+2 . In a usual
+binary tournament we see in sports, each cell is the winner over the two cells
+it tops, and we can trace the winner down the tree to see all opponents s/he
+had. However, in many computer applications of such tournaments, we do not need
+to trace the history of a winner. To be more memory efficient, when a winner is
+promoted, we try to replace it by something else at a lower level, and the rule
+becomes that a cell and the two cells it tops contain three different items, but
+the top cell Ã¢Â€ÂœwinsÃ¢Â€Â over the two topped cells.
+
+If this heap invariant is protected at all time, index 0 is clearly the overall
+winner. The simplest algorithmic way to remove it and find the Ã¢Â€ÂœnextÃ¢Â€Â winner is
+to move some loser (letÃ¢Â€Â™s say cell 30 in the diagram above) into the 0 position,
+and then percolate this new 0 down the tree, exchanging values, until the
+invariant is re-established. This is clearly logarithmic on the total number of
+items in the tree. By iterating over all items, you get an O ( n log n ) sort.
+
+[2] A nice feature of this sort is that you can efficiently insert new items while
+the sort is going on, provided that the inserted items are not Ã¢Â€ÂœbetterÃ¢Â€Â than the
+last 0Ã¢Â€Â™th element you extracted. This is especially useful in simulation
+contexts, where the tree holds all incoming events, and the Ã¢Â€ÂœwinÃ¢Â€Â condition
+means the smallest scheduled time. When an event schedules other events for
+execution, they are scheduled into the future, so they can easily go into the
+heap. So, a heap is a good structure for implementing schedulers (this is what
+I used for my MIDI sequencer :-).
+
+Various structures for implementing schedulers have been extensively studied,
+and heaps are good for this, as they are reasonably speedy, the speed is almost
+constant, and the worst case is not much different than the average case.
+However, there are other representations which are more efficient overall, yet
+the worst cases might be terrible.
+
+Heaps are also very useful in big disk sorts. You most probably all know that a
+big sort implies producing Ã¢Â€ÂœrunsÃ¢Â€Â (which are pre-sorted sequences, whose size is
+usually related to the amount of CPU memory), followed by a merging passes for
+these runs, which merging is often very cleverly organised [ 1 ] . It is very
+important that the initial sort produces the longest runs possible. Tournaments
+are a good way to achieve that. If, using all the memory available to hold a
+tournament, you replace and percolate items that happen to fit the current run,
+youÃ¢Â€Â™ll produce runs which are twice the size of the memory for random input, and
+much better for input fuzzily ordered.
+
+[3] To create a heap, use a list initialized as [] , or transform an existing list
+into a min-heap or max-heap using the heapify() or heapify_max() functions, respectively.
+
+The following functions are provided for min-heaps:
+
+heapq. heapify ( x )
+
+Transform list x into a min-heap, in-place, in linear time.
+
+heapq. heappush ( heap , item )
+
+Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap . The combined action runs more efficiently than heappush() followed by a separate call to heappop() .
+
+heapq. heapreplace ( heap , item )
+
+Pop and return the smallest item from the heap , and also push the new item .
+The heap size doesnÃ¢Â€Â™t change. If the heap is empty, IndexError is raised. This one step operation is more efficient than a heappop() followed by heappush() and can be more appropriate when using a fixed-size heap.
+The pop/push combination always returns an element from the heap and replaces
+it with item . The value returned may be larger than the item added. If that isnÃ¢Â€Â™t
+desired, consider using heappushpop() instead. Its push/pop
+combination returns the smaller of the two values, leaving the larger value
+on the heap.
+
+For max-heaps, the following functions are provided:
+
+heapq. heapify_max ( x )
+
+Transform list x into a max-heap, in-place, in linear time. Added in version 3.14.
+
+heapq. heappush_max ( heap , item )
+
+[4] # heapq Ã¢Â€Â” Heap queue algorithm
+
+Source code: Lib/heapq.py
+
+This module provides an implementation of the heap queue algorithm, also known
+as the priority queue algorithm.
+
+Min-heaps are binary trees for which every parent node has a value less than
+or equal to any of its children.
+We refer to this condition as the heap invariant.
+
+For min-heaps, this implementation uses lists for which heap[k] <= heap[2*k+1] and heap[k] <= heap[2*k+2] for all k for which
+the compared elements exist. Elements are counted from zero. The interesting
+property of a min-heap is that its smallest element is always the root, heap[0] .
+
+Max-heaps satisfy the reverse invariant: every parent node has a value greater than any of its children. These are implemented as lists for which maxheap[2*k+1] <= maxheap[k] and maxheap[2*k+2] <= maxheap[k] for all k for which the compared elements exist.
+The root, maxheap[0] , contains the largest element; heap.sort(reverse=True) maintains the max-heap invariant.
+
+The heapq API differs from textbook heap algorithms in two aspects: (a)
+We use zero-based indexing. This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!
+
+Like list.sort() , this implementation uses only the < operator
+for comparisons, for both min-heaps and max-heaps.
+
+In the API below, and in this documentation, the unqualified term heap generally refers to a min-heap.
+The API for max-heaps is named using a _max suffix.
+
+[5] Moreover, if you output the 0Ã¢Â€Â™th item on disk and get an input which may not fit
+in the current tournament (because the value Ã¢Â€ÂœwinsÃ¢Â€Â over the last output value),
+it cannot fit in the heap, so the size of the heap decreases. The freed memory
+could be cleverly reused immediately for progressively building a second heap,
+which grows at exactly the same rate the first heap is melting. When the first
+heap completely vanishes, you switch heaps and start a new run. Clever and
+quite effective!
+
+In a word, heaps are useful memory structures to know. I use them in a few
+applications, and I think it is good to keep a Ã¢Â€Â˜heapÃ¢Â€Â™ module around. :-)
+
+Footnotes",tech_docs-013,single,What is the simplest algorithmic way to remove the overall winner and find the next winner when the heap invariant is protected?,"To move some loser into the 0 position, and then percolate this new 0 down the tree, exchanging values, until the invariant is re-established.",0.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"For larger values of n, it is more efficient to use the sorted() function.","[1] The latter two functions perform best for smaller values of n . For larger
+values, it is more efficient to use the sorted() function. Also, when n==1 , it is more efficient to use the built-in min() and max() functions. If repeated usage of these functions is required, consider turning
+the iterable into an actual heap.
+
+[2] ## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.
+For locating specific values, dictionaries are more performant.
+
+The insort() functions are O ( n ) because the logarithmic search step
+is dominated by the linear time insertion step.
+
+The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+If the key function isnÃ¢Â€Â™t fast, consider wrapping it with @functools.cache to avoid duplicate computations. Alternatively,
+consider searching an array of precomputed keys to locate the insertion
+point (as shown in the examples section below).
+
+See also
+
+Sorted Collections is a high performance
+module that uses bisect to managed sorted collections of data.
+
+The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+[3] To create a heap, use a list initialized as [] , or transform an existing list
+into a min-heap or max-heap using the heapify() or heapify_max() functions, respectively.
+
+The following functions are provided for min-heaps:
+
+heapq. heapify ( x )
+
+Transform list x into a min-heap, in-place, in linear time.
+
+heapq. heappush ( heap , item )
+
+Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap . The combined action runs more efficiently than heappush() followed by a separate call to heappop() .
+
+heapq. heapreplace ( heap , item )
+
+Pop and return the smallest item from the heap , and also push the new item .
+The heap size doesnÃ¢Â€Â™t change. If the heap is empty, IndexError is raised. This one step operation is more efficient than a heappop() followed by heappush() and can be more appropriate when using a fixed-size heap.
+The pop/push combination always returns an element from the heap and replaces
+it with item . The value returned may be larger than the item added. If that isnÃ¢Â€Â™t
+desired, consider using heappushpop() instead. Its push/pop
+combination returns the smaller of the two values, leaving the larger value
+on the heap.
+
+For max-heaps, the following functions are provided:
+
+heapq. heapify_max ( x )
+
+Transform list x into a max-heap, in-place, in linear time. Added in version 3.14.
+
+heapq. heappush_max ( heap , item )
+
+[4] A nice feature of this sort is that you can efficiently insert new items while
+the sort is going on, provided that the inserted items are not Ã¢Â€ÂœbetterÃ¢Â€Â than the
+last 0Ã¢Â€Â™th element you extracted. This is especially useful in simulation
+contexts, where the tree holds all incoming events, and the Ã¢Â€ÂœwinÃ¢Â€Â condition
+means the smallest scheduled time. When an event schedules other events for
+execution, they are scheduled into the future, so they can easily go into the
+heap. So, a heap is a good structure for implementing schedulers (this is what
+I used for my MIDI sequencer :-).
+
+Various structures for implementing schedulers have been extensively studied,
+and heaps are good for this, as they are reasonably speedy, the speed is almost
+constant, and the worst case is not much different than the average case.
+However, there are other representations which are more efficient overall, yet
+the worst cases might be terrible.
+
+Heaps are also very useful in big disk sorts. You most probably all know that a
+big sort implies producing Ã¢Â€ÂœrunsÃ¢Â€Â (which are pre-sorted sequences, whose size is
+usually related to the amount of CPU memory), followed by a merging passes for
+these runs, which merging is often very cleverly organised [ 1 ] . It is very
+important that the initial sort produces the longest runs possible. Tournaments
+are a good way to achieve that. If, using all the memory available to hold a
+tournament, you replace and percolate items that happen to fit the current run,
+youÃ¢Â€Â™ll produce runs which are twice the size of the memory for random input, and
+much better for input fuzzily ordered.
+
+[5] Merge multiple sorted inputs into a single sorted output (for example, merge
+timestamped entries from multiple log files). Returns an iterator over the sorted values. Similar to sorted(itertools.chain(*iterables)) but returns an iterable, does
+not pull the data into memory all at once, and assumes that each of the input
+streams is already sorted (smallest to largest). Has two optional arguments which must be specified as keyword arguments. key specifies a key function of one argument that is used to
+extract a comparison key from each input element. The default value is None (compare the elements directly). reverse is a boolean value. If set to True , then the input elements
+are merged as if each comparison were reversed. To achieve behavior similar
+to sorted(itertools.chain(*iterables), reverse=True) , all iterables must
+be sorted from largest to smallest. Changed in version 3.5: Added the optional key and reverse parameters.
+
+heapq. nlargest ( n , iterable , key = None )
+
+Return a list with the n largest elements from the dataset defined by iterable . key , if provided, specifies a function of one argument that is
+used to extract a comparison key from each element in iterable (for example, key=str.lower ). Equivalent to: sorted(iterable, key=key, reverse=True)[:n] .
+
+heapq. nsmallest ( n , iterable , key = None )
+
+Return a list with the n smallest elements from the dataset defined by iterable . key , if provided, specifies a function of one argument that is
+used to extract a comparison key from each element in iterable (for example, key=str.lower ). Equivalent to: sorted(iterable, key=key)[:n] .",tech_docs-010,single,What is the most efficient function to use for larger values of n?,sorted() function,0.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,IndexError,"[1] Push the value item onto the max-heap heap , maintaining the max-heap
+invariant. Added in version 3.14.
+
+heapq. heappop_max ( heap )
+
+Pop and return the largest item from the max-heap heap , maintaining the
+max-heap invariant. If the max-heap is empty, IndexError is raised.
+To access the largest item without popping it, use maxheap[0] . Added in version 3.14.
+
+heapq. heappushpop_max ( heap , item )
+
+Push item on the max-heap heap , then pop and return the largest item
+from heap .
+The combined action runs more efficiently than heappush_max() followed by a separate call to heappop_max() . Added in version 3.14.
+
+heapq. heapreplace_max ( heap , item )
+
+Pop and return the largest item from the max-heap heap and also push the
+new item .
+The max-heap size doesnÃ¢Â€Â™t change. If the max-heap is empty, IndexError is raised. The value returned may be smaller than the item added. Refer to the
+analogous function heapreplace() for detailed usage notes. Added in version 3.14.
+
+The module also offers three general purpose functions based on heaps.
+
+heapq. merge ( * iterables , key = None , reverse = False )
+
+[2] To create a heap, use a list initialized as [] , or transform an existing list
+into a min-heap or max-heap using the heapify() or heapify_max() functions, respectively.
+
+The following functions are provided for min-heaps:
+
+heapq. heapify ( x )
+
+Transform list x into a min-heap, in-place, in linear time.
+
+heapq. heappush ( heap , item )
+
+Push the value item onto the heap , maintaining the min-heap invariant.
+
+heapq. heappop ( heap )
+
+Pop and return the smallest item from the heap , maintaining the min-heap
+invariant. If the heap is empty, IndexError is raised. To access the
+smallest item without popping it, use heap[0] .
+
+heapq. heappushpop ( heap , item )
+
+Push item on the heap, then pop and return the smallest item from the heap . The combined action runs more efficiently than heappush() followed by a separate call to heappop() .
+
+heapq. heapreplace ( heap , item )
+
+Pop and return the smallest item from the heap , and also push the new item .
+The heap size doesnÃ¢Â€Â™t change. If the heap is empty, IndexError is raised. This one step operation is more efficient than a heappop() followed by heappush() and can be more appropriate when using a fixed-size heap.
+The pop/push combination always returns an element from the heap and replaces
+it with item . The value returned may be larger than the item added. If that isnÃ¢Â€Â™t
+desired, consider using heappushpop() instead. Its push/pop
+combination returns the smaller of the two values, leaving the larger value
+on the heap.
+
+For max-heaps, the following functions are provided:
+
+heapq. heapify_max ( x )
+
+Transform list x into a max-heap, in-place, in linear time. Added in version 3.14.
+
+heapq. heappush_max ( heap , item )
+
+[3] # heapq Ã¢Â€Â” Heap queue algorithm
+
+Source code: Lib/heapq.py
+
+This module provides an implementation of the heap queue algorithm, also known
+as the priority queue algorithm.
+
+Min-heaps are binary trees for which every parent node has a value less than
+or equal to any of its children.
+We refer to this condition as the heap invariant.
+
+For min-heaps, this implementation uses lists for which heap[k] <= heap[2*k+1] and heap[k] <= heap[2*k+2] for all k for which
+the compared elements exist. Elements are counted from zero. The interesting
+property of a min-heap is that its smallest element is always the root, heap[0] .
+
+Max-heaps satisfy the reverse invariant: every parent node has a value greater than any of its children. These are implemented as lists for which maxheap[2*k+1] <= maxheap[k] and maxheap[2*k+2] <= maxheap[k] for all k for which the compared elements exist.
+The root, maxheap[0] , contains the largest element; heap.sort(reverse=True) maintains the max-heap invariant.
+
+The heapq API differs from textbook heap algorithms in two aspects: (a)
+We use zero-based indexing. This makes the relationship between the index for
+a node and the indexes for its children slightly less obvious, but is more
+suitable since Python uses zero-based indexing. (b) Textbooks often focus on
+max-heaps, due to their suitability for in-place sorting. Our implementation
+favors min-heaps as they better correspond to Python lists .
+
+These two aspects make it possible to view the heap as a regular Python list
+without surprises: heap[0] is the smallest item, and heap.sort() maintains the heap invariant!
+
+Like list.sort() , this implementation uses only the < operator
+for comparisons, for both min-heaps and max-heaps.
+
+In the API below, and in this documentation, the unqualified term heap generally refers to a min-heap.
+The API for max-heaps is named using a _max suffix.
+
+[4] ```
+pq = []                         # list of entries arranged in a heap
+entry_finder = {}               # mapping of tasks to entries
+REMOVED = '<removed-task>'      # placeholder for a removed task
+counter = itertools.count()     # unique sequence count
+
+def add_task(task, priority=0):
+    'Add a new task or update the priority of an existing task'
+    if task in entry_finder:
+        remove_task(task)
+    count = next(counter)
+    entry = [priority, count, task]
+    entry_finder[task] = entry
+    heappush(pq, entry)
+
+def remove_task(task):
+    'Mark an existing task as REMOVED.  Raise KeyError if not found.'
+    entry = entry_finder.pop(task)
+    entry[-1] = REMOVED
+
+def pop_task():
+    'Remove and return the lowest priority task. Raise KeyError if empty.'
+    while pq:
+        priority, count, task = heappop(pq)
+        if task is not REMOVED:
+            del entry_finder[task]
+            return task
+    raise KeyError('pop from an empty priority queue')
+```
+
+[5] Moreover, if you output the 0Ã¢Â€Â™th item on disk and get an input which may not fit
+in the current tournament (because the value Ã¢Â€ÂœwinsÃ¢Â€Â over the last output value),
+it cannot fit in the heap, so the size of the heap decreases. The freed memory
+could be cleverly reused immediately for progressively building a second heap,
+which grows at exactly the same rate the first heap is melting. When the first
+heap completely vanishes, you switch heaps and start a new run. Clever and
+quite effective!
+
+In a word, heaps are useful memory structures to know. I use them in a few
+applications, and I think it is good to keep a Ã¢Â€Â˜heapÃ¢Â€Â™ module around. :-)
+
+Footnotes",tech_docs-005,single,What exception is raised if heapreplace_max() is called on an empty max-heap?,IndexError,1.0,tech_docs|structure_300|bge-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite

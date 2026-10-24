@@ -1,0 +1,1426 @@
+groundedness,correctness,abstained,answer_relevance,faithfulness_level,truthfulness_level,answer,context,qid,qtype,question,reference,exact,key,mode,provider,llm_model
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] For example, JSON or YAML conversions have complex error cases that require
+better reporting than can be given by the type keyword. A JSONDecodeError would not be well formatted and a FileNotFoundError exception would not be handled at all.
+
+Even FileType has its limitations for use with the type keyword. If one argument uses FileType and then a
+subsequent argument fails, an error is reported but the file is not
+automatically closed. In this case, it would be better to wait until after
+the parser has run and then use the with -statement to manage the
+files.
+
+For type checkers that simply check against a fixed set of values, consider
+using the choices keyword instead.
+
+### choices
+
+Some command-line arguments should be selected from a restricted set of values.
+
+[2] When add_argument() is called with option strings
+(like -f or --foo ) and nargs='?' . This creates an optional
+argument that can be followed by zero or one command-line arguments.
+When parsing the command line, if the option string is encountered with no
+command-line argument following it, the value from const will be used.
+See the nargs description for examples.
+
+Changed in version 3.11: const=None by default, including when action='append_const' or action='store_const' .
+
+### default
+
+All optional arguments and some positional arguments may be omitted at the
+command line. The default keyword argument of add_argument() , whose value defaults to None ,
+specifies what value should be used if the command-line argument is not present.
+
+[3] ### type
+
+By default, the parser reads command-line arguments in as simple
+strings. However, quite often the command-line string should instead be
+interpreted as another type, such as a float or int . The type keyword for add_argument() allows any
+necessary type-checking and type conversions to be performed.
+
+If the type keyword is used with the default keyword, the type converter
+is only applied if the default is a string.
+
+The argument to type can be a callable that accepts a single string or
+the name of a registered type (see register() )
+If the function raises ArgumentTypeError , TypeError , or ValueError , the exception is caught and a nicely formatted error
+message is displayed. Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+[4] Most actions add an attribute to this
+object using setattr() . values - The associated command-line arguments, with any type conversions
+applied. Type conversions are specified with the type keyword argument to add_argument() . option_string - The option string that was used to invoke this action.
+The option_string argument is optional, and will be absent if the action
+is associated with a positional argument. The __call__() method may perform arbitrary actions, but will typically set
+attributes on the namespace based on dest and values . format_usage ( ) Action subclasses can define a format_usage() method that takes no argument
+and return a string which will be used when printing the usage of the program.
+If such method is not provided, a sensible default will be used.
+
+__call__ ( parser , namespace , values , option_string = None )
+
+Action instances should be callable, so subclasses must override the __call__() method, which should accept four parameters: parser - The ArgumentParser object which contains this action. namespace - The Namespace object that will be returned by parse_args() . Most actions add an attribute to this
+object using setattr() . values - The associated command-line arguments, with any type conversions
+applied.
+
+[5] namespace - The Namespace object that will be returned by parse_args() . Most actions add an attribute to this
+object using setattr() .
+
+values - The associated command-line arguments, with any type conversions
+applied. Type conversions are specified with the type keyword argument to add_argument() .
+
+option_string - The option string that was used to invoke this action.
+The option_string argument is optional, and will be absent if the action
+is associated with a positional argument.
+
+format_usage ( )
+
+Action subclasses can define a format_usage() method that takes no argument
+and return a string which will be used when printing the usage of the program.",tech_docs-081,unanswerable,What specific formatting changes occur when the --sort-keys option is used with the JSON command-line interface?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] # argparse Ã¢Â€Â” Parser for command-line options, arguments and subcommands
+
+Added in version 3.2.
+
+Source code: Lib/argparse.py
+
+Note
+
+While argparse is the default recommended standard library module
+for implementing basic command line applications, authors with more
+exacting requirements for exactly how their command line applications
+behave may find it doesnÃ¢Â€Â™t provide the necessary level of control.
+Refer to Choosing an argument parsing library for alternatives to
+consider when argparse doesnÃ¢Â€Â™t support behaviors that the application
+requires (such as entirely disabling support for interspersed options and
+positional arguments, or accepting option parameter values that start
+with - even when they correspond to another defined option).
+
+The argparse module makes it easy to write user-friendly command-line
+interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv .
+
+[2] ```
+>>> parser = argparse.ArgumentParser(description='Process some integers.',
+...                                  color=False)
+>>> parser.add_argument('--action', choices=['sum', 'max'])
+>>> parser.add_argument('integers', metavar='N', type=int, nargs='+',
+...                     help='an integer for the accumulator')
+>>> parser.parse_args(['--help'])
+```
+
+Note that when color=True , colored output depends on both environment
+variables and terminal capabilities. However, if color=False , colored
+output is always disabled, even if environment variables like FORCE_COLOR are set.
+
+Added in version 3.14.
+
+To highlight inline code in your description, epilog, or argument help text, you can use single or double backticks:
+
+```
+>>> parser = argparse.ArgumentParser(
+...     formatter_class=argparse.RawDescriptionHelpFormatter,
+...     description='Run ``python -m myapp`` to start.',
+...     epilog='''Examples:
+...   `python -m myapp --verbose`
+...   ``python -m myapp --config settings.json``
+... ''')
+>>> parser.add_argument('--foo', help='set the `foo` value')
+```
+
+When colors are enabled, the text inside backticks will be displayed in a
+distinct color to help examples stand out. When colors are disabled, backticks
+are preserved as-is, which is readable in plain text.
+
+[3] ### prog
+
+By default, ArgumentParser calculates the name of the program
+to display in help messages depending on the way the Python interpreter was run:
+
+The base name of sys.argv[0] if a file was
+passed as argument.
+
+The Python interpreter name followed by sys.argv[0] if a directory or
+a zipfile was passed as argument.
+
+The Python interpreter name followed by -m followed by the
+module or package name if the -m option was used.
+
+This default is almost always desirable because it will make the help messages
+match the string that was used to invoke the program on the command line.
+However, to change this default behavior, another value can be supplied using
+the prog= argument to ArgumentParser :
+
+```
+>>> parser = argparse.ArgumentParser(prog='myprogram')
+>>> parser.print_help()
+usage: myprogram [-h]
+
+options:
+ -h, --help  show this help message and exit
+```
+
+[4] The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+If the key function isnÃ¢Â€Â™t fast, consider wrapping it with @functools.cache to avoid duplicate computations. Alternatively,
+consider searching an array of precomputed keys to locate the insertion
+point (as shown in the examples section below).
+
+See also
+
+Sorted Collections is a high performance
+module that uses bisect to managed sorted collections of data.
+
+The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+[5] # bisect Ã¢Â€Â” Array bisection algorithm
+
+Source code: Lib/bisect.py
+
+This module provides support for maintaining a list in sorted order without
+having to sort the list after each insertion. For long lists of items with
+expensive comparison operations, this can be an improvement over
+linear searches or frequent resorting.
+
+The module is called bisect because it uses a basic bisection
+algorithm to do its work. Unlike other bisection tools that search for a
+specific value, the functions in this module are designed to locate an
+insertion point. Accordingly, the functions never call an __eq__() method to determine whether a value has been found. Instead, the
+functions only call the __lt__() method and will return an insertion
+point between values in an array.",tech_docs-084,unanswerable,What is the complete Python implementation code provided for itertools.permutations?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] When colors are enabled, the text inside backticks will be displayed in a
+distinct color to help examples stand out. When colors are disabled, backticks
+are preserved as-is, which is readable in plain text.
+
+Added in version 3.15.
+
+## The add_argument() method
+
+ArgumentParser. add_argument ( name or flags... , * [ , action ] [ , nargs ] [ , const ] [ , default ] [ , type ] [ , choices ] [ , required ] [ , help ] [ , metavar ] [ , dest ] [ , deprecated ] )
+
+Define how a single command-line argument should be parsed. Each parameter
+has its own more detailed description below, but in short they are: name or flags - Either a name or a list of option strings, e.g. 'foo' or '-f', '--foo' . action - The basic type of action to be taken when this argument is
+encountered at the command line. nargs - The number of command-line arguments that should be consumed. const - A constant value required by some action and nargs selections. default - The value produced if the argument is absent from the
+command line and if it is absent from the namespace object. type - The type to which the command-line argument should be converted. choices - A sequence of the allowable values for the argument. required - Whether or not the command-line option may be omitted
+(optionals only). help - A brief description of what the argument does. metavar - A name for the argument in usage messages. dest - The name of the attribute to be added to the object returned by parse_args() . deprecated - Whether or not use of the argument is deprecated.
+
+[2] MetavarTypeHelpFormatter
+
+RawDescriptionHelpFormatter and RawTextHelpFormatter give
+more control over how textual descriptions are displayed.
+By default, ArgumentParser objects line-wrap the description and epilog texts in command-line help messages:
+
+```
+>>> parser = argparse.ArgumentParser(
+...     prog='PROG',
+...     description='''this description
+...         was indented weird
+...             but that is okay''',
+...     epilog='''
+...             likewise for this epilog whose whitespace will
+...         be cleaned up and whose words will be wrapped
+...         across a couple lines''')
+>>> parser.print_help()
+usage: PROG [-h]
+
+this description was indented weird but that is okay
+
+options:
+ -h, --help  show this help message and exit
+
+likewise for this epilog whose whitespace will be cleaned up and whose words
+will be wrapped across a couple lines
+```
+
+Passing RawDescriptionHelpFormatter as formatter_class= indicates that description and epilog are already correctly formatted and
+should not be line-wrapped:
+
+```
+>>> parser = argparse.ArgumentParser(
+...     prog='PROG',
+...     formatter_class=argparse.RawDescriptionHelpFormatter,
+...     description=textwrap.dedent('''\
+...         Please do not mess up this text!
+...         --------------------------------
+...             I have indented it
+...             exactly the way
+...             I want it
+...         '''))
+>>> parser.print_help()
+usage: PROG [-h]
+
+Please do not mess up this text!
+--------------------------------
+   I have indented it
+   exactly the way
+   I want it
+
+options:
+ -h, --help  show this help message and exit
+```
+
+RawTextHelpFormatter maintains whitespace for all sorts of help text,
+including argument descriptions. However, multiple newlines are replaced with
+one.
+
+[3] Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+```
+import argparse
+import pathlib
+
+parser = argparse.ArgumentParser()
+parser.add_argument('count', type=int)
+parser.add_argument('distance', type=float)
+parser.add_argument('street', type=ascii)
+parser.add_argument('code_point', type=ord)
+parser.add_argument('datapath', type=pathlib.Path)
+```
+
+User defined functions can be used as well:
+
+```
+>>> def hyphenated(string):
+...     return '-'.join([word[:4] for word in string.casefold().split()])
+...
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('short_title', type=hyphenated)
+>>> parser.parse_args(['""The Tale of Two Cities""'])
+Namespace(short_title='""the-tale-of-two-citi')
+```
+
+The bool() function is not recommended as a type converter. All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+[4] Changed in version 3.10: Added the key parameter.
+
+## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.
+For locating specific values, dictionaries are more performant.
+
+The insort() functions are O ( n ) because the logarithmic search step
+is dominated by the linear time insertion step.
+
+The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+
+[5] Most calls to the ArgumentParser constructor will use the description= keyword argument. This argument gives a brief description of
+what the program does and how it works. In help messages, the description is
+displayed between the command-line usage string and the help messages for the
+various arguments.
+
+By default, the description will be line-wrapped so that it fits within the
+given space. To change this behavior, see the formatter_class argument.
+
+### epilog
+
+Some programs like to display additional description of the program after the
+description of the arguments. Such text can be specified using the epilog= argument to ArgumentParser :",tech_docs-085,unanswerable,What specific function is being described for escaping backslashes in regular expressions?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] ```
+>>> parser = argparse.ArgumentParser(description='Process some integers.',
+...                                  color=False)
+>>> parser.add_argument('--action', choices=['sum', 'max'])
+>>> parser.add_argument('integers', metavar='N', type=int, nargs='+',
+...                     help='an integer for the accumulator')
+>>> parser.parse_args(['--help'])
+```
+
+Note that when color=True , colored output depends on both environment
+variables and terminal capabilities. However, if color=False , colored
+output is always disabled, even if environment variables like FORCE_COLOR are set.
+
+Added in version 3.14.
+
+To highlight inline code in your description, epilog, or argument help text, you can use single or double backticks:
+
+```
+>>> parser = argparse.ArgumentParser(
+...     formatter_class=argparse.RawDescriptionHelpFormatter,
+...     description='Run ``python -m myapp`` to start.',
+...     epilog='''Examples:
+...   `python -m myapp --verbose`
+...   ``python -m myapp --config settings.json``
+... ''')
+>>> parser.add_argument('--foo', help='set the `foo` value')
+```
+
+When colors are enabled, the text inside backticks will be displayed in a
+distinct color to help examples stand out. When colors are disabled, backticks
+are preserved as-is, which is readable in plain text.
+
+[2] The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+If the key function isnÃ¢Â€Â™t fast, consider wrapping it with @functools.cache to avoid duplicate computations. Alternatively,
+consider searching an array of precomputed keys to locate the insertion
+point (as shown in the examples section below).
+
+See also
+
+Sorted Collections is a high performance
+module that uses bisect to managed sorted collections of data.
+
+The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+[3] Changed in version 3.10: Added the key parameter.
+
+## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.
+For locating specific values, dictionaries are more performant.
+
+The insort() functions are O ( n ) because the logarithmic search step
+is dominated by the linear time insertion step.
+
+The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+
+[4] All parameters should be passed
+as keyword arguments. Each parameter has its own more detailed description
+below, but in short they are: prog - The name of the program (default: generated from the __main__ module attributes and sys.argv[0] ) usage - The string describing the program usage (default: generated from
+arguments added to parser) description - Text to display before the argument help
+(by default, no text) epilog - Text to display after the argument help (by default, no text) parents - A list of ArgumentParser objects whose arguments should
+also be included formatter_class - A class for customizing the help output prefix_chars - The set of characters that prefix optional arguments
+(default: Ã¢Â€Â˜-Ã¢Â€Â˜) fromfile_prefix_chars - The set of characters that prefix files from
+which additional arguments should be read (default: None ) argument_default - The global default value for arguments
+(default: None ) conflict_handler - The strategy for resolving conflicting optionals
+(usually unnecessary) add_help - Add a -h/--help option to the parser (default: True ) allow_abbrev - Allows long options to be abbreviated if the
+abbreviation is unambiguous (default: True ) exit_on_error - Determines whether or not ArgumentParser exits with
+error info when an error occurs. (default: True ) suggest_on_error - Enables suggestions for mistyped argument choices
+and subparser names (default: True ) color - Allow color output (default: True ) Changed in version 3.5: allow_abbrev parameter was added. Changed in version 3.8: In previous versions, allow_abbrev also disabled grouping of short
+flags such as -vv to mean -v -v . Changed in version 3.9: exit_on_error parameter was added. Changed in version 3.14: suggest_on_error and color parameters were added. Changed in version 3.15: suggest_on_error default changed to True .
+
+prog - The name of the program (default: generated from the __main__ module attributes and sys.argv[0] )
+
+[5] For example: ```
+>>> parser = argparse.ArgumentParser()
+>>> subparsers = parser.add_subparsers(title='subcommands',
+...                                    description='valid subcommands',
+...                                    help='additional help')
+>>> subparsers.add_parser('foo')
+>>> subparsers.add_parser('bar')
+>>> parser.parse_args(['-h'])
+usage:  [-h] {foo,bar} ...
+
+options:
+  -h, --help  show this help message and exit
+
+subcommands:
+  valid subcommands
+
+  {foo,bar}   additional help
+``` One particularly effective way of handling subcommands is to combine the use
+of the add_subparsers() method with calls to set_defaults() so
+that each subparser knows which Python function it should execute.  For
+example: ```
+>>> # subcommand functions
+>>> def foo(args):
+...     print(args.x * args.y)
+...
+>>> def bar(args):
+...     print('((%s))' % args.z)
+...
+>>> # create the top-level parser
+>>> parser = argparse.ArgumentParser()
+>>> subparsers = parser.add_subparsers(required=True)
+>>>
+>>> # create the parser for the ""foo"" command
+>>> parser_foo = subparsers.add_parser('foo')
+>>> parser_foo.add_argument('-x', type=int, default=1)
+>>> parser_foo.add_argument('y', type=float)
+>>> parser_foo.set_defaults(func=foo)
+>>>
+>>> # create the parser for the ""bar"" command
+>>> parser_bar = subparsers.add_parser('bar')
+>>> parser_bar.add_argument('z')
+>>> parser_bar.set_defaults(func=bar)
+>>>
+>>> # parse the args and call whatever function was selected
+>>> args = parser.parse_args('foo 1 -x 2'.split())
+>>> args.func(args)
+2.0
+>>>
+>>> # parse the args and call whatever function was selected
+>>> args = parser.parse_args('bar XYZYX'.split())
+>>> args.func(args)
+((XYZYX))
+``` This way, you can let parse_args() do the job of calling the
+appropriate function after argument parsing is complete.  Associating
+functions with actions like this is typically the easiest way to handle the
+different actions for each of your subparsers.  However, if it is necessary
+to check the name of the subparser that was invoked, the dest keyword
+argument to the add_subparsers() call will work:",tech_docs-077,unanswerable,In what version of Python were these itertools functions introduced?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Changed in version 3.12: ArgumentParser changed encoding and errors to read arguments files
+from default (e.g. locale.getpreferredencoding(False) and ""strict"" ) to the filesystem encoding and error handler .
+Arguments file should be encoded in UTF-8 instead of ANSI Codepage on Windows.
+
+### argument_default
+
+Generally, argument defaults are specified either by passing a default to add_argument() or by calling the set_defaults() methods with a specific set of name-value
+pairs. Sometimes however, it may be useful to specify a single parser-wide
+default for arguments. This can be accomplished by passing the argument_default= keyword argument to ArgumentParser . For example,
+to globally suppress attribute creation on parse_args() calls, we supply argument_default=SUPPRESS :
+
+```
+>>> parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS)
+>>> parser.add_argument('--foo')
+>>> parser.add_argument('bar', nargs='?')
+>>> parser.parse_args(['--foo', '1', 'BAR'])
+Namespace(bar='BAR', foo='1')
+>>> parser.parse_args([])
+Namespace()
+```
+
+[2] This function first runs bisect_left() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+bisect. insort_right ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Similar to insort_left() , but inserting x in a after any existing
+entries of x .
+
+[3] bisect. insort ( a , x , lo = 0 , hi = len(a) , * , key = None )
+
+Similar to insort_left() , but inserting x in a after any existing
+entries of x . This function first runs bisect_right() to locate an insertion point.
+Next, it runs the insert() method on a to insert x at the
+appropriate position to maintain sort order. To support inserting records in a table, the key function (if any) is
+applied to x for the search step but not for the insertion step. Keep in mind that the O (log n ) search is dominated by the slow O ( n )
+insertion step. Changed in version 3.10: Added the key parameter.
+
+## Performance Notes
+
+[4] Changed in version 3.10: Added the key parameter.
+
+## Performance Notes
+
+When writing time sensitive code using bisect() and insort() , keep these
+thoughts in mind:
+
+Bisection is effective for searching ranges of values.
+For locating specific values, dictionaries are more performant.
+
+The insort() functions are O ( n ) because the logarithmic search step
+is dominated by the linear time insertion step.
+
+The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+
+[5] Similarly, when a help message is requested from a subparser, only the help
+for that particular parser will be printed.  The help message will not
+include parent parser or sibling parser messages.  (A help message for each
+subparser command, however, can be given by supplying the help= argument
+to add_parser() as above.) ```
+>>> parser.parse_args(['--help'])
+usage: PROG [-h] [--foo] {a,b} ...
+
+positional arguments:
+  {a,b}   subcommand help
+    a     a help
+    b     b help
+
+options:
+  -h, --help  show this help message and exit
+  --foo   foo help
+
+>>> parser.parse_args(['a', '--help'])
+usage: PROG a [-h] bar
+
+positional arguments:
+  bar     bar help
+
+options:
+  -h, --help  show this help message and exit
+
+>>> parser.parse_args(['b', '--help'])
+usage: PROG b [-h] [--baz {X,Y,Z}]
+
+options:
+  -h, --help     show this help message and exit
+  --baz {X,Y,Z}  baz help
+``` The add_subparsers() method also supports title and description keyword arguments.  When either is present, the subparserÃ¢Â€Â™s commands will
+appear in their own group in the help output.  For example: ```
+>>> parser = argparse.ArgumentParser()
+>>> subparsers = parser.add_subparsers(title='subcommands',
+...                                    description='valid subcommands',
+...                                    help='additional help')
+>>> subparsers.add_parser('foo')
+>>> subparsers.add_parser('bar')
+>>> parser.parse_args(['-h'])
+usage:  [-h] {foo,bar} ...
+
+options:
+  -h, --help  show this help message and exit
+
+subcommands:
+  valid subcommands
+
+  {foo,bar}   additional help
+```",tech_docs-078,unanswerable,What specific destinations can handlers send log records to?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Sometimes a script only needs to handle a specific set of command-line
+arguments, leaving any unrecognized arguments for another script or program.
+In these cases, the parse_known_args() method can be
+useful. This method works similarly to parse_args() , but it does
+not raise an error for extra, unrecognized arguments. Instead, it parses the
+known arguments and returns a two item tuple that contains the populated
+namespace and the list of any unrecognized arguments. ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', action='store_true')
+>>> parser.add_argument('bar')
+>>> parser.parse_known_args(['--foo', '--badger', 'BAR', 'spam'])
+(Namespace(bar='BAR', foo=True), ['--badger', 'spam'])
+```
+
+Warning
+
+Prefix matching rules apply to parse_known_args() . The parser may consume an option even if itÃ¢Â€Â™s just
+a prefix of one of its known options, instead of leaving it in the remaining
+arguments list.
+
+[2] format_usage ( )
+
+Action subclasses can define a format_usage() method that takes no argument
+and return a string which will be used when printing the usage of the program.
+If such method is not provided, a sensible default will be used.
+
+class argparse. BooleanOptionalAction
+
+A subclass of Action for handling boolean flags with positive
+and negative options. Adding a single argument such as --foo automatically
+creates both --foo and --no-foo options, storing True and False respectively: ```
+>>> import argparse
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', action=argparse.BooleanOptionalAction)
+>>> parser.parse_args(['--no-foo'])
+Namespace(foo=False)
+```
+
+[3] Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+```
+import argparse
+import pathlib
+
+parser = argparse.ArgumentParser()
+parser.add_argument('count', type=int)
+parser.add_argument('distance', type=float)
+parser.add_argument('street', type=ascii)
+parser.add_argument('code_point', type=ord)
+parser.add_argument('datapath', type=pathlib.Path)
+```
+
+User defined functions can be used as well:
+
+```
+>>> def hyphenated(string):
+...     return '-'.join([word[:4] for word in string.casefold().split()])
+...
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('short_title', type=hyphenated)
+>>> parser.parse_args(['""The Tale of Two Cities""'])
+Namespace(short_title='""the-tale-of-two-citi')
+```
+
+The bool() function is not recommended as a type converter. All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+[4] All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('--verbose', type=bool)
+>>> parser.parse_args(['--verbose', 'False'])
+Namespace(verbose=True)
+```
+
+See BooleanOptionalAction or action='store_true' for common
+alternatives.
+
+In general, the type keyword is a convenience that should only be used for
+simple conversions that can only raise one of the three supported exceptions.
+Anything with more interesting error-handling or resource management should be
+done downstream after the arguments are parsed.
+
+For example, JSON or YAML conversions have complex error cases that require
+better reporting than can be given by the type keyword. A JSONDecodeError would not be well formatted and a FileNotFoundError exception would not be handled at all.
+
+[5] ArgumentParser. format_usage ( )
+
+Return a string containing a brief description of how the ArgumentParser should be invoked on the command line.
+
+ArgumentParser. format_help ( )
+
+Return a string containing a help message, including the program usage and
+information about the arguments registered with the ArgumentParser .
+
+### Partial parsing
+
+ArgumentParser. parse_known_args ( args = None , namespace = None )
+
+Sometimes a script only needs to handle a specific set of command-line
+arguments, leaving any unrecognized arguments for another script or program.
+In these cases, the parse_known_args() method can be
+useful.",tech_docs-079,unanswerable,What specific method does the serializer use to handle non-ASCII Unicode characters when ensure_ascii is set to False?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Only actions that consume command-line arguments (e.g. 'store' , 'append' , 'extend' , or custom actions with non-zero nargs ) can be used
+with positional arguments.
+
+The recommended way to create a custom action is to extend Action ,
+overriding the __call__() method and optionally the __init__() and format_usage() methods. You can also register custom actions using the register() method and reference them by their registered name.
+
+An example of a custom action:
+
+```
+>>> class FooAction(argparse.Action):
+...     def __init__(self, option_strings, dest, nargs=None, **kwargs):
+...         if nargs is not None:
+...             raise ValueError(""nargs not allowed"")
+...         super().__init__(option_strings, dest, **kwargs)
+...     def __call__(self, parser, namespace, values, option_string=None):
+...         print('%r %r %r' % (namespace, values, option_string))
+...         setattr(namespace, self.dest, values)
+...
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', action=FooAction)
+>>> parser.add_argument('bar', action=FooAction)
+>>> args = parser.parse_args('1 --foo 2'.split())
+Namespace(bar=None, foo=None) '1' None
+Namespace(bar='1', foo=None) '2' '--foo'
+>>> args
+Namespace(bar='1', foo='2')
+```
+
+For more details, see Action .
+
+### nargs
+
+[2] ### Registering custom types or actions
+
+ArgumentParser. register ( registry_name , value , object )
+
+Sometimes itÃ¢Â€Â™s desirable to use a custom string in error messages to provide
+more user-friendly output. In these cases, register() can be used to
+register custom actions or types with a parser and allow you to reference the
+type by their registered name instead of their callable name. The register() method accepts three arguments - a registry_name ,
+specifying the internal registry where the object will be stored (e.g., action , type ), value , which is the key under which the object will
+be registered, and object, the callable to be registered. The following example shows how to register a custom type with a parser: ```
+>>> import argparse
+>>> parser = argparse.ArgumentParser()
+>>> parser.register('type', 'hexadecimal integer', lambda s: int(s, 16))
+>>> parser.add_argument('--foo', type='hexadecimal integer')
+_StoreAction(option_strings=['--foo'], dest='foo', nargs=None, const=None, default=None, type='hexadecimal integer', choices=None, required=False, help=None, metavar=None, deprecated=False)
+>>> parser.parse_args(['--foo', '0xFA'])
+Namespace(foo=250)
+>>> parser.parse_args(['--foo', '1.2'])
+usage: PROG [-h] [--foo FOO]
+PROG: error: argument --foo: invalid 'hexadecimal integer' value: '1.2'
+```
+
+## Exceptions
+
+[3] class argparse. Namespace
+
+Simple class used by default by parse_args() to create
+an object holding attributes and return it. This class is deliberately simple, just an object subclass with a
+readable string representation. If you prefer to have dict-like view of the
+attributes, you can use the standard Python idiom, vars() : ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo')
+>>> args = parser.parse_args(['--foo', 'BAR'])
+>>> vars(args)
+{'foo': 'BAR'}
+``` It may also be useful to have an ArgumentParser assign attributes to an
+already existing object, rather than a new Namespace object.  This can
+be achieved by specifying the namespace= keyword argument:
+
+[4] For optional argument actions, the value of dest is normally inferred from
+the option strings. ArgumentParser generates the value of dest by
+taking the first double-dash long option string and stripping away the initial - characters.
+If no double-dash long option strings were supplied, dest will be derived
+from the first single-dash long option string by stripping the initial - character.
+If no long option strings were supplied, dest will be derived from
+the first short option string by stripping the initial - character. Any
+internal - characters will be converted to _ characters to make sure
+the string is a valid attribute name. The examples below illustrate this
+behavior:
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('-f', '--foo-bar', '--foo')
+>>> parser.add_argument('-q', '-quz')
+>>> parser.add_argument('-x', '-y')
+>>> parser.parse_args('-f 1 -q 2 -x 3'.split())
+Namespace(foo_bar='1', quz='2', x='3')
+>>> parser.parse_args('--foo 1 -quz 2 -y 3'.split())
+Namespace(foo_bar='1', quz='2', x='2')
+```
+
+dest allows a custom attribute name to be provided:
+
+[5] Get the default value for a namespace attribute, as set by either add_argument() or by set_defaults() : ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', default='badger')
+>>> parser.get_default('foo')
+'badger'
+```
+
+### Printing help
+
+In most typical applications, parse_args() will take
+care of formatting and printing any usage or error messages. However, several
+formatting methods are available:
+
+ArgumentParser. print_usage ( file = None )
+
+Print a brief description of how the ArgumentParser should be
+invoked on the command line. If file is None , sys.stdout is
+assumed.",tech_docs-080,unanswerable,How can a custom LogRecord attribute be accessed within a custom logging formatter in Python?,UNANSWERABLE,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] Other exception types are not handled.
+
+Common built-in types and functions can be used as type converters:
+
+```
+import argparse
+import pathlib
+
+parser = argparse.ArgumentParser()
+parser.add_argument('count', type=int)
+parser.add_argument('distance', type=float)
+parser.add_argument('street', type=ascii)
+parser.add_argument('code_point', type=ord)
+parser.add_argument('datapath', type=pathlib.Path)
+```
+
+User defined functions can be used as well:
+
+```
+>>> def hyphenated(string):
+...     return '-'.join([word[:4] for word in string.casefold().split()])
+...
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('short_title', type=hyphenated)
+>>> parser.parse_args(['""The Tale of Two Cities""'])
+Namespace(short_title='""the-tale-of-two-citi')
+```
+
+The bool() function is not recommended as a type converter. All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+[2] These parsers do not support all the argparse features, and will raise
+exceptions if unsupported features are used.  In particular, subparsers,
+and mutually exclusive groups that include both
+optionals and positionals are not supported. The following example shows the difference between parse_known_args() and parse_intermixed_args() : the former returns ['2', '3'] as unparsed arguments, while the latter collects all the positionals
+into rest . ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo')
+>>> parser.add_argument('cmd')
+>>> parser.add_argument('rest', nargs='*', type=int)
+>>> parser.parse_known_args('doit 1 --foo bar 2 3'.split())
+(Namespace(cmd='doit', foo='bar', rest=[1]), ['2', '3'])
+>>> parser.parse_intermixed_args('doit 1 --foo bar 2 3'.split())
+Namespace(cmd='doit', foo='bar', rest=[1, 2, 3])
+``` parse_known_intermixed_args() returns a two item tuple
+containing the populated namespace and the list of remaining argument strings. parse_intermixed_args() raises an error if there are any
+remaining unparsed argument strings. Added in version 3.7.
+
+### Registering custom types or actions
+
+ArgumentParser. register ( registry_name , value , object )
+
+[3] Changed in version 3.15: Added support for single-dash options. Added support for alternate prefix_chars .
+
+## The parse_args() method
+
+ArgumentParser. parse_args ( args = None , namespace = None )
+
+Convert argument strings to objects and assign them as attributes of the
+namespace. Return the populated namespace. Previous calls to add_argument() determine exactly what objects are
+created and how they are assigned. See the documentation for add_argument() for details. args - List of strings to parse.
+
+[4] Changed in version 3.14: Negative-number matching was expanded to include numbers in scientific
+notation ( -2.5e-6 ), numbers containing underscores ( -1_234.5 ),
+and complex numbers ( -1.2e-3j ).
+
+### Argument abbreviations (prefix matching)
+
+The parse_args() method by default allows long options to be abbreviated to a prefix, if the abbreviation is
+unambiguous (the prefix matches a unique option):
+
+```
+>>> parser = argparse.ArgumentParser(prog='PROG')
+>>> parser.add_argument('-bacon')
+>>> parser.add_argument('-badger')
+>>> parser.parse_args('-bac MMM'.split())
+Namespace(bacon='MMM', badger=None)
+>>> parser.parse_args('-bad WOOD'.split())
+Namespace(bacon=None, badger='WOOD')
+>>> parser.parse_args('-ba BA'.split())
+usage: PROG [-h] [-bacon BACON] [-badger BADGER]
+PROG: error: ambiguous option: -ba could match -badger, -bacon
+```
+
+An error is produced for arguments that could produce more than one options.
+This feature can be disabled by setting allow_abbrev to False .
+
+### Beyond sys.argv
+
+Sometimes it may be useful to have an ArgumentParser parse arguments other than those
+of sys.argv .
+
+[5] All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('--verbose', type=bool)
+>>> parser.parse_args(['--verbose', 'False'])
+Namespace(verbose=True)
+```
+
+See BooleanOptionalAction or action='store_true' for common
+alternatives.
+
+In general, the type keyword is a convenience that should only be used for
+simple conversions that can only raise one of the three supported exceptions.
+Anything with more interesting error-handling or resource management should be
+done downstream after the arguments are parsed.
+
+For example, JSON or YAML conversions have complex error cases that require
+better reporting than can be given by the type keyword. A JSONDecodeError would not be well formatted and a FileNotFoundError exception would not be handled at all.",tech_docs-059,single,In what Python version was support added for splitting on a pattern that could match an empty string?,Changed in version 3.7: Added support of splitting on a pattern that could match an empty string.,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,0.0,1.0,1.0,5.0,1.0,I don't know.,"[1] These parsers do not support all the argparse features, and will raise
+exceptions if unsupported features are used.  In particular, subparsers,
+and mutually exclusive groups that include both
+optionals and positionals are not supported. The following example shows the difference between parse_known_args() and parse_intermixed_args() : the former returns ['2', '3'] as unparsed arguments, while the latter collects all the positionals
+into rest . ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo')
+>>> parser.add_argument('cmd')
+>>> parser.add_argument('rest', nargs='*', type=int)
+>>> parser.parse_known_args('doit 1 --foo bar 2 3'.split())
+(Namespace(cmd='doit', foo='bar', rest=[1]), ['2', '3'])
+>>> parser.parse_intermixed_args('doit 1 --foo bar 2 3'.split())
+Namespace(cmd='doit', foo='bar', rest=[1, 2, 3])
+``` parse_known_intermixed_args() returns a two item tuple
+containing the populated namespace and the list of remaining argument strings. parse_intermixed_args() raises an error if there are any
+remaining unparsed argument strings. Added in version 3.7.
+
+### Registering custom types or actions
+
+ArgumentParser. register ( registry_name , value , object )
+
+[2] Changed in version 3.15: Added support for single-dash options. Added support for alternate prefix_chars .
+
+## The parse_args() method
+
+ArgumentParser. parse_args ( args = None , namespace = None )
+
+Convert argument strings to objects and assign them as attributes of the
+namespace. Return the populated namespace. Previous calls to add_argument() determine exactly what objects are
+created and how they are assigned. See the documentation for add_argument() for details. args - List of strings to parse.
+
+[3] Deprecated since version 3.11, removed in version 3.14: Calling add_argument_group() or add_mutually_exclusive_group() on a mutually exclusive group now raises an exception. This nesting was
+never supported, often failed to work correctly, and was unintentionally
+exposed through inheritance.
+
+### Parser defaults
+
+ArgumentParser. set_defaults ( ** kwargs )
+
+Most of the time, the attributes of the object returned by parse_args() will be fully determined by inspecting the command-line arguments and the argument
+actions. set_defaults() allows some additional
+attributes that are determined without any inspection of the command line to
+be added: ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('foo', type=int)
+>>> parser.set_defaults(bar=42, baz='badger')
+>>> parser.parse_args(['736'])
+Namespace(bar=42, baz='badger', foo=736)
+``` Note that defaults can be set at both the parser level using set_defaults() and at the argument level using add_argument() . If both are called for the
+same argument, the last default set for an argument is used:
+
+[4] This method prints a usage message, including the message , to sys.stderr and terminates the program with a status code of 2.
+
+### Intermixed parsing
+
+ArgumentParser. parse_intermixed_args ( args = None , namespace = None )
+
+ArgumentParser. parse_known_intermixed_args ( args = None , namespace = None )
+
+A number of Unix commands allow the user to intermix optional arguments with
+positional arguments.  The parse_intermixed_args() and parse_known_intermixed_args() methods
+support this parsing style. These parsers do not support all the argparse features, and will raise
+exceptions if unsupported features are used.  In particular, subparsers,
+and mutually exclusive groups that include both
+optionals and positionals are not supported.
+
+[5] Action instances should be callable, so subclasses must override the __call__() method, which should accept four parameters: parser - The ArgumentParser object which contains this action. namespace - The Namespace object that will be returned by parse_args() . Most actions add an attribute to this
+object using setattr() . values - The associated command-line arguments, with any type conversions
+applied. Type conversions are specified with the type keyword argument to add_argument() . option_string - The option string that was used to invoke this action.
+The option_string argument is optional, and will be absent if the action
+is associated with a positional argument. The __call__() method may perform arbitrary actions, but will typically set
+attributes on the namespace based on dest and values .
+
+parser - The ArgumentParser object which contains this action.
+
+namespace - The Namespace object that will be returned by parse_args() . Most actions add an attribute to this
+object using setattr() .",tech_docs-040,single,How many additional methods and attributes do named tuples support in addition to the methods inherited from tuples?,three additional methods and two attributes,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] When colors are enabled, the text inside backticks will be displayed in a
+distinct color to help examples stand out. When colors are disabled, backticks
+are preserved as-is, which is readable in plain text.
+
+Added in version 3.15.
+
+## The add_argument() method
+
+ArgumentParser. add_argument ( name or flags... , * [ , action ] [ , nargs ] [ , const ] [ , default ] [ , type ] [ , choices ] [ , required ] [ , help ] [ , metavar ] [ , dest ] [ , deprecated ] )
+
+Define how a single command-line argument should be parsed. Each parameter
+has its own more detailed description below, but in short they are: name or flags - Either a name or a list of option strings, e.g. 'foo' or '-f', '--foo' . action - The basic type of action to be taken when this argument is
+encountered at the command line. nargs - The number of command-line arguments that should be consumed. const - A constant value required by some action and nargs selections. default - The value produced if the argument is absent from the
+command line and if it is absent from the namespace object. type - The type to which the command-line argument should be converted. choices - A sequence of the allowable values for the argument. required - Whether or not the command-line option may be omitted
+(optionals only). help - A brief description of what the argument does. metavar - A name for the argument in usage messages. dest - The name of the attribute to be added to the object returned by parse_args() . deprecated - Whether or not use of the argument is deprecated.
+
+[2] ```
+>>> parser = argparse.ArgumentParser(description='Process some integers.',
+...                                  color=False)
+>>> parser.add_argument('--action', choices=['sum', 'max'])
+>>> parser.add_argument('integers', metavar='N', type=int, nargs='+',
+...                     help='an integer for the accumulator')
+>>> parser.parse_args(['--help'])
+```
+
+Note that when color=True , colored output depends on both environment
+variables and terminal capabilities. However, if color=False , colored
+output is always disabled, even if environment variables like FORCE_COLOR are set.
+
+Added in version 3.14.
+
+To highlight inline code in your description, epilog, or argument help text, you can use single or double backticks:
+
+```
+>>> parser = argparse.ArgumentParser(
+...     formatter_class=argparse.RawDescriptionHelpFormatter,
+...     description='Run ``python -m myapp`` to start.',
+...     epilog='''Examples:
+...   `python -m myapp --verbose`
+...   ``python -m myapp --config settings.json``
+... ''')
+>>> parser.add_argument('--foo', help='set the `foo` value')
+```
+
+When colors are enabled, the text inside backticks will be displayed in a
+distinct color to help examples stand out. When colors are disabled, backticks
+are preserved as-is, which is readable in plain text.
+
+[3] For conflicting option
+strings rather than dest names, see conflict_handler .
+
+Changed in version 3.15: Single-dash long option now takes precedence over short options.
+
+### deprecated
+
+During a projectÃ¢Â€Â™s lifetime, some arguments may need to be removed from the
+command line. Before removing them, you should inform
+your users that the arguments are deprecated and will be removed.
+The deprecated keyword argument of add_argument() , which defaults to False ,
+specifies if the argument is deprecated and will be removed
+in the future.
+For arguments, if deprecated is True , then a warning will be
+printed to sys.stderr when the argument is used:
+
+```
+>>> import argparse
+>>> parser = argparse.ArgumentParser(prog='snake.py')
+>>> parser.add_argument('--legs', default=0, type=int, deprecated=True)
+>>> parser.parse_args([])
+Namespace(legs=0)
+>>> parser.parse_args(['--legs', '4'])
+snake.py: warning: option '--legs' is deprecated
+Namespace(legs=4)
+```
+
+[4] This nesting was never supported, often failed to work
+correctly, and was unintentionally exposed through inheritance. Deprecated since version 3.14: Passing prefix_chars to add_argument_group() is now deprecated.
+
+### Mutual exclusion
+
+ArgumentParser. add_mutually_exclusive_group ( required = False )
+
+Create a mutually exclusive group. argparse will make sure that only
+one of the arguments in the mutually exclusive group was present on the
+command line: ```
+>>> parser = argparse.ArgumentParser(prog='PROG')
+>>> group = parser.add_mutually_exclusive_group()
+>>> group.add_argument('--foo', action='store_true')
+>>> group.add_argument('--bar', action='store_false')
+>>> parser.parse_args(['--foo'])
+Namespace(bar=True, foo=True)
+>>> parser.parse_args(['--bar'])
+Namespace(bar=False, foo=False)
+>>> parser.parse_args(['--foo', '--bar'])
+usage: PROG [-h] [--foo | --bar]
+PROG: error: argument --bar: not allowed with argument --foo
+``` The add_mutually_exclusive_group() method also accepts a required argument, to indicate that at least one of the mutually exclusive arguments
+is required: ```
+>>> parser = argparse.ArgumentParser(prog='PROG')
+>>> group = parser.add_mutually_exclusive_group(required=True)
+>>> group.add_argument('--foo', action='store_true')
+>>> group.add_argument('--bar', action='store_false')
+>>> parser.parse_args([])
+usage: PROG [-h] (--foo | --bar)
+PROG: error: one of the arguments --foo --bar is required
+```
+
+[5] If this display isnÃ¢Â€Â™t desirable (perhaps because there are
+many choices), just specify an explicit metavar .
+
+### required
+
+In general, the argparse module assumes that flags like -f and --bar indicate optional arguments, which can always be omitted at the command line.
+To make an option required , True can be specified for the required= keyword argument to add_argument() :
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', required=True)
+>>> parser.parse_args(['--foo', 'BAR'])
+Namespace(foo='BAR')
+>>> parser.parse_args([])
+usage: [-h] --foo FOO
+: error: the following arguments are required: --foo
+```
+
+As the example shows, if an option is marked as required , parse_args() will report an error if that option is not
+present at the command line.
+
+Note
+
+Required options are generally considered bad form because users expect options to be optional , and thus they should be avoided when possible.",tech_docs-031,single,Why is the re.U flag considered redundant in Python 3?,"In Python 3, Unicode characters are matched by default for str patterns. This flag is therefore redundant with no effect and is only kept for backward compatibility.",0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,1.0,1.0,5.0,5.0,5.0,I don't know.,"[1] When add_argument() is called with option strings
+(like -f or --foo ) and nargs='?' . This creates an optional
+argument that can be followed by zero or one command-line arguments.
+When parsing the command line, if the option string is encountered with no
+command-line argument following it, the value from const will be used.
+See the nargs description for examples.
+
+Changed in version 3.11: const=None by default, including when action='append_const' or action='store_const' .
+
+### default
+
+All optional arguments and some positional arguments may be omitted at the
+command line. The default keyword argument of add_argument() , whose value defaults to None ,
+specifies what value should be used if the command-line argument is not present.
+
+[2] The const argument of add_argument() is used to hold
+constant values that are not read from the command line but are required for
+the various ArgumentParser actions. The two most common uses of it are:
+
+When add_argument() is called with action='store_const' or action='append_const' . These actions add the const value to one of the attributes of the object returned by parse_args() . See the action description for examples.
+If const is not provided to add_argument() , it will
+receive a default value of None .
+
+When add_argument() is called with option strings
+(like -f or --foo ) and nargs='?' . This creates an optional
+argument that can be followed by zero or one command-line arguments.
+
+[3] All parameters should be passed
+as keyword arguments. Each parameter has its own more detailed description
+below, but in short they are: prog - The name of the program (default: generated from the __main__ module attributes and sys.argv[0] ) usage - The string describing the program usage (default: generated from
+arguments added to parser) description - Text to display before the argument help
+(by default, no text) epilog - Text to display after the argument help (by default, no text) parents - A list of ArgumentParser objects whose arguments should
+also be included formatter_class - A class for customizing the help output prefix_chars - The set of characters that prefix optional arguments
+(default: Ã¢Â€Â˜-Ã¢Â€Â˜) fromfile_prefix_chars - The set of characters that prefix files from
+which additional arguments should be read (default: None ) argument_default - The global default value for arguments
+(default: None ) conflict_handler - The strategy for resolving conflicting optionals
+(usually unnecessary) add_help - Add a -h/--help option to the parser (default: True ) allow_abbrev - Allows long options to be abbreviated if the
+abbreviation is unambiguous (default: True ) exit_on_error - Determines whether or not ArgumentParser exits with
+error info when an error occurs. (default: True ) suggest_on_error - Enables suggestions for mistyped argument choices
+and subparser names (default: True ) color - Allow color output (default: True ) Changed in version 3.5: allow_abbrev parameter was added. Changed in version 3.8: In previous versions, allow_abbrev also disabled grouping of short
+flags such as -vv to mean -v -v . Changed in version 3.9: exit_on_error parameter was added. Changed in version 3.14: suggest_on_error and color parameters were added. Changed in version 3.15: suggest_on_error default changed to True .
+
+prog - The name of the program (default: generated from the __main__ module attributes and sys.argv[0] )
+
+[4] The search functions are stateless and discard key function results after
+they are used. Consequently, if the search functions are used in a loop,
+the key function may be called again and again on the same array elements.
+If the key function isnÃ¢Â€Â™t fast, consider wrapping it with @functools.cache to avoid duplicate computations. Alternatively,
+consider searching an array of precomputed keys to locate the insertion
+point (as shown in the examples section below).
+
+See also
+
+Sorted Collections is a high performance
+module that uses bisect to managed sorted collections of data.
+
+The SortedCollection recipe uses
+bisect to build a full-featured collection class with straight-forward search
+methods and support for a key-function. The keys are precomputed to save
+unnecessary calls to the key function during searches.
+
+[5] Many programs split up their functionality into a number of subcommands,
+for example, the svn program can invoke subcommands like svn checkout , svn update , and svn commit .  Splitting up functionality
+this way can be a particularly good idea when a program performs several
+different functions which require different kinds of command-line arguments. ArgumentParser supports the creation of such subcommands with the add_subparsers() method.  The add_subparsers() method is normally
+called with no arguments and returns a special action object.  This object
+has a single method, add_parser() , which takes a
+command name and any ArgumentParser constructor arguments, and
+returns an ArgumentParser object that can be modified as usual. Description of parameters: title - title for the sub-parser group in help output; by default
+Ã¢Â€ÂœsubcommandsÃ¢Â€Â if description is provided, otherwise uses title for
+positional arguments description - description for the sub-parser group in help output, by
+default None prog - usage information that will be displayed with subcommand help,
+by default the name of the program and any positional arguments before the
+subparser argument parser_class - class which will be used to create sub-parser instances, by
+default the class of the current parser (e.g. ArgumentParser ) action - the basic type of action to be taken when this argument is
+encountered at the command line dest - name of the attribute under which subcommand name will be
+stored; by default None and no value is stored required - Whether or not a subcommand must be provided, by default False (added in 3.7) help - help for sub-parser group in help output, by default None metavar - string presenting available subcommands in help; by default it
+is None and presents subcommands in form {cmd1, cmd2, ..} Some example usage: ```
+>>> # create the top-level parser
+>>> parser = argparse.ArgumentParser(prog='PROG')
+>>> parser.add_argument('--foo', action='store_true', help='foo help')
+>>> subparsers = parser.add_subparsers(help='subcommand help')
+>>>
+>>> # create the parser for the ""a"" command
+>>> parser_a = subparsers.add_parser('a', help='a help')
+>>> parser_a.add_argument('bar', type=int, help='bar help')
+>>>
+>>> # create the parser for the ""b"" command
+>>> parser_b = subparsers.add_parser('b', help='b help')
+>>> parser_b.add_argument('--baz', choices=('X', 'Y', 'Z'), help='baz help')
+>>>
+>>> # parse some argument lists
+>>> parser.parse_args(['a', '12'])
+Namespace(bar=12, foo=False)
+>>> parser.parse_args(['--foo', 'b', '--baz', 'Z'])
+Namespace(baz='Z', foo=True)
+```",tech_docs-050,single,When should logging.shutdown() be called?,This should be called at application exit and no further use of the logging system should be made after this call.,0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite
+1.0,0.0,1.0,1.0,5.0,1.0,I don't know.,"[1] ## Examples
+
+The bisect() function can be useful for numeric table lookups. This
+example uses bisect() to look up a letter grade for an exam score (say)
+based on a set of ordered numeric breakpoints: 90 and up is an Ã¢Â€Â˜AÃ¢Â€Â™, 80 to 89 is
+a Ã¢Â€Â˜BÃ¢Â€Â™, and so on:
+
+```
+>>> def grade(score):
+...     i = bisect([60, 70, 80, 90], score)
+...     return ""FDCBA""[i]
+...
+>>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+
+The bisect() and insort() functions also work with
+lists of tuples. The key argument can serve to extract the field used for ordering
+records in a table:
+
+```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+[2] ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo')
+>>> parser.add_argument('bar')
+>>> parser.parse_args('X --foo Y'.split())
+Namespace(bar='X', foo='Y')
+>>> parser.print_help()
+usage:  [-h] [--foo FOO] bar
+
+positional arguments:
+ bar
+
+options:
+ -h, --help  show this help message and exit
+ --foo FOO
+```
+
+An alternative name can be specified with metavar :
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', metavar='YYY')
+>>> parser.add_argument('bar', metavar='XXX')
+>>> parser.parse_args('X --foo Y'.split())
+Namespace(bar='X', foo='Y')
+>>> parser.print_help()
+usage:  [-h] [--foo YYY] XXX
+
+positional arguments:
+ XXX
+
+options:
+ -h, --help  show this help message and exit
+ --foo YYY
+```
+
+Note that metavar only changes the displayed name - the name of the
+attribute on the parse_args() object is still determined
+by the dest value.
+
+Different values of nargs may cause the metavar to be used multiple times.
+Providing a tuple to metavar specifies a different display for each of the
+arguments:
+
+```
+>>> parser = argparse.ArgumentParser(prog='PROG')
+>>> parser.add_argument('-x', nargs=2)
+>>> parser.add_argument('--foo', nargs=2, metavar=('bar', 'baz'))
+>>> parser.print_help()
+usage: PROG [-h] [-x X X] [--foo bar baz]
+
+options:
+ -h, --help     show this help message and exit
+ -x X X
+ --foo bar baz
+```
+
+### dest
+
+[3] Sometimes a script only needs to handle a specific set of command-line
+arguments, leaving any unrecognized arguments for another script or program.
+In these cases, the parse_known_args() method can be
+useful. This method works similarly to parse_args() , but it does
+not raise an error for extra, unrecognized arguments. Instead, it parses the
+known arguments and returns a two item tuple that contains the populated
+namespace and the list of any unrecognized arguments. ```
+>>> parser = argparse.ArgumentParser()
+>>> parser.add_argument('--foo', action='store_true')
+>>> parser.add_argument('bar')
+>>> parser.parse_known_args(['--foo', '--badger', 'BAR', 'spam'])
+(Namespace(bar='BAR', foo=True), ['--badger', 'spam'])
+```
+
+Warning
+
+Prefix matching rules apply to parse_known_args() . The parser may consume an option even if itÃ¢Â€Â™s just
+a prefix of one of its known options, instead of leaving it in the remaining
+arguments list.
+
+[4] ```
+>>> from collections import namedtuple
+>>> from operator import attrgetter
+>>> from bisect import bisect, insort
+>>> from pprint import pprint
+
+>>> Movie = namedtuple('Movie', ('name', 'released', 'director'))
+
+>>> movies = [
+...     Movie('Jaws', 1975, 'Spielberg'),
+...     Movie('Titanic', 1997, 'Cameron'),
+...     Movie('The Birds', 1963, 'Hitchcock'),
+...     Movie('Aliens', 1986, 'Cameron')
+... ]
+
+>>> # Find the first movie released after 1960
+>>> by_year = attrgetter('released')
+>>> movies.sort(key=by_year)
+>>> movies[bisect(movies, 1960, key=by_year)]
+Movie(name='The Birds', released=1963, director='Hitchcock')
+
+>>> # Insert a movie while maintaining sort order
+>>> romance = Movie('Love Story', 1970, 'Hiller')
+>>> insort(movies, romance, key=by_year)
+>>> pprint(movies)
+[Movie(name='The Birds', released=1963, director='Hitchcock'),
+ Movie(name='Love Story', released=1970, director='Hiller'),
+ Movie(name='Jaws', released=1975, director='Spielberg'),
+ Movie(name='Aliens', released=1986, director='Cameron'),
+ Movie(name='Titanic', released=1997, director='Cameron')]
+```
+
+If the key function is expensive, it is possible to avoid repeated function
+calls by searching a list of precomputed keys to find the index of a record:
+
+```
+>>> data = [('red', 5), ('blue', 1), ('yellow', 8), ('black', 0)]
+>>> data.sort(key=lambda r: r[1])       # Or use operator.itemgetter(1).
+>>> keys = [r[1] for r in data]         # Precompute a list of keys.
+>>> data[bisect_left(keys, 0)]
+('black', 0)
+>>> data[bisect_left(keys, 1)]
+('blue', 1)
+>>> data[bisect_left(keys, 5)]
+('red', 5)
+>>> data[bisect_left(keys, 8)]
+('yellow', 8)
+```
+
+[5] All it does
+is convert empty strings to False and non-empty strings to True .
+This is usually not what is desired:
+
+```
+>>> parser = argparse.ArgumentParser()
+>>> _ = parser.add_argument('--verbose', type=bool)
+>>> parser.parse_args(['--verbose', 'False'])
+Namespace(verbose=True)
+```
+
+See BooleanOptionalAction or action='store_true' for common
+alternatives.
+
+In general, the type keyword is a convenience that should only be used for
+simple conversions that can only raise one of the three supported exceptions.
+Anything with more interesting error-handling or resource management should be
+done downstream after the arguments are parsed.
+
+For example, JSON or YAML conversions have complex error cases that require
+better reporting than can be given by the type keyword. A JSONDecodeError would not be well formatted and a FileNotFoundError exception would not be handled at all.",tech_docs-020,single,How do you convert a dictionary to a named tuple?,"To convert a dictionary to a named tuple, use the double-star-operator (as described in Unpacking Argument Lists ):",0.0,tech_docs|sent_8_o2|gte-small|hybrid+rerank|k5,hybrid+rerank,gemini,gemini-3.5-flash-lite

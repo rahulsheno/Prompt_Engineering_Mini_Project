@@ -1,0 +1,1099 @@
+groundedness,correctness,abstained,answer_relevance,faithfulness_level,truthfulness_level,answer,context,qid,qtype,question,reference,exact,key,mode,provider,llm_model
+1.0,1.0,0.0,5.0,5.0,5.0,"Article 6 guarantees that everyone has the right to recognition everywhere as a person before the law, and Article 23 states that everyone has the right to work, to free choice of employment, and to just and favourable conditions of work.","[1] 1. Everyone has the right to take par t in the government of his country,
+directly or through freely chosen representatives.
+2. Everyone has the right to equal access to public service in his country.
+3. The will of the people shall be the basis of the authority of government;
+this will shall be expressed in periodic and genuine elections which shall
+be by universal and equal suffrage and shall be held by secret vote or by
+equivalent free voting procedures.
+Article 22
+Everyone, as a member of society, has the right to social security and is entitled
+to realization, through national effort and international co-operation and in
+accordance with the organization and resources of each State, of the economic,
+social and cultural rights indispensable for his dignity and the free development
+of his personality.
+Article 23
+1. Everyone has the right to work, to fr ee choice of employment, to just and
+favourable conditions of work and to protection against unemployment.
+2. Everyone, without any discrimination,  has the right to equal pay for equal
+work.
+3. Everyone who works has the right to just and favourable remuneration
+ensuring for himself and his family an existence worthy of human dignity,
+and supplemented, if necessary, by other means of social protection.
+4. Everyone has the right to form and to join trade unions for the protection of
+his interests.
+Article 24
+Everyone has the right to rest and leisure, including reasonable limitation of
+working hours and periodic holidays with pay.
+
+[2] 2. Everyone has the right to the protec tion of the moral and material interests
+resulting from any scientific, literary or artistic production of which he is the
+author.
+Article 28
+Everyone is entitled to a social and international order in which the rights and
+freedoms set forth in this Declaration can be fully realized.
+Article 29
+1. Everyone has duties to the community in which alone the free and full
+development of his personality is possible.
+2. In the exercise of his rights and freedoms, everyone shall be subject only
+to such limitations as are determined by law solely for the purpose of
+securing due recognition and respect for the rights and freedoms of others
+and of meeting the just requirements of morality, public order and the
+general welfare in a democratic society.
+3. These rights and freedoms may in no ca se be exercised contrary to the
+purposes and principles of the United Nations.
+Article 30
+Nothing in this Declaration may be interpreted as implying for any State, group or
+person any right to engage in any activity or to perform any act aimed at the
+destruction of any of the rights and freedoms set forth herein.
+
+[3] Article 6
+Everyone has the right to recognition everywhere as a person before the law.
+Article 7
+All are equal before the law and are entitled without any discrimination to equal
+protection of the law. All are entitled to equal protection against any
+discrimination in violation of this Declaration and against any incitement to such
+discrimination.
+Article 8
+Everyone has the right to an effective remedy by the competent national tribunals
+for acts violating the fundamental rights granted him by the constitution or by law.
+Article 9
+No one shall be subjected to arbitrary arrest, detention or exile.
+Article 10
+Everyone is entitled in full equality to a fair and public hearing by an independent
+and impartial tribunal, in the determination of his rights and obligations and of any
+criminal charge against him.
+Article 11
+1. Everyone charged with a penal off ence has the right to be presumed
+innocent until proved guilty according to law in a public trial at which he
+has had all the guarantees necessary for his defence.
+2. No one shall be held guilty of any penal  offence on account of any act or
+omission which did not constitute a penal offence, under national or
+international law, at the time when it was committed. Nor shall a heavier
+
+[4] teaching and education to promote respect for these rights and freedoms and by
+progressive measures, national and international, to secure their universal and
+effective recognition and observance, both among the peoples of Member States
+themselves and among the peoples of territories under their jurisdiction.
+Article I
+All human beings are born free and equal in dignity and rights. They are
+endowed with reason and conscience and should act towards one another in a
+spirit of brotherhood.
+Article 2
+Everyone is entitled to all the rights and freedoms set forth in this Declaration,
+without distinction of any kind, such as race, colour, sex, language, religion,
+political or other opinion, national or social origin, property, birth or other status.
+Furthermore, no distinction shall be made on the basis of the political,
+jurisdictional or international status of the country or territory to which a person
+belongs, whether it be independent, trust, non-self-governing or under any other
+limitation of sovereignty.
+Article 3
+Everyone has the right to life, liberty and the security of person.
+Article 4
+No one shall be held in slavery or servitude; slavery and the slave trade shall be
+prohibited in all their forms.
+Article 5
+No one shall be subjected to torture or to cruel, inhuman or degrading treatment
+or punishment.
+
+[5] Article 25
+1. Everyone has the right to a st andard of living adequate for the health and
+well-being of himself and of his family, including food, clothing, housing
+and medical care and necessary social services, and the right to security
+in the event of unemployment, sickness, disability, widowhood, old age or
+other lack of livelihood in circumstances beyond his control.
+2. Motherhood and childhood are entitled to special care and assistance. All
+children, whether born in or out of wedlock, shall enjoy the same social
+protection.
+Article 26
+1. Everyone has the right to education. E ducation shall be free, at least in the
+elementary and fundamental stages. Elementary education shall be
+compulsory. Technical and professional education shall be made
+generally available and higher education shall be equally accessible to all
+on the basis of merit.
+2. Education shall be directed to the full development of the human
+personality and to the strengthening of respect for human rights and
+fundamental freedoms. It shall promote understanding, tolerance and
+friendship among all nations, racial or religious groups, and shall further
+the activities of the United Nations for the maintenance of peace.
+3. Parents have a prior right to choos e the kind of education that shall be
+given to their children.
+Article 27
+1. Everyone has the right freely to part icipate in the cultural life of the
+community, to enjoy the arts and to share in scientific advancement and
+its benefits.",legal-017,multi,"Which specific article guarantees that everyone has the right to recognition everywhere as a person before the law, and which article states that everyone has the right to work, free choice of employment, and just and favourable conditions of work?",Article 6 and Article 23,0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"Based on the provided context:
+
+* Regarding slavery: No one shall be held in slavery or servitude; slavery and the slave trade shall be prohibited in all their forms.
+* Regarding the exercise of rights and freedoms: These rights and freedoms may in no case be exercised contrary to the purposes and principles of the United Nations.","[1] teaching and education to promote respect for these rights and freedoms and by
+progressive measures, national and international, to secure their universal and
+effective recognition and observance, both among the peoples of Member States
+themselves and among the peoples of territories under their jurisdiction.
+Article I
+All human beings are born free and equal in dignity and rights. They are
+endowed with reason and conscience and should act towards one another in a
+spirit of brotherhood.
+Article 2
+Everyone is entitled to all the rights and freedoms set forth in this Declaration,
+without distinction of any kind, such as race, colour, sex, language, religion,
+political or other opinion, national or social origin, property, birth or other status.
+Furthermore, no distinction shall be made on the basis of the political,
+jurisdictional or international status of the country or territory to which a person
+belongs, whether it be independent, trust, non-self-governing or under any other
+limitation of sovereignty.
+Article 3
+Everyone has the right to life, liberty and the security of person.
+Article 4
+No one shall be held in slavery or servitude; slavery and the slave trade shall be
+prohibited in all their forms.
+Article 5
+No one shall be subjected to torture or to cruel, inhuman or degrading treatment
+or punishment.
+
+[2] 2. Everyone has the right to the protec tion of the moral and material interests
+resulting from any scientific, literary or artistic production of which he is the
+author.
+Article 28
+Everyone is entitled to a social and international order in which the rights and
+freedoms set forth in this Declaration can be fully realized.
+Article 29
+1. Everyone has duties to the community in which alone the free and full
+development of his personality is possible.
+2. In the exercise of his rights and freedoms, everyone shall be subject only
+to such limitations as are determined by law solely for the purpose of
+securing due recognition and respect for the rights and freedoms of others
+and of meeting the just requirements of morality, public order and the
+general welfare in a democratic society.
+3. These rights and freedoms may in no ca se be exercised contrary to the
+purposes and principles of the United Nations.
+Article 30
+Nothing in this Declaration may be interpreted as implying for any State, group or
+person any right to engage in any activity or to perform any act aimed at the
+destruction of any of the rights and freedoms set forth herein.
+
+[3] Universal Declaration of Human Rights
+Preamble
+Whereas recognition of the inherent dignity and of the equal and inalienable
+rights of all members of the human family is the foundation of freedom, justice
+and peace in the world,
+Whereas disregard and contempt for human rights have resulted in barbarous
+acts which have outraged the conscience of mankind, and the advent of a world
+in which human beings shall enjoy freedom of speech and belief and freedom
+from fear and want has been proclaimed as the highest aspiration of the common
+people,
+Whereas it is essential, if man is not to be compelled to have recourse, as a last
+resort, to rebellion against tyranny and oppression, that human rights should be
+protected by the rule of law,
+Whereas it is essential to promote the development of friendly relations between
+nations,
+Whereas the peoples of the United Nations have in the Charter reaffirmed their
+faith in fundamental human rights, in the dignity and worth of the human person
+and in the equal rights of men and women and have determined to promote
+social progress and better standards of life in larger freedom,
+Whereas Member States have pledged themselves to achieve, in cooperation
+with the United Nations, the promotion of universal respect for and observance of
+human rights and fundamental freedoms,
+Whereas a common understanding of these rights and freedoms is of the
+greatest importance for the full realization of this pledge,
+Now, therefore,
+The General Assembly,
+Proclaims this Universal Declaration of Human Rights as a common standard of
+achievement for all peoples and all nations, to the end that every individual and
+every organ of society, keeping this Declaration constantly in mind, shall strive by
+
+[4] penalty be imposed than the one that was applicable at the time the penal
+offence was committed.
+Article 12
+No one shall be subjected to arbitrary interference with his privacy, family, home
+or correspondence, nor to attacks upon his honour and reputation. Everyone has
+the right to the protection of the law against such interference or attacks.
+Article 13
+1. Everyone has the right to freedom of movement and residence within the
+borders of each State.
+2. Everyone has the right to leave any country, including his own, and to
+return to his country.
+Article 14
+1. Everyone has the right to seek and to  enjoy in other countries asylum from
+persecution.
+2. This right may not be invoked in  the case of prosecutions genuinely
+arising from non-political crimes or from acts contrary to the purposes and
+principles of the United Nations.
+Article 15
+1. Everyone has the right to a nationality.
+2. No one shall be arbitrarily deprived of  his nationality nor denied the right to
+change his nationality.
+Article 16
+
+[5] Article 6
+Everyone has the right to recognition everywhere as a person before the law.
+Article 7
+All are equal before the law and are entitled without any discrimination to equal
+protection of the law. All are entitled to equal protection against any
+discrimination in violation of this Declaration and against any incitement to such
+discrimination.
+Article 8
+Everyone has the right to an effective remedy by the competent national tribunals
+for acts violating the fundamental rights granted him by the constitution or by law.
+Article 9
+No one shall be subjected to arbitrary arrest, detention or exile.
+Article 10
+Everyone is entitled in full equality to a fair and public hearing by an independent
+and impartial tribunal, in the determination of his rights and obligations and of any
+criminal charge against him.
+Article 11
+1. Everyone charged with a penal off ence has the right to be presumed
+innocent until proved guilty according to law in a public trial at which he
+has had all the guarantees necessary for his defence.
+2. No one shall be held guilty of any penal  offence on account of any act or
+omission which did not constitute a penal offence, under national or
+international law, at the time when it was committed. Nor shall a heavier",legal-013,multi,What is the prohibition regarding slavery and how may the rights and freedoms in the Declaration not be exercised?,"Slavery and the slave trade are prohibited in all forms, and the rights and freedoms may in no case be exercised contrary to the purposes and principles of the United Nations.",0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"Based on the provided context:
+
+- Articles four through seven (four articles) describe the relationship of the states to the Federal Government.
+- Article V defines the amendment process.","[1] ### Article V
+
+Article V explains the amendment process, which is different and more difficult than the process for making laws. When two-thirds of the Senate and two-thirds of the House of Representatives vote to change the Constitution, an amendment goes to the state legislatures for a vote. Alternatively, two-thirds of the state legislatures can submit an application to Congress, and then Congress calls a national convention at which states propose amendments. Three-fourths of the state legislatures or state conventions must vote in favor of an amendment to ratify it.
+
+[2] # The Constitution: What Does it Say?
+
+The Constitution of the United States contains a preamble and seven articles that describe the way the government is structured and how it operates. The first three articles establish the three branches of government and their powers: Legislative (Congress), Executive (office of the President,) and Judicial (Federal court system). A system of checks and balances prevents any one of these separate powers from becoming dominant. Articles four through seven describe the relationship of the states to the Federal Government, establish the Constitution as the supreme law of the land, and define the amendment and ratification processes.
+
+[3] ### Article IV
+
+Article IV outlines statesâ€™ powers in relationship to each other. States have the authority to create and enforce their own laws but must respect and help enforce the laws of other states. Congress may pass Federal laws regarding how states honor other statesâ€™ laws and records.
+
+[4] ### Article VI
+
+Article VI states that Federal law is supreme, or higher than, state and local laws. This means that if a state law conflicts with a Federal law, Federal law takes precedence.
+
+### Article VII
+
+Article VII describes the ratification process for the Constitution. It called for special state ratifying conventions. Nine states were required to enact the Constitution. Rhode Island became the 13th state to ratify the Constitution in 1790.
+
+Back to Constitution main page How Did it Happen?
+
+[5] ### Article III
+
+Article III establishes the Judicial Branch with the U.S. Supreme Court as the federal court systemâ€™s highest court. It specifies that Federal judges be appointed for life unless they commit a serious crime. This article is shorter than Articles I and II. The Federal Convention left much of the work of planning the court system to the First Congress. The 1789 Judiciary Act created the three-tiered court system in place today.",legal-026,multi,"How many articles describe the relationship between the states and the Federal Government, and which specific article defines the amendment process?","Four articles (four through seven) describe the relationship of the states to the Federal Government, and Article V defines the amendment process.",0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"According to the provided context, the exercise of rights and freedoms, as well as the right to seek asylum, must not be contrary to the purposes and principles of the United Nations.","[1] penalty be imposed than the one that was applicable at the time the penal
+offence was committed.
+Article 12
+No one shall be subjected to arbitrary interference with his privacy, family, home
+or correspondence, nor to attacks upon his honour and reputation. Everyone has
+the right to the protection of the law against such interference or attacks.
+Article 13
+1. Everyone has the right to freedom of movement and residence within the
+borders of each State.
+2. Everyone has the right to leave any country, including his own, and to
+return to his country.
+Article 14
+1. Everyone has the right to seek and to  enjoy in other countries asylum from
+persecution.
+2. This right may not be invoked in  the case of prosecutions genuinely
+arising from non-political crimes or from acts contrary to the purposes and
+principles of the United Nations.
+Article 15
+1. Everyone has the right to a nationality.
+2. No one shall be arbitrarily deprived of  his nationality nor denied the right to
+change his nationality.
+Article 16
+
+[2] 2. Everyone has the right to the protec tion of the moral and material interests
+resulting from any scientific, literary or artistic production of which he is the
+author.
+Article 28
+Everyone is entitled to a social and international order in which the rights and
+freedoms set forth in this Declaration can be fully realized.
+Article 29
+1. Everyone has duties to the community in which alone the free and full
+development of his personality is possible.
+2. In the exercise of his rights and freedoms, everyone shall be subject only
+to such limitations as are determined by law solely for the purpose of
+securing due recognition and respect for the rights and freedoms of others
+and of meeting the just requirements of morality, public order and the
+general welfare in a democratic society.
+3. These rights and freedoms may in no ca se be exercised contrary to the
+purposes and principles of the United Nations.
+Article 30
+Nothing in this Declaration may be interpreted as implying for any State, group or
+person any right to engage in any activity or to perform any act aimed at the
+destruction of any of the rights and freedoms set forth herein.
+
+[3] 1. Men and women of full age, without any limitation due to race, nationality
+or religion, have the right to marry and to found a family. They are entitled
+to equal rights as to marriage, during marriage and at its dissolution.
+2. Marriage shall be entered into only wit h the free and full consent of the
+intending spouses.
+3. The family is the natural and fund amental group unit of society and is
+entitled to protection by society and the State.
+Article 17
+1. Everyone has the right to own property  alone as well as in association with
+others.
+2. No one shall be arbitrarily deprived of his property.
+Article 18
+Everyone has the right to freedom of thought, conscience and religion; this right
+includes freedom to change his religion or belief, and freedom, either alone or in
+community with others and in public or private, to manifest his religion or belief in
+teaching, practice, worship and observance.
+Article 19
+Everyone has the right to freedom of opinion and expression; this right includes
+freedom to hold opinions without interference and to seek, receive and impart
+information and ideas through any media and regardless of frontiers.
+Article 20
+1. Everyone has the right to freedom of  peaceful assembly and association.
+2. No one may be compelled to belong to an association.
+Article 21
+
+[4] teaching and education to promote respect for these rights and freedoms and by
+progressive measures, national and international, to secure their universal and
+effective recognition and observance, both among the peoples of Member States
+themselves and among the peoples of territories under their jurisdiction.
+Article I
+All human beings are born free and equal in dignity and rights. They are
+endowed with reason and conscience and should act towards one another in a
+spirit of brotherhood.
+Article 2
+Everyone is entitled to all the rights and freedoms set forth in this Declaration,
+without distinction of any kind, such as race, colour, sex, language, religion,
+political or other opinion, national or social origin, property, birth or other status.
+Furthermore, no distinction shall be made on the basis of the political,
+jurisdictional or international status of the country or territory to which a person
+belongs, whether it be independent, trust, non-self-governing or under any other
+limitation of sovereignty.
+Article 3
+Everyone has the right to life, liberty and the security of person.
+Article 4
+No one shall be held in slavery or servitude; slavery and the slave trade shall be
+prohibited in all their forms.
+Article 5
+No one shall be subjected to torture or to cruel, inhuman or degrading treatment
+or punishment.
+
+[5] Article 6
+Everyone has the right to recognition everywhere as a person before the law.
+Article 7
+All are equal before the law and are entitled without any discrimination to equal
+protection of the law. All are entitled to equal protection against any
+discrimination in violation of this Declaration and against any incitement to such
+discrimination.
+Article 8
+Everyone has the right to an effective remedy by the competent national tribunals
+for acts violating the fundamental rights granted him by the constitution or by law.
+Article 9
+No one shall be subjected to arbitrary arrest, detention or exile.
+Article 10
+Everyone is entitled in full equality to a fair and public hearing by an independent
+and impartial tribunal, in the determination of his rights and obligations and of any
+criminal charge against him.
+Article 11
+1. Everyone charged with a penal off ence has the right to be presumed
+innocent until proved guilty according to law in a public trial at which he
+has had all the guarantees necessary for his defence.
+2. No one shall be held guilty of any penal  offence on account of any act or
+omission which did not constitute a penal offence, under national or
+international law, at the time when it was committed. Nor shall a heavier",legal-020,multi,"According to the articles addressing these topics, what specific entities or organizations must the exercise of rights and freedoms, as well as the right to seek asylum, not be contrary to?",The United Nations,0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"Based on the provided context, the Legislative Branch (Congress) is responsible for making laws. The process for changing the Constitution (the amendment process) is described as ""different and more difficult than the process for making laws.""","[1] ### Article V
+
+Article V explains the amendment process, which is different and more difficult than the process for making laws. When two-thirds of the Senate and two-thirds of the House of Representatives vote to change the Constitution, an amendment goes to the state legislatures for a vote. Alternatively, two-thirds of the state legislatures can submit an application to Congress, and then Congress calls a national convention at which states propose amendments. Three-fourths of the state legislatures or state conventions must vote in favor of an amendment to ratify it.
+
+[2] # The Constitution: What Does it Say?
+
+The Constitution of the United States contains a preamble and seven articles that describe the way the government is structured and how it operates. The first three articles establish the three branches of government and their powers: Legislative (Congress), Executive (office of the President,) and Judicial (Federal court system). A system of checks and balances prevents any one of these separate powers from becoming dominant. Articles four through seven describe the relationship of the states to the Federal Government, establish the Constitution as the supreme law of the land, and define the amendment and ratification processes.
+
+[3] ### Article I
+
+Article I assigns the responsibility for making laws to the Legislative Branch (Congress). Congress is divided into two parts, or â€œHouses,â€ the House of Representatives and the Senate. The bicameral Congress was a compromise between the large states, which wanted representation based on population, and the small ones, which wanted the states to have equal representation.
+
+[4] ### Article III
+
+Article III establishes the Judicial Branch with the U.S. Supreme Court as the federal court systemâ€™s highest court. It specifies that Federal judges be appointed for life unless they commit a serious crime. This article is shorter than Articles I and II. The Federal Convention left much of the work of planning the court system to the First Congress. The 1789 Judiciary Act created the three-tiered court system in place today.
+
+[5] ### Article VI
+
+Article VI states that Federal law is supreme, or higher than, state and local laws. This means that if a state law conflicts with a Federal law, Federal law takes precedence.
+
+### Article VII
+
+Article VII describes the ratification process for the Constitution. It called for special state ratifying conventions. Nine states were required to enact the Constitution. Rhode Island became the 13th state to ratify the Constitution in 1790.
+
+Back to Constitution main page How Did it Happen?",legal-016,multi,"Which specific branch of government is responsible for making laws, and how does the process for changing the Constitution compare in difficulty to that branch's normal lawmaking function?","The Legislative Branch (Congress) is responsible for making laws, and the amendment process is described as different and more difficult than the process for making laws.",0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"Based on the provided context, the family is the natural and fundamental group unit of society entitled to protection by society and the State (Article 16, paragraph 3). Additionally, the text states that ""These rights and freedoms may in no case be exercised contrary to the purposes and principles of the United Nations"" (Article 29, paragraph 3). 
+
+Answer: The family.","[1] 2. Everyone has the right to the protec tion of the moral and material interests
+resulting from any scientific, literary or artistic production of which he is the
+author.
+Article 28
+Everyone is entitled to a social and international order in which the rights and
+freedoms set forth in this Declaration can be fully realized.
+Article 29
+1. Everyone has duties to the community in which alone the free and full
+development of his personality is possible.
+2. In the exercise of his rights and freedoms, everyone shall be subject only
+to such limitations as are determined by law solely for the purpose of
+securing due recognition and respect for the rights and freedoms of others
+and of meeting the just requirements of morality, public order and the
+general welfare in a democratic society.
+3. These rights and freedoms may in no ca se be exercised contrary to the
+purposes and principles of the United Nations.
+Article 30
+Nothing in this Declaration may be interpreted as implying for any State, group or
+person any right to engage in any activity or to perform any act aimed at the
+destruction of any of the rights and freedoms set forth herein.
+
+[2] 1. Men and women of full age, without any limitation due to race, nationality
+or religion, have the right to marry and to found a family. They are entitled
+to equal rights as to marriage, during marriage and at its dissolution.
+2. Marriage shall be entered into only wit h the free and full consent of the
+intending spouses.
+3. The family is the natural and fund amental group unit of society and is
+entitled to protection by society and the State.
+Article 17
+1. Everyone has the right to own property  alone as well as in association with
+others.
+2. No one shall be arbitrarily deprived of his property.
+Article 18
+Everyone has the right to freedom of thought, conscience and religion; this right
+includes freedom to change his religion or belief, and freedom, either alone or in
+community with others and in public or private, to manifest his religion or belief in
+teaching, practice, worship and observance.
+Article 19
+Everyone has the right to freedom of opinion and expression; this right includes
+freedom to hold opinions without interference and to seek, receive and impart
+information and ideas through any media and regardless of frontiers.
+Article 20
+1. Everyone has the right to freedom of  peaceful assembly and association.
+2. No one may be compelled to belong to an association.
+Article 21
+
+[3] Universal Declaration of Human Rights
+Preamble
+Whereas recognition of the inherent dignity and of the equal and inalienable
+rights of all members of the human family is the foundation of freedom, justice
+and peace in the world,
+Whereas disregard and contempt for human rights have resulted in barbarous
+acts which have outraged the conscience of mankind, and the advent of a world
+in which human beings shall enjoy freedom of speech and belief and freedom
+from fear and want has been proclaimed as the highest aspiration of the common
+people,
+Whereas it is essential, if man is not to be compelled to have recourse, as a last
+resort, to rebellion against tyranny and oppression, that human rights should be
+protected by the rule of law,
+Whereas it is essential to promote the development of friendly relations between
+nations,
+Whereas the peoples of the United Nations have in the Charter reaffirmed their
+faith in fundamental human rights, in the dignity and worth of the human person
+and in the equal rights of men and women and have determined to promote
+social progress and better standards of life in larger freedom,
+Whereas Member States have pledged themselves to achieve, in cooperation
+with the United Nations, the promotion of universal respect for and observance of
+human rights and fundamental freedoms,
+Whereas a common understanding of these rights and freedoms is of the
+greatest importance for the full realization of this pledge,
+Now, therefore,
+The General Assembly,
+Proclaims this Universal Declaration of Human Rights as a common standard of
+achievement for all peoples and all nations, to the end that every individual and
+every organ of society, keeping this Declaration constantly in mind, shall strive by
+
+[4] penalty be imposed than the one that was applicable at the time the penal
+offence was committed.
+Article 12
+No one shall be subjected to arbitrary interference with his privacy, family, home
+or correspondence, nor to attacks upon his honour and reputation. Everyone has
+the right to the protection of the law against such interference or attacks.
+Article 13
+1. Everyone has the right to freedom of movement and residence within the
+borders of each State.
+2. Everyone has the right to leave any country, including his own, and to
+return to his country.
+Article 14
+1. Everyone has the right to seek and to  enjoy in other countries asylum from
+persecution.
+2. This right may not be invoked in  the case of prosecutions genuinely
+arising from non-political crimes or from acts contrary to the purposes and
+principles of the United Nations.
+Article 15
+1. Everyone has the right to a nationality.
+2. No one shall be arbitrarily deprived of  his nationality nor denied the right to
+change his nationality.
+Article 16
+
+[5] Article 25
+1. Everyone has the right to a st andard of living adequate for the health and
+well-being of himself and of his family, including food, clothing, housing
+and medical care and necessary social services, and the right to security
+in the event of unemployment, sickness, disability, widowhood, old age or
+other lack of livelihood in circumstances beyond his control.
+2. Motherhood and childhood are entitled to special care and assistance. All
+children, whether born in or out of wedlock, shall enjoy the same social
+protection.
+Article 26
+1. Everyone has the right to education. E ducation shall be free, at least in the
+elementary and fundamental stages. Elementary education shall be
+compulsory. Technical and professional education shall be made
+generally available and higher education shall be equally accessible to all
+on the basis of merit.
+2. Education shall be directed to the full development of the human
+personality and to the strengthening of respect for human rights and
+fundamental freedoms. It shall promote understanding, tolerance and
+friendship among all nations, racial or religious groups, and shall further
+the activities of the United Nations for the maintenance of peace.
+3. Parents have a prior right to choos e the kind of education that shall be
+given to their children.
+Article 27
+1. Everyone has the right freely to part icipate in the cultural life of the
+community, to enjoy the arts and to share in scientific advancement and
+its benefits.",legal-023,multi,"What fundamental group unit of society has the right to protection by society and the State, but may not have its rights and freedoms exercised contrary to the purposes and principles of the United Nations?",The family,0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"Based on the provided context:
+
+- The limitations placed on the exercise of rights and freedoms are only such as are determined by law solely for the purpose of securing due recognition and respect for the rights and freedoms of others, and of meeting the just requirements of morality, public order, and the general welfare in a democratic society. Additionally, these rights and freedoms may in no case be exercised contrary to the purposes and principles of the United Nations.
+- Regarding acts aimed at destroying any of the rights and freedoms set forth in the Declaration, nothing in the Declaration may be interpreted as implying for any State, group, or person any right to engage in any such activity or to perform any such act.","[1] 2. Everyone has the right to the protec tion of the moral and material interests
+resulting from any scientific, literary or artistic production of which he is the
+author.
+Article 28
+Everyone is entitled to a social and international order in which the rights and
+freedoms set forth in this Declaration can be fully realized.
+Article 29
+1. Everyone has duties to the community in which alone the free and full
+development of his personality is possible.
+2. In the exercise of his rights and freedoms, everyone shall be subject only
+to such limitations as are determined by law solely for the purpose of
+securing due recognition and respect for the rights and freedoms of others
+and of meeting the just requirements of morality, public order and the
+general welfare in a democratic society.
+3. These rights and freedoms may in no ca se be exercised contrary to the
+purposes and principles of the United Nations.
+Article 30
+Nothing in this Declaration may be interpreted as implying for any State, group or
+person any right to engage in any activity or to perform any act aimed at the
+destruction of any of the rights and freedoms set forth herein.
+
+[2] teaching and education to promote respect for these rights and freedoms and by
+progressive measures, national and international, to secure their universal and
+effective recognition and observance, both among the peoples of Member States
+themselves and among the peoples of territories under their jurisdiction.
+Article I
+All human beings are born free and equal in dignity and rights. They are
+endowed with reason and conscience and should act towards one another in a
+spirit of brotherhood.
+Article 2
+Everyone is entitled to all the rights and freedoms set forth in this Declaration,
+without distinction of any kind, such as race, colour, sex, language, religion,
+political or other opinion, national or social origin, property, birth or other status.
+Furthermore, no distinction shall be made on the basis of the political,
+jurisdictional or international status of the country or territory to which a person
+belongs, whether it be independent, trust, non-self-governing or under any other
+limitation of sovereignty.
+Article 3
+Everyone has the right to life, liberty and the security of person.
+Article 4
+No one shall be held in slavery or servitude; slavery and the slave trade shall be
+prohibited in all their forms.
+Article 5
+No one shall be subjected to torture or to cruel, inhuman or degrading treatment
+or punishment.
+
+[3] Universal Declaration of Human Rights
+Preamble
+Whereas recognition of the inherent dignity and of the equal and inalienable
+rights of all members of the human family is the foundation of freedom, justice
+and peace in the world,
+Whereas disregard and contempt for human rights have resulted in barbarous
+acts which have outraged the conscience of mankind, and the advent of a world
+in which human beings shall enjoy freedom of speech and belief and freedom
+from fear and want has been proclaimed as the highest aspiration of the common
+people,
+Whereas it is essential, if man is not to be compelled to have recourse, as a last
+resort, to rebellion against tyranny and oppression, that human rights should be
+protected by the rule of law,
+Whereas it is essential to promote the development of friendly relations between
+nations,
+Whereas the peoples of the United Nations have in the Charter reaffirmed their
+faith in fundamental human rights, in the dignity and worth of the human person
+and in the equal rights of men and women and have determined to promote
+social progress and better standards of life in larger freedom,
+Whereas Member States have pledged themselves to achieve, in cooperation
+with the United Nations, the promotion of universal respect for and observance of
+human rights and fundamental freedoms,
+Whereas a common understanding of these rights and freedoms is of the
+greatest importance for the full realization of this pledge,
+Now, therefore,
+The General Assembly,
+Proclaims this Universal Declaration of Human Rights as a common standard of
+achievement for all peoples and all nations, to the end that every individual and
+every organ of society, keeping this Declaration constantly in mind, shall strive by
+
+[4] 1. Men and women of full age, without any limitation due to race, nationality
+or religion, have the right to marry and to found a family. They are entitled
+to equal rights as to marriage, during marriage and at its dissolution.
+2. Marriage shall be entered into only wit h the free and full consent of the
+intending spouses.
+3. The family is the natural and fund amental group unit of society and is
+entitled to protection by society and the State.
+Article 17
+1. Everyone has the right to own property  alone as well as in association with
+others.
+2. No one shall be arbitrarily deprived of his property.
+Article 18
+Everyone has the right to freedom of thought, conscience and religion; this right
+includes freedom to change his religion or belief, and freedom, either alone or in
+community with others and in public or private, to manifest his religion or belief in
+teaching, practice, worship and observance.
+Article 19
+Everyone has the right to freedom of opinion and expression; this right includes
+freedom to hold opinions without interference and to seek, receive and impart
+information and ideas through any media and regardless of frontiers.
+Article 20
+1. Everyone has the right to freedom of  peaceful assembly and association.
+2. No one may be compelled to belong to an association.
+Article 21
+
+[5] Article 6
+Everyone has the right to recognition everywhere as a person before the law.
+Article 7
+All are equal before the law and are entitled without any discrimination to equal
+protection of the law. All are entitled to equal protection against any
+discrimination in violation of this Declaration and against any incitement to such
+discrimination.
+Article 8
+Everyone has the right to an effective remedy by the competent national tribunals
+for acts violating the fundamental rights granted him by the constitution or by law.
+Article 9
+No one shall be subjected to arbitrary arrest, detention or exile.
+Article 10
+Everyone is entitled in full equality to a fair and public hearing by an independent
+and impartial tribunal, in the determination of his rights and obligations and of any
+criminal charge against him.
+Article 11
+1. Everyone charged with a penal off ence has the right to be presumed
+innocent until proved guilty according to law in a public trial at which he
+has had all the guarantees necessary for his defence.
+2. No one shall be held guilty of any penal  offence on account of any act or
+omission which did not constitute a penal offence, under national or
+international law, at the time when it was committed. Nor shall a heavier",legal-012,multi,"What is the nature of the limitations placed on the exercise of rights and freedoms, and what interpretation is strictly prohibited regarding acts aimed at destroying those same rights and freedoms?","Rights and freedoms are subject only to limitations determined by law for purposes like morality, public order, and general welfare, and nothing in the Declaration may be interpreted as granting any State, group, or person the right to engage in activity aimed at destroying those rights.",0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,Seven.,"[1] # The Constitution: What Does it Say?
+
+The Constitution of the United States contains a preamble and seven articles that describe the way the government is structured and how it operates. The first three articles establish the three branches of government and their powers: Legislative (Congress), Executive (office of the President,) and Judicial (Federal court system). A system of checks and balances prevents any one of these separate powers from becoming dominant. Articles four through seven describe the relationship of the states to the Federal Government, establish the Constitution as the supreme law of the land, and define the amendment and ratification processes.
+
+[2] ### Article VI
+
+Article VI states that Federal law is supreme, or higher than, state and local laws. This means that if a state law conflicts with a Federal law, Federal law takes precedence.
+
+### Article VII
+
+Article VII describes the ratification process for the Constitution. It called for special state ratifying conventions. Nine states were required to enact the Constitution. Rhode Island became the 13th state to ratify the Constitution in 1790.
+
+Back to Constitution main page How Did it Happen?
+
+[3] ### Article III
+
+Article III establishes the Judicial Branch with the U.S. Supreme Court as the federal court systemâ€™s highest court. It specifies that Federal judges be appointed for life unless they commit a serious crime. This article is shorter than Articles I and II. The Federal Convention left much of the work of planning the court system to the First Congress. The 1789 Judiciary Act created the three-tiered court system in place today.
+
+[4] ### Article IV
+
+Article IV outlines statesâ€™ powers in relationship to each other. States have the authority to create and enforce their own laws but must respect and help enforce the laws of other states. Congress may pass Federal laws regarding how states honor other statesâ€™ laws and records.
+
+[5] ### Article V
+
+Article V explains the amendment process, which is different and more difficult than the process for making laws. When two-thirds of the Senate and two-thirds of the House of Representatives vote to change the Constitution, an amendment goes to the state legislatures for a vote. Alternatively, two-thirds of the state legislatures can submit an application to Congress, and then Congress calls a national convention at which states propose amendments. Three-fourths of the state legislatures or state conventions must vote in favor of an amendment to ratify it.",legal-010,single,How many articles are contained in the Constitution of the United States?,seven articles,0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,"Based on the provided context, in the exercise of his rights and freedoms, everyone shall be subject only to such limitations as are determined by law solely for the purpose of securing due recognition and respect for the rights and freedoms of others and of meeting the just requirements of morality, public order and the general welfare in a democratic society.","[1] 2. Everyone has the right to the protec tion of the moral and material interests
+resulting from any scientific, literary or artistic production of which he is the
+author.
+Article 28
+Everyone is entitled to a social and international order in which the rights and
+freedoms set forth in this Declaration can be fully realized.
+Article 29
+1. Everyone has duties to the community in which alone the free and full
+development of his personality is possible.
+2. In the exercise of his rights and freedoms, everyone shall be subject only
+to such limitations as are determined by law solely for the purpose of
+securing due recognition and respect for the rights and freedoms of others
+and of meeting the just requirements of morality, public order and the
+general welfare in a democratic society.
+3. These rights and freedoms may in no ca se be exercised contrary to the
+purposes and principles of the United Nations.
+Article 30
+Nothing in this Declaration may be interpreted as implying for any State, group or
+person any right to engage in any activity or to perform any act aimed at the
+destruction of any of the rights and freedoms set forth herein.
+
+[2] teaching and education to promote respect for these rights and freedoms and by
+progressive measures, national and international, to secure their universal and
+effective recognition and observance, both among the peoples of Member States
+themselves and among the peoples of territories under their jurisdiction.
+Article I
+All human beings are born free and equal in dignity and rights. They are
+endowed with reason and conscience and should act towards one another in a
+spirit of brotherhood.
+Article 2
+Everyone is entitled to all the rights and freedoms set forth in this Declaration,
+without distinction of any kind, such as race, colour, sex, language, religion,
+political or other opinion, national or social origin, property, birth or other status.
+Furthermore, no distinction shall be made on the basis of the political,
+jurisdictional or international status of the country or territory to which a person
+belongs, whether it be independent, trust, non-self-governing or under any other
+limitation of sovereignty.
+Article 3
+Everyone has the right to life, liberty and the security of person.
+Article 4
+No one shall be held in slavery or servitude; slavery and the slave trade shall be
+prohibited in all their forms.
+Article 5
+No one shall be subjected to torture or to cruel, inhuman or degrading treatment
+or punishment.
+
+[3] Universal Declaration of Human Rights
+Preamble
+Whereas recognition of the inherent dignity and of the equal and inalienable
+rights of all members of the human family is the foundation of freedom, justice
+and peace in the world,
+Whereas disregard and contempt for human rights have resulted in barbarous
+acts which have outraged the conscience of mankind, and the advent of a world
+in which human beings shall enjoy freedom of speech and belief and freedom
+from fear and want has been proclaimed as the highest aspiration of the common
+people,
+Whereas it is essential, if man is not to be compelled to have recourse, as a last
+resort, to rebellion against tyranny and oppression, that human rights should be
+protected by the rule of law,
+Whereas it is essential to promote the development of friendly relations between
+nations,
+Whereas the peoples of the United Nations have in the Charter reaffirmed their
+faith in fundamental human rights, in the dignity and worth of the human person
+and in the equal rights of men and women and have determined to promote
+social progress and better standards of life in larger freedom,
+Whereas Member States have pledged themselves to achieve, in cooperation
+with the United Nations, the promotion of universal respect for and observance of
+human rights and fundamental freedoms,
+Whereas a common understanding of these rights and freedoms is of the
+greatest importance for the full realization of this pledge,
+Now, therefore,
+The General Assembly,
+Proclaims this Universal Declaration of Human Rights as a common standard of
+achievement for all peoples and all nations, to the end that every individual and
+every organ of society, keeping this Declaration constantly in mind, shall strive by
+
+[4] 1. Everyone has the right to take par t in the government of his country,
+directly or through freely chosen representatives.
+2. Everyone has the right to equal access to public service in his country.
+3. The will of the people shall be the basis of the authority of government;
+this will shall be expressed in periodic and genuine elections which shall
+be by universal and equal suffrage and shall be held by secret vote or by
+equivalent free voting procedures.
+Article 22
+Everyone, as a member of society, has the right to social security and is entitled
+to realization, through national effort and international co-operation and in
+accordance with the organization and resources of each State, of the economic,
+social and cultural rights indispensable for his dignity and the free development
+of his personality.
+Article 23
+1. Everyone has the right to work, to fr ee choice of employment, to just and
+favourable conditions of work and to protection against unemployment.
+2. Everyone, without any discrimination,  has the right to equal pay for equal
+work.
+3. Everyone who works has the right to just and favourable remuneration
+ensuring for himself and his family an existence worthy of human dignity,
+and supplemented, if necessary, by other means of social protection.
+4. Everyone has the right to form and to join trade unions for the protection of
+his interests.
+Article 24
+Everyone has the right to rest and leisure, including reasonable limitation of
+working hours and periodic holidays with pay.
+
+[5] 1. Men and women of full age, without any limitation due to race, nationality
+or religion, have the right to marry and to found a family. They are entitled
+to equal rights as to marriage, during marriage and at its dissolution.
+2. Marriage shall be entered into only wit h the free and full consent of the
+intending spouses.
+3. The family is the natural and fund amental group unit of society and is
+entitled to protection by society and the State.
+Article 17
+1. Everyone has the right to own property  alone as well as in association with
+others.
+2. No one shall be arbitrarily deprived of his property.
+Article 18
+Everyone has the right to freedom of thought, conscience and religion; this right
+includes freedom to change his religion or belief, and freedom, either alone or in
+community with others and in public or private, to manifest his religion or belief in
+teaching, practice, worship and observance.
+Article 19
+Everyone has the right to freedom of opinion and expression; this right includes
+freedom to hold opinions without interference and to seek, receive and impart
+information and ideas through any media and regardless of frontiers.
+Article 20
+1. Everyone has the right to freedom of  peaceful assembly and association.
+2. No one may be compelled to belong to an association.
+Article 21",legal-007,single,What limitations may be placed on a person's exercise of their rights and freedoms in a democratic society?,"Everyone shall be subject only to such limitations as are determined by law solely for the purpose of securing due recognition and respect for the rights and freedoms of others and of meeting the just requirements of morality, public order and the general welfare in a democratic society.",0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,Everyone,"[1] Article 6
+Everyone has the right to recognition everywhere as a person before the law.
+Article 7
+All are equal before the law and are entitled without any discrimination to equal
+protection of the law. All are entitled to equal protection against any
+discrimination in violation of this Declaration and against any incitement to such
+discrimination.
+Article 8
+Everyone has the right to an effective remedy by the competent national tribunals
+for acts violating the fundamental rights granted him by the constitution or by law.
+Article 9
+No one shall be subjected to arbitrary arrest, detention or exile.
+Article 10
+Everyone is entitled in full equality to a fair and public hearing by an independent
+and impartial tribunal, in the determination of his rights and obligations and of any
+criminal charge against him.
+Article 11
+1. Everyone charged with a penal off ence has the right to be presumed
+innocent until proved guilty according to law in a public trial at which he
+has had all the guarantees necessary for his defence.
+2. No one shall be held guilty of any penal  offence on account of any act or
+omission which did not constitute a penal offence, under national or
+international law, at the time when it was committed. Nor shall a heavier
+
+[2] 2. Everyone has the right to the protec tion of the moral and material interests
+resulting from any scientific, literary or artistic production of which he is the
+author.
+Article 28
+Everyone is entitled to a social and international order in which the rights and
+freedoms set forth in this Declaration can be fully realized.
+Article 29
+1. Everyone has duties to the community in which alone the free and full
+development of his personality is possible.
+2. In the exercise of his rights and freedoms, everyone shall be subject only
+to such limitations as are determined by law solely for the purpose of
+securing due recognition and respect for the rights and freedoms of others
+and of meeting the just requirements of morality, public order and the
+general welfare in a democratic society.
+3. These rights and freedoms may in no ca se be exercised contrary to the
+purposes and principles of the United Nations.
+Article 30
+Nothing in this Declaration may be interpreted as implying for any State, group or
+person any right to engage in any activity or to perform any act aimed at the
+destruction of any of the rights and freedoms set forth herein.
+
+[3] teaching and education to promote respect for these rights and freedoms and by
+progressive measures, national and international, to secure their universal and
+effective recognition and observance, both among the peoples of Member States
+themselves and among the peoples of territories under their jurisdiction.
+Article I
+All human beings are born free and equal in dignity and rights. They are
+endowed with reason and conscience and should act towards one another in a
+spirit of brotherhood.
+Article 2
+Everyone is entitled to all the rights and freedoms set forth in this Declaration,
+without distinction of any kind, such as race, colour, sex, language, religion,
+political or other opinion, national or social origin, property, birth or other status.
+Furthermore, no distinction shall be made on the basis of the political,
+jurisdictional or international status of the country or territory to which a person
+belongs, whether it be independent, trust, non-self-governing or under any other
+limitation of sovereignty.
+Article 3
+Everyone has the right to life, liberty and the security of person.
+Article 4
+No one shall be held in slavery or servitude; slavery and the slave trade shall be
+prohibited in all their forms.
+Article 5
+No one shall be subjected to torture or to cruel, inhuman or degrading treatment
+or punishment.
+
+[4] 1. Everyone has the right to take par t in the government of his country,
+directly or through freely chosen representatives.
+2. Everyone has the right to equal access to public service in his country.
+3. The will of the people shall be the basis of the authority of government;
+this will shall be expressed in periodic and genuine elections which shall
+be by universal and equal suffrage and shall be held by secret vote or by
+equivalent free voting procedures.
+Article 22
+Everyone, as a member of society, has the right to social security and is entitled
+to realization, through national effort and international co-operation and in
+accordance with the organization and resources of each State, of the economic,
+social and cultural rights indispensable for his dignity and the free development
+of his personality.
+Article 23
+1. Everyone has the right to work, to fr ee choice of employment, to just and
+favourable conditions of work and to protection against unemployment.
+2. Everyone, without any discrimination,  has the right to equal pay for equal
+work.
+3. Everyone who works has the right to just and favourable remuneration
+ensuring for himself and his family an existence worthy of human dignity,
+and supplemented, if necessary, by other means of social protection.
+4. Everyone has the right to form and to join trade unions for the protection of
+his interests.
+Article 24
+Everyone has the right to rest and leisure, including reasonable limitation of
+working hours and periodic holidays with pay.
+
+[5] Universal Declaration of Human Rights
+Preamble
+Whereas recognition of the inherent dignity and of the equal and inalienable
+rights of all members of the human family is the foundation of freedom, justice
+and peace in the world,
+Whereas disregard and contempt for human rights have resulted in barbarous
+acts which have outraged the conscience of mankind, and the advent of a world
+in which human beings shall enjoy freedom of speech and belief and freedom
+from fear and want has been proclaimed as the highest aspiration of the common
+people,
+Whereas it is essential, if man is not to be compelled to have recourse, as a last
+resort, to rebellion against tyranny and oppression, that human rights should be
+protected by the rule of law,
+Whereas it is essential to promote the development of friendly relations between
+nations,
+Whereas the peoples of the United Nations have in the Charter reaffirmed their
+faith in fundamental human rights, in the dignity and worth of the human person
+and in the equal rights of men and women and have determined to promote
+social progress and better standards of life in larger freedom,
+Whereas Member States have pledged themselves to achieve, in cooperation
+with the United Nations, the promotion of universal respect for and observance of
+human rights and fundamental freedoms,
+Whereas a common understanding of these rights and freedoms is of the
+greatest importance for the full realization of this pledge,
+Now, therefore,
+The General Assembly,
+Proclaims this Universal Declaration of Human Rights as a common standard of
+achievement for all peoples and all nations, to the end that every individual and
+every organ of society, keeping this Declaration constantly in mind, shall strive by",legal-006,single,Who has the right to recognition everywhere as a person before the law?,Everyone,1.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,the House of Representatives and the Senate,"[1] ### Article I
+
+Article I assigns the responsibility for making laws to the Legislative Branch (Congress). Congress is divided into two parts, or â€œHouses,â€ the House of Representatives and the Senate. The bicameral Congress was a compromise between the large states, which wanted representation based on population, and the small ones, which wanted the states to have equal representation.
+
+[2] ### Article V
+
+Article V explains the amendment process, which is different and more difficult than the process for making laws. When two-thirds of the Senate and two-thirds of the House of Representatives vote to change the Constitution, an amendment goes to the state legislatures for a vote. Alternatively, two-thirds of the state legislatures can submit an application to Congress, and then Congress calls a national convention at which states propose amendments. Three-fourths of the state legislatures or state conventions must vote in favor of an amendment to ratify it.
+
+[3] # The Constitution: What Does it Say?
+
+The Constitution of the United States contains a preamble and seven articles that describe the way the government is structured and how it operates. The first three articles establish the three branches of government and their powers: Legislative (Congress), Executive (office of the President,) and Judicial (Federal court system). A system of checks and balances prevents any one of these separate powers from becoming dominant. Articles four through seven describe the relationship of the states to the Federal Government, establish the Constitution as the supreme law of the land, and define the amendment and ratification processes.
+
+[4] ### Article III
+
+Article III establishes the Judicial Branch with the U.S. Supreme Court as the federal court systemâ€™s highest court. It specifies that Federal judges be appointed for life unless they commit a serious crime. This article is shorter than Articles I and II. The Federal Convention left much of the work of planning the court system to the First Congress. The 1789 Judiciary Act created the three-tiered court system in place today.
+
+[5] ### Article IV
+
+Article IV outlines statesâ€™ powers in relationship to each other. States have the authority to create and enforce their own laws but must respect and help enforce the laws of other states. Congress may pass Federal laws regarding how states honor other statesâ€™ laws and records.",legal-011,single,What two parts make up Congress according to Article I?,the House of Representatives and the Senate,1.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite
+1.0,1.0,0.0,5.0,5.0,5.0,Free and equal in dignity and rights.,"[1] teaching and education to promote respect for these rights and freedoms and by
+progressive measures, national and international, to secure their universal and
+effective recognition and observance, both among the peoples of Member States
+themselves and among the peoples of territories under their jurisdiction.
+Article I
+All human beings are born free and equal in dignity and rights. They are
+endowed with reason and conscience and should act towards one another in a
+spirit of brotherhood.
+Article 2
+Everyone is entitled to all the rights and freedoms set forth in this Declaration,
+without distinction of any kind, such as race, colour, sex, language, religion,
+political or other opinion, national or social origin, property, birth or other status.
+Furthermore, no distinction shall be made on the basis of the political,
+jurisdictional or international status of the country or territory to which a person
+belongs, whether it be independent, trust, non-self-governing or under any other
+limitation of sovereignty.
+Article 3
+Everyone has the right to life, liberty and the security of person.
+Article 4
+No one shall be held in slavery or servitude; slavery and the slave trade shall be
+prohibited in all their forms.
+Article 5
+No one shall be subjected to torture or to cruel, inhuman or degrading treatment
+or punishment.
+
+[2] Universal Declaration of Human Rights
+Preamble
+Whereas recognition of the inherent dignity and of the equal and inalienable
+rights of all members of the human family is the foundation of freedom, justice
+and peace in the world,
+Whereas disregard and contempt for human rights have resulted in barbarous
+acts which have outraged the conscience of mankind, and the advent of a world
+in which human beings shall enjoy freedom of speech and belief and freedom
+from fear and want has been proclaimed as the highest aspiration of the common
+people,
+Whereas it is essential, if man is not to be compelled to have recourse, as a last
+resort, to rebellion against tyranny and oppression, that human rights should be
+protected by the rule of law,
+Whereas it is essential to promote the development of friendly relations between
+nations,
+Whereas the peoples of the United Nations have in the Charter reaffirmed their
+faith in fundamental human rights, in the dignity and worth of the human person
+and in the equal rights of men and women and have determined to promote
+social progress and better standards of life in larger freedom,
+Whereas Member States have pledged themselves to achieve, in cooperation
+with the United Nations, the promotion of universal respect for and observance of
+human rights and fundamental freedoms,
+Whereas a common understanding of these rights and freedoms is of the
+greatest importance for the full realization of this pledge,
+Now, therefore,
+The General Assembly,
+Proclaims this Universal Declaration of Human Rights as a common standard of
+achievement for all peoples and all nations, to the end that every individual and
+every organ of society, keeping this Declaration constantly in mind, shall strive by
+
+[3] 1. Everyone has the right to take par t in the government of his country,
+directly or through freely chosen representatives.
+2. Everyone has the right to equal access to public service in his country.
+3. The will of the people shall be the basis of the authority of government;
+this will shall be expressed in periodic and genuine elections which shall
+be by universal and equal suffrage and shall be held by secret vote or by
+equivalent free voting procedures.
+Article 22
+Everyone, as a member of society, has the right to social security and is entitled
+to realization, through national effort and international co-operation and in
+accordance with the organization and resources of each State, of the economic,
+social and cultural rights indispensable for his dignity and the free development
+of his personality.
+Article 23
+1. Everyone has the right to work, to fr ee choice of employment, to just and
+favourable conditions of work and to protection against unemployment.
+2. Everyone, without any discrimination,  has the right to equal pay for equal
+work.
+3. Everyone who works has the right to just and favourable remuneration
+ensuring for himself and his family an existence worthy of human dignity,
+and supplemented, if necessary, by other means of social protection.
+4. Everyone has the right to form and to join trade unions for the protection of
+his interests.
+Article 24
+Everyone has the right to rest and leisure, including reasonable limitation of
+working hours and periodic holidays with pay.
+
+[4] Article 25
+1. Everyone has the right to a st andard of living adequate for the health and
+well-being of himself and of his family, including food, clothing, housing
+and medical care and necessary social services, and the right to security
+in the event of unemployment, sickness, disability, widowhood, old age or
+other lack of livelihood in circumstances beyond his control.
+2. Motherhood and childhood are entitled to special care and assistance. All
+children, whether born in or out of wedlock, shall enjoy the same social
+protection.
+Article 26
+1. Everyone has the right to education. E ducation shall be free, at least in the
+elementary and fundamental stages. Elementary education shall be
+compulsory. Technical and professional education shall be made
+generally available and higher education shall be equally accessible to all
+on the basis of merit.
+2. Education shall be directed to the full development of the human
+personality and to the strengthening of respect for human rights and
+fundamental freedoms. It shall promote understanding, tolerance and
+friendship among all nations, racial or religious groups, and shall further
+the activities of the United Nations for the maintenance of peace.
+3. Parents have a prior right to choos e the kind of education that shall be
+given to their children.
+Article 27
+1. Everyone has the right freely to part icipate in the cultural life of the
+community, to enjoy the arts and to share in scientific advancement and
+its benefits.
+
+[5] 2. Everyone has the right to the protec tion of the moral and material interests
+resulting from any scientific, literary or artistic production of which he is the
+author.
+Article 28
+Everyone is entitled to a social and international order in which the rights and
+freedoms set forth in this Declaration can be fully realized.
+Article 29
+1. Everyone has duties to the community in which alone the free and full
+development of his personality is possible.
+2. In the exercise of his rights and freedoms, everyone shall be subject only
+to such limitations as are determined by law solely for the purpose of
+securing due recognition and respect for the rights and freedoms of others
+and of meeting the just requirements of morality, public order and the
+general welfare in a democratic society.
+3. These rights and freedoms may in no ca se be exercised contrary to the
+purposes and principles of the United Nations.
+Article 30
+Nothing in this Declaration may be interpreted as implying for any State, group or
+person any right to engage in any activity or to perform any act aimed at the
+destruction of any of the rights and freedoms set forth herein.",legal-002,single,How are all human beings born in terms of dignity and rights?,All human beings are born free and equal in dignity and rights.,0.0,legal|structure_300|gte-small|hybrid|k5,hybrid,gemini,gemini-3.5-flash-lite

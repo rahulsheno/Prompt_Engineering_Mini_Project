@@ -16,3 +16,7 @@ torch
 google-genai
 openai
 scikit-learn
+diskcache
+litellm
+lxml
+google-genai
