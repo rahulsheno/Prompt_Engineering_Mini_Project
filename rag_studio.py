@@ -1,13 +1,3 @@
-"""RAG Studio - one Streamlit app with two tabs:
-  1. Results and Advisor - heatmap of the study results, explained step by step, plus a recommended setup
-  2. Ask your documents  - ask questions about your own documents; answers come with numbered sources
-
-Run:      streamlit run rag_studio.py
-Documents: one folder per corpus under data/ (e.g. data/legal/), files .md .txt .html .pdf
-Results:  outputs/results.csv from the notebook (needed for the first tab)
-Keys:     typed into the sidebar, kept in this browser session only, never written to disk.
-          Without a key the Ask tab runs in "Offline demo" mode (extractive answers, no LLM).
-"""
 import hashlib
 import html as _html
 import importlib.util
