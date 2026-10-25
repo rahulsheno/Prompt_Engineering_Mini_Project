@@ -21,7 +21,7 @@ The evaluation follows the measures in **ITU-T F.748.52 (03/2025)**, *Requiremen
 
 | Path | What it is |
 |---|---|
-| `RAG_Chunking_Embedding_Study_fast.ipynb` | The study notebook: corpora, gold questions, all stages, plots and the F.748.52 evaluation |
+| `RAG_Chunking_Embedding.ipynb` | The study notebook: corpora, gold questions, all stages, plots and the F.748.52 evaluation |
 | `rag_studio.py` | The Streamlit app: results, the F.748.52 tab, and a document Q&A tab |
 | `requirements.txt` | Python packages for the app |
 | `README.md` | This file |
